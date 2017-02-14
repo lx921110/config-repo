@@ -11,6 +11,9 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER_URI:${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}}
+      discovery: 
+        enabled: true
+        serviceId: config-server
   rabbitmq:
     host: localhost
     port: 5672
