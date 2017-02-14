@@ -2,4 +2,4 @@ server:
   port: 8082
 
 wordConfig:
-  luckyWord: hello from pro 11
+  luckyWord: hello from pro 00
