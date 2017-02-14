@@ -12,4 +12,7 @@ spring:
     config:
       uri: ${CONFIG_SERVER_URI:${vcap.services.${PREFIX:}configserver.credentials.uri:http://user:password@localhost:8888}}
   rabbitmq:
-    addresses: ${vcap.services.${PREFIX:}rabbitmq.credentials.uri:amqp://${RABBITMQ_HOST:localhost}:${RABBITMQ_PORT:5672}}
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
