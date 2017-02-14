@@ -19,6 +19,9 @@ spring:
          springCloudBusInput:
            destination: testExchange
            group: testQueue
+         springCloudBusOutput:
+           destination: testExchange
+           group: testQueue
   rabbitmq:
     host: localhost
     port: 5672
