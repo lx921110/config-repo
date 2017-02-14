@@ -14,6 +14,11 @@ spring:
       discovery: 
         enabled: true
         serviceId: config-server
+    stream: 
+       bindings:
+         springCloudBusInput:
+           destination: testExchange
+           group: testQueue
   rabbitmq:
     host: localhost
     port: 5672
