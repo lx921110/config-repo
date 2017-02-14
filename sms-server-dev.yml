@@ -2,4 +2,4 @@ server:
   port: 8081
   
 wordConfig:
-  luckyWord: hello from dev 00
+  luckyWord: hello from dev 123
