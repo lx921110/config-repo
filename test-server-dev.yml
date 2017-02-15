@@ -3,14 +3,15 @@ server:
   
 spring:  
   cloud:  
-    stream:  
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
       bindings:  
         sms_output_channel:
           destination: topic-sms
           group: sms
           producer:
-            partitionKeyExpression: payload.id
-            partitionCount: 5
+            partitionCount: 1
           binder: binder_1
       binders:
         binder_1:
