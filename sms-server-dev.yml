@@ -8,6 +8,9 @@ spring:
         sms_input_channel:
           destination: topic-sms
           group: sms
+          consumer:
+            concurrency: 1  #并发性
+            partitioned: false  #是否分段
           binder: binder_1
       binders:  
         binder_1:
