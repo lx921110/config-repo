@@ -2,4 +2,4 @@ server:
   port: 8082
   
 wordConfig:
-  luckyWord: test from dev 1
+  luckyWord: test from dev 111
