@@ -1,5 +1,26 @@
 server:
   port: 8081
-  
+
+spring:  
+  cloud:  
+    stream:  
+      bindings:  
+        sms_input_channel:
+          destination: topic-sms
+          group: sms
+          binder: binder_1
+      binders:  
+        binder_1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.1.75
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
+
+#业务属性↴
 wordConfig:
   luckyWord: hello from dev 111
