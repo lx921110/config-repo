@@ -7,7 +7,7 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:  
-        sms_input_channel:
+        input:
           destination: topic-sms
           group: sms
           binder: binder_1
