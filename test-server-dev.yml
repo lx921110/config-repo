@@ -10,8 +10,6 @@ spring:
         sms_output_channel:
           destination: topic-sms
           group: sms
-          producer:
-            partitionCount: 1
           binder: binder_1
       binders:
         binder_1:
