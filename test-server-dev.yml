@@ -7,12 +7,12 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:  
-        output:
+        sms_output_channel:
           destination: topic-sms
           group: sms
-          binder: binder_1
+          binder: sms_binder
       binders:
-        binder_1:
+        sms_binder:
           type: rabbit
           environment:
             spring:

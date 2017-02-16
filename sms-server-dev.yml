@@ -6,13 +6,17 @@ spring:
     stream:
       instanceIndex: 0
       instanceCount: 1
-      bindings:  
-        input:
+      bindings:
+        sms_output_channel:
           destination: topic-sms
           group: sms
-          binder: binder_1
+          binder: sms_binder
+        sms_input_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
       binders:  
-        binder_1:
+        sms_binder:
           type: rabbit
           environment:
             spring:
