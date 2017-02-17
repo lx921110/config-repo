@@ -25,8 +25,3 @@ spring:
   data:
     mongodb:
       uri: ${vcap.services.${PREFIX:}mongodb.credentials.uri:mongodb://${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/areas}
-      host: 127.0.0.1
-      port: 27017
-      database: areas
-      repositories:
-        enabled: true
