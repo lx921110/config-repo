@@ -22,29 +22,3 @@ spring:
     port: 5672
     username: guest
     password: guest
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-  datasource:                           # 指定数据源
-    platform: h2                        # 指定数据源类型
-    
----
-spring:
-  profiles: dev
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/areas
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-  datasource:                           # 指定数据源
-    platform: h2                        # 指定数据源类型
-    schema: classpath:schema.sql        # 指定h2数据库的建表脚本
-    data: classpath:data.sql            # 指定h2数据库的insert脚本
-    
-    
-      
