@@ -34,3 +34,18 @@ spring:
       ddl-auto: none
   datasource:                           # 指定数据源
     platform: h2                        # 指定数据源类型
+    
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/areas
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:                           # 指定数据源
+    platform: h2                        # 指定数据源类型
+      
