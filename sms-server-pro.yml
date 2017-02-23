@@ -21,8 +21,8 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 192.168.1.110
-                port: 5672
+                host: ${RABBITMQ_PORT_5672_TCP_ADDR}
+                port: ${RABBITMQ_PORT_5672_TCP_PORT}
                 username: guest
                 password: guest
                 virtual-host: /
