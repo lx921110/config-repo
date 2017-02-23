@@ -2,6 +2,9 @@ info:
   description: 微兔微服务
   url: https://www.wetool.com
 
+---
+spring:
+  profiles: dev
 eureka:
   client:
     serviceUrl:
