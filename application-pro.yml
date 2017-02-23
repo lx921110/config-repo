@@ -9,8 +9,6 @@ eureka:
 
 spring:
   cloud:
-    config:
-      uri: http://${CONFIG_PORT_8888_TCP_ADDR:localhost}:${CONFIG_PORT_8888_TCP_PORT:8888}
     stream: 
        bindings:
          springCloudBusInput:

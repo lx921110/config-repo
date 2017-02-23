@@ -9,8 +9,6 @@ eureka:
 
 spring:
   cloud:
-    config:
-      uri: http://localhost:8888
     stream:
        bindings:
          springCloudBusInput:
