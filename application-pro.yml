@@ -5,13 +5,13 @@ info:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${DISCOVERY_PORT_8761_TCP_ADDR:localhost}:${DISCOVERY_PORT_8761_TCP_PORT:8761}/eureka/
 
 spring:
   cloud:
     config:
-      uri: http://localhost:8888
-    stream:
+      uri: http://${CONFIG_PORT_8888_TCP_ADDR:localhost}:${CONFIG_PORT_8888_TCP_PORT:8888}
+    stream: 
        bindings:
          springCloudBusInput:
            destination: testExchange
@@ -20,7 +20,7 @@ spring:
            destination: testExchange
            group: testQueue
   rabbitmq:
-    host: localhost
-    port: 5672
+    host: ${RABBITMQ_PORT_5672_TCP_ADDR:localhost}
+    port: ${RABBITMQ_PORT_5672_TCP_PORT:5672}
     username: guest
     password: guest
