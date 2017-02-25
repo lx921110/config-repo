@@ -23,8 +23,8 @@ spring:
               rabbitmq:
                 host: ${RABBITMQ_PORT_5672_TCP_ADDR:localhost}
                 port: ${RABBITMQ_PORT_5672_TCP_PORT:5672}
-                username: guest
-                password: guest
+                username: rabbitmq
+                password: rabbitmq
                 virtual-host: /
 
 #业务属性↴
