@@ -14,7 +14,7 @@ spring:
     password:
     driverClassName: org.h2.Driver
     schema: classpath:sql/h2/schema.sql    # 数据库结构
-    data: classpath:sql/h2/import-data.sql  # 数据文件
+    data: classpath:sql/h2/data.sql  # 数据文件
     initialize: false   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8
