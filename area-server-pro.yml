@@ -7,9 +7,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     # For H2
     # 存储在文件中
-    # url: jdbc:h2:file:~/.h2/spring-boot;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    # url: jdbc:h2:file:/home/zhangjie/mydb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     # 存储在内存中
-    url: jdbc:h2:mem:~/.h2/spring-boot;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:mydb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
     driverClassName: org.h2.Driver
