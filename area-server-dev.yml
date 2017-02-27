@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  jpa:
+    show-sql: true
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
