@@ -4,6 +4,8 @@ server:
 spring:
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
