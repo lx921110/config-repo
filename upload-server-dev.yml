@@ -4,7 +4,7 @@ server:
 # REDIS (RedisProperties)
 spring:
   redis:
-    database: # database name  
+    database: 0 # database name  
     host: localhost # server host  
     password:   # server password  
     port: 6379    # connection port  
