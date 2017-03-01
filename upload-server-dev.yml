@@ -25,6 +25,7 @@ aliyun: #aliyun OSS info
     endpoint: http://oss-cn-beijing.aliyuncs.com/
     bucket_name: wetool
     file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
-mod_type: # 模块类型
-    commodity: ms.commodity.dev #OSS路径
-    type2: ms.type2.dev
+module: # 模块类型
+    types:
+      commodity: ms.commodity.dev #OSS路径
+      type2: ms.type2.dev
