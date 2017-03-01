@@ -1,0 +1,7 @@
+server:
+  port: 8081
+
+#业务属性↴
+modType: # 模块类型
+    commodity: ms.commodity.pro/ #OSS路径
+    type2: ms.type2.pro/
