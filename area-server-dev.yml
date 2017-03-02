@@ -14,7 +14,6 @@ spring:
     username: root
     password:
     driverClassName: com.mysql.jdbc.Driver
-    schema: classpath:sql/h2/area_schema.sql    # 数据库结构
     data: classpath:sql/h2/area_data.sql  # 数据文件
     initialize: true   # 是否初始化
     # 导入编码
