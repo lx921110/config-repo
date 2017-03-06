@@ -1,27 +1,12 @@
 server:
   port: 8082
   
-spring:  
-  cloud:  
-    stream:
-      instanceIndex: 0
-      instanceCount: 1
-      bindings:  
-        sms_output_channel:
-          destination: topic-sms
-          group: sms
-          binder: sms_binder
-      binders:
-        sms_binder:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: localhost
-                port: 5672
-                username: guest
-                password: guest
-                virtual-host: /
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update 
+  
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
