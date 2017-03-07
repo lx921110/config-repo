@@ -2,6 +2,10 @@ server:
   port: 8082
 
 spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -13,8 +17,6 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
-    schema: classpath:sql/h2/area_schema.sql    # 数据库结构
-    data: classpath:sql/h2/area_data.sql  # 数据文件
     initialize: false   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8
@@ -44,3 +46,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+  h2:
+    console:
+      enabled: true # 是否允许访问控制台
+      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
