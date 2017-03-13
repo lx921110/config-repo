@@ -14,7 +14,7 @@ zuul:
   #ignoredServices: '*'
   routes:
     service-adapter:
-      path: /api/**
+      path: /**
    # area-server: #注册服务的名称，属性spring.application.name
    #   path: /areas/** #路由设置
 #      serviceId: area-server #指定路由到的serviceId
