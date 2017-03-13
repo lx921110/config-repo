@@ -10,7 +10,7 @@ endpoints:
   health:
     sensitive: false
 zuul:
-  prefix: /api #为zuul设置一个公共的前缀
+  #prefix: /api #为zuul设置一个公共的前缀
   #ignoredServices: '*'
   routes:
     area-server: #注册服务的名称，属性spring.application.name
