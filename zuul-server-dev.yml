@@ -10,7 +10,7 @@ endpoints:
   health:
     sensitive: false
 zuul:
-  #prefix: /api #为zuul设置一个公共的前缀
+  prefix: /api #为zuul设置一个公共的前缀
   #ignoredServices: '*'
   routes:
     area-server: #注册服务的名称，属性spring.application.name
@@ -18,7 +18,7 @@ zuul:
       serviceId: area-server #指定路由到的serviceId
 area-server:
   ribbon:
-    listOfServers: 127.0.0.1:18083 #为cloud-client服务指定一组服务地址，应该是用于负载均衡
+    listOfServers: 127.0.0.1:18083 #为area-server服务指定一组服务地址，用于负载均衡
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
