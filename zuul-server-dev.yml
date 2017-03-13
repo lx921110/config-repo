@@ -13,11 +13,9 @@ zuul:
   prefix: /api #为zuul设置一个公共的前缀
   #ignoredServices: '*'
   routes:
-    service-adapter:
-      path: /**
-   # area-server: #注册服务的名称，属性spring.application.name
-   #   path: /areas/** #路由设置
-#      serviceId: area-server #指定路由到的serviceId
+    area-server: #注册服务的名称，属性spring.application.name
+      path: /areas/** #路由设置
+      serviceId: area-server #指定路由到的serviceId
 area-server:
   ribbon:
     listOfServers: 127.0.0.1:18083 #为cloud-client服务指定一组服务地址，应该是用于负载均衡
