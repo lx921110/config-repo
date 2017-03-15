@@ -44,3 +44,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+  h2:
+    console:
+      enabled: true # 是否允许访问控制台
+      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
