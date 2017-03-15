@@ -18,7 +18,7 @@ zuul:
       serviceId: area-server #指定路由到的serviceId
 area-server:
   ribbon:
-    listOfServers: 127.0.0.1:18083 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: ${LV2_AREA_1_PORT_5011_TCP_ADDR}:${LV2_AREA_1_PORT_5011_TCP_PORT} #为area-server服务指定一组服务地址，用于负载均衡
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
