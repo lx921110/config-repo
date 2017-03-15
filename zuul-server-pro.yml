@@ -16,15 +16,21 @@ zuul:
     area-server: #注册服务的名称，属性spring.application.name
       path: /areas/** #路由设置
       serviceId: area-server #指定路由到的serviceId
-    upload-server: #注册服务的名称，属性spring.application.name
-      path: /** #路由设置
-      serviceId: upload-server #指定路由到的serviceId
+    upload-server:
+      path: /**
+      serviceId: upload-server
+    advert-server:
+      path: /** 
+      serviceId: advert-server
 area-server:
   ribbon:
     listOfServers: ${LV2_AREA_1_PORT_5011_TCP_ADDR}:${LV2_AREA_1_PORT_5011_TCP_PORT} #为area-server服务指定一组服务地址，用于负载均衡
 upload-server:
   ribbon:
-    listOfServers: ${LV2_UPLOAD_1_PORT_5021_TCP_ADDR}:${LV2_UPLOAD_1_PORT_5021_TCP_PORT} #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: ${LV2_UPLOAD_1_PORT_5021_TCP_ADDR}:${LV2_UPLOAD_1_PORT_5021_TCP_PORT}
+advert-server:
+  ribbon:
+    listOfServers: ${ADVERT_1_PORT_5021_TCP_ADDR}:${ADVERT_1_PORT_5021_TCP_PORT}
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
