@@ -11,8 +11,8 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
-    data: classpath:sql/area_data.sql  # 数据文件
-    initialize: false   # 是否初始化
+    data: classpath:sql/h2/area_data.sql  # 数据文件
+    initialize: true   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8
     continue-on-error: false
