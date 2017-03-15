@@ -15,6 +15,7 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+    schema: classpath:sql/h2/area_schema.sql  # 数据文件
     data: classpath:sql/area_data.sql  # 数据文件
     initialize: false   # 是否初始化
     # 导入编码
