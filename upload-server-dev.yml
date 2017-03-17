@@ -27,5 +27,6 @@ aliyun: #aliyun OSS info
     file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
 module: # 模块类型
     types:
-      commodity: ms.commodity.dev/ #OSS路径
-      test: ms.test.dev/
+      test: ms.test.dev/  #OSS路径
+      advert: ms.advert.dev/
+      commodity: ms.commodity.dev/
