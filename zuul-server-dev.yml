@@ -1,5 +1,5 @@
 server:
-  port: 8765
+  port: 18765
 info:
   component: Zuul Server
 endpoints:
@@ -16,9 +16,21 @@ zuul:
     area-server: #注册服务的名称，属性spring.application.name
       path: /areas/** #路由设置
       serviceId: area-server #指定路由到的serviceId
+    upload-server:
+      path: /**
+      serviceId: upload-server
+    advert-server:
+      path: /** 
+      serviceId: advert-server
 area-server:
   ribbon:
-    listOfServers: 127.0.0.1:18083 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: localhost:15011 #为area-server服务指定一组服务地址，用于负载均衡
+upload-server:
+  ribbon:
+    listOfServers: localhost:15021
+advert-server:
+  ribbon:
+    listOfServers: localhost:16001
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
