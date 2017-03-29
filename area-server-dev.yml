@@ -10,16 +10,16 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://localhost:3306/area?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password:
-    driverClassName: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/area?useUnicode=true&characterEncoding=utf-8
+    #username: root
+   # password:
+   # driverClassName: com.mysql.jdbc.Driver
     # For H2
     # 存储在内存中
-    #url: jdbc:h2:mem:~/.h2/area-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    #username: sa
-    #password:
-    #driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:~/.h2/area-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
     data: classpath:sql/area_data.sql  # 数据文件
     initialize: true   # 是否初始化
     # 导入编码
