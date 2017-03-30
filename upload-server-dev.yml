@@ -30,3 +30,4 @@ module: # 模块类型
       test: ms.test.dev/  #OSS路径
       advert: ms.advert.dev/
       commodity: ms.commodity.dev/
+      shop: ms.shop.dev/
