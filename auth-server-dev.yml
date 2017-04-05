@@ -2,6 +2,9 @@ server:
   port: 14001
   
 spring:
+  data:
+    rest:
+      defaultMediaType: application/json
   jpa:
     show-sql: true
     hibernate:
