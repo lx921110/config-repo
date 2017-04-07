@@ -5,6 +5,8 @@ spring:
   data:
     rest:
       defaultMediaType: application/json
+  hateoas:
+    use-hal-as-default-json-media-type: false
   jpa:
     show-sql: true
     hibernate:
