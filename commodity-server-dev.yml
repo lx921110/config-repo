@@ -9,10 +9,3 @@ dynamic-ds:
     username: root
     password:
     driverClassName: com.mysql.jdbc.Driver
-    
-    
-spring:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
