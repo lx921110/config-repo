@@ -8,3 +8,10 @@ dynamic-ds:
     username: root
     password:
     driverClassName: com.mysql.jdbc.Driver
+
+spring:
+  jpa:
+    show-sql: true
+   # 配置数据源
+  datasource:
+    initialize: false   # 是否初始化
