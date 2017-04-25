@@ -14,10 +14,4 @@ spring:
     show-sql: true
    # 配置数据源
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    # For Mysql
-    url: jdbc:mysql://localhost:3306/comm?characterEncoding=utf8&useSSL=true
-    username: root
-    password: 
-    driverClassName: com.mysql.jdbc.Driver
-    initialize: true   # 是否初始化
+    initialize: false   # 是否初始化
