@@ -2,10 +2,16 @@ server:
   port: 16011
 
 dynamic-ds:
-  defaultDs:
-    type: com.alibaba.druid.pool.DruidDataSource
+  base:
     # For Mysql
-    url: jdbc:mysql://localhost:3306/commodity?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306
     username: root
     password:
     driverClassName: com.mysql.jdbc.Driver
+
+spring:
+  jpa:
+    show-sql: true
+   # 配置数据源
+  datasource:
+    initialize: false   # 是否初始化
