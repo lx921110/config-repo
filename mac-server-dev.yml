@@ -61,8 +61,3 @@ spring:
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
-
-    
-    
-#zuul:
-#  url: http://localhost:18765/api 
