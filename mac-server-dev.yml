@@ -61,3 +61,10 @@ spring:
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
+
+
+#自定义属性值
+short_message:
+  intervals: 8 #两次发送激活短信验证码的最短间隔时间
+  alive_time: 20 #验证码有效时间
+
