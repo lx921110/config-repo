@@ -46,8 +46,8 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
     
+    
 # REDIS (RedisProperties)
-spring:
   redis:
     database: 0 # database name  
     host: localhost # server host  
@@ -62,7 +62,9 @@ spring:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
 
-    
-    
-#zuul:
-#  url: http://localhost:18765/api 
+
+#自定义属性值
+short_message:
+  intervals: 90 #两次发送激活短信验证码的最短间隔时间
+  alive_time: 1800 #验证码有效时间
+
