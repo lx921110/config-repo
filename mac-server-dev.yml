@@ -63,8 +63,12 @@ spring:
 #   nodes:    # comma-separated list of host:port pairs
 
 
-#自定义属性值
+#自定义属性值(激活短信验证码)
 short_message:
   intervals: 90 #两次发送激活短信验证码的最短间隔时间
   alive_time: 1800 #验证码有效时间
 
+#sn码设置
+sn:
+  word_count: 4 #sn中含字母个数
+  number_count: 11 #sn中含数字的个数
