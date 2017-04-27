@@ -12,6 +12,8 @@ dynamic-ds:
 spring:
   jpa:
     show-sql: true
-   # 配置数据源
+    hibernate:
+      naming-strategy: com.wetool.jpa.CustomNamingStrategy
+  # 配置数据源
   datasource:
     initialize: false   # 是否初始化
