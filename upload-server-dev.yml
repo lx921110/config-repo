@@ -31,3 +31,4 @@ module: # 模块类型
       advert: ms.advert.dev/
       commodity: ms.commodity.dev/
       shop: ms.shop.dev/
+      mac: ms.mac.dev/
