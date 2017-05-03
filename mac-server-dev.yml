@@ -76,3 +76,9 @@ sn:
 #扫描二维码跳转的基础url
 machine_detail: 
   base_path: http://localhost:8080/machine/sn/
+ 
+#redis中存储产品类别--供应商的key后缀
+redis: 
+  key: 
+    type-supplier: 
+      suffix: :typeSupplier #通过batchNO:typeSupplier从redis中取该批次的零部件产品对应的供应商信息
