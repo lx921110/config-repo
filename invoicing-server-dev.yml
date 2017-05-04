@@ -64,5 +64,5 @@ zuul:
   url: http://localhost:18765/api
 types: #类型
     placing: 
-      1: 新增入库
-      2: 调整入库 
+     -1: sss
+     -2: sss 
