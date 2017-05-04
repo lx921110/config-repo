@@ -63,16 +63,16 @@ spring:
 zuul:
   url: http://localhost:18765/api
 placingType: # 模块类型
-  simpleProp: simplePropValue
-  arrayProps: 1,2,3,4,5
+  arrayProps1: 3,4,5,6
+  arrayProps2: 7,8,9,10
   listProp1:
-    - name: abc
-      value: abcValue
-    - name: efg
-      value: efgValue
+    - name: 1
+      value: arrayProps1
+    - name: 2
+      value: arrayProps2
   listProp2:
     - config2Value1
     - config2Vavlue2
   mapProps:
-    key1: value1
-    key2: value2
+    1: 调整入库
+    2: 新增入库
