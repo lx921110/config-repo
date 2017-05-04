@@ -62,3 +62,7 @@ spring:
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 zuul:
   url: http://localhost:18765/api
+types: #类型
+    placing: 
+      1: 新增入库
+      2: 调整入库 
