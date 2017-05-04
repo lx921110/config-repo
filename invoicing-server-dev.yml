@@ -68,7 +68,7 @@ placingType: # 模块类型
       7: 销售入库
       8: 对象
       9: 晕
-      1:
+      prent:
         - 3: abc
           4: abcValue
         - 5: efg
