@@ -64,8 +64,12 @@ zuul:
   url: http://localhost:18765/api
 placingType: # 模块类型
     types:
-      animal: [1, 2, 3, 4]
-      1: 销售入库
-      2: 对象
-      3: 晕
-      mac: ms.mac.dev/
+      arrayProps: 1,2,3,4,5
+      7: 销售入库
+      8: 对象
+      9: 晕
+      1:
+        - 3: abc
+          4: abcValue
+        - 5: efg
+          6: efgValue
