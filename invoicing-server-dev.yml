@@ -62,9 +62,9 @@ spring:
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 zuul:
   url: http://localhost:18765/api
-placingType: # 模块类型
-  arrayProps1: 3,4,5,6
-  arrayProps2: 7,8,9,10
+storageType: # 模块类型
+  arrayProps1: 3,4,5,6,7
+  arrayProps2: 8,9,10
   listProp1:
     - name: 1
       value: arrayProps1
@@ -76,3 +76,11 @@ placingType: # 模块类型
   mapProps:
     1: 调整入库
     2: 新增入库
+    3: 调拨入库
+    4: 采购入库
+    5: 商品退换货入库
+    6: 盘点调整入库
+    7: 其他入库
+    8: 采购入库
+    8: 调拨入库
+    10: 快速入库
