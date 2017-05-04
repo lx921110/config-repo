@@ -89,3 +89,4 @@ redis:
 feign_client: 
   url: 
     sms: http://localhost:15031 #sms-server发送验证码短信的接口
+    shop: http://localhost:8082 #shop-server根据id查询代理商的接口
