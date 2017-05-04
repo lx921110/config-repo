@@ -64,5 +64,5 @@ zuul:
   url: http://localhost:18765/api
 types: #类型
     placing: 
-     -1: sss
-     -2: sss 
+     1: sss
+     2: sss 
