@@ -110,7 +110,7 @@ placingType: # 出库类型
     9:  调拨出库
     10: 销售出库
     11: 店铺出库
-    10: 预售出库
+    12: 预售出库
   parentProps:    #id ： parentId
     3:  1
     4:  1
