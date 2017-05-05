@@ -1,0 +1,80 @@
+server:
+  port: 10086
+  
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update 
+    
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # For Mysql
+    #jdbc:mysql://101.201.56.163:3838/test_db
+   # url: jdbc:mysql://101.201.56.163:3838/test_db
+   # username: wetool_test
+   # password: Weitoo502
+    
+    url: jdbc:mysql://localhost:3306/wetool?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    initialize: true
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+    
+    
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: localhost # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs
+
+
+
+
+##redis中存储数据的key前缀或后缀
+#redis: 
+#  key: 
+#    type_supplier: 
+#      suffix: :typeSupplier #redis中取【某批次的零部件产品类别对应的供应商信息】的key的后轴
+#    smcode: 
+#      suffix: :smcode #redis中短信验证码的key的后轴
+#      
+##Feignclient服务调用url
+#feign_client: 
+#  url: 
+#    sms: http://localhost:15031 #sms-server发送验证码短信的接口
+#    shop: http://localhost:8082 #shop-server根据id查询代理商的接口
