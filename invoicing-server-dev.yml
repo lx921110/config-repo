@@ -63,17 +63,14 @@ spring:
 zuul:
   url: http://localhost:18765/api
 storageType: # 入库类型
-  arrayProps1: 3,4,5,6,7 #调整入库所属子类
-  arrayProps2: 8,9,10    #新增入库所属子类
-  listProp1:   #父类对应的多个子类数组
+  array1: 3,4,5,6,7 #调整入库所属子类
+  array2: 8,9,10    #新增入库所属子类
+  listProp:   #父类对应的多个子类数组
     - name: 1
-      value: arrayProps1
+      value: array1
     - name: 2
-      value: arrayProps2
-  listProp2:
-    - config2Value1
-    - config2Vavlue2
-  mapProps:    #id ： name
+      value: array2
+  mapNames:    #id ： name
     1:  调整入库
     2:  新增入库
     3:  调拨入库
@@ -93,3 +90,35 @@ storageType: # 入库类型
     8:  2
     9:  2
     10: 2  
+placingType: # 出库类型
+  array1: 3,4,5,6,7      #调整出库所属子类
+  array2: 8,9,10,11,12   #新增出库所属子类
+  listProp1:   #父类对应的多个子类数组
+    - name: 1  #调整出库
+      value: array1
+    - name: 2  #新增出库
+      value: array2
+  mapNames:    #id ： name
+    1:  调整出库
+    2:  新增出库
+    3:  调拨出库
+    4:  采购退货出库
+    5:  破损出库
+    6:  换货出库
+    7:  其他出库库
+    8:  采购退货出库
+    9:  调拨出库
+    10: 销售出库
+    11: 店铺出库
+    10: 预售出库
+  parentProps:    #id ： parentId
+    3:  1
+    4:  1
+    5:  1
+    6:  1
+    7:  1
+    8:  2
+    9:  2
+    10: 2
+    11: 2 
+    12: 2   
