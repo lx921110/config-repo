@@ -12,6 +12,10 @@ spring:
           destination: topic-order
           group: order
           binder: order_binder
+        order_input_channel: 
+          destination: topic-order
+          group: order
+          binder: order_binder
       binders:  
         order_binder: 
           type: rabbit
