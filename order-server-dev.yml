@@ -27,11 +27,6 @@ spring:
                 username: guest
                 password: guest
                 virtual-host: /
-  rabbitmq:
-    addresses: 192.168.1.69:5672
-    username: guest
-    password: guest
-
   jpa:
     show-sql: true
     hibernate:
