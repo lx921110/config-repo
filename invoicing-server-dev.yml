@@ -2,6 +2,30 @@ server:
   port: 19011
 
 spring:
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        sms_output_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+        sms_input_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+      binders:  
+        sms_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
   jpa:
     show-sql: true
     hibernate:
