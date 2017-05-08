@@ -8,13 +8,13 @@ spring:
       instanceCount: 1
       bindings:
         invoicing_output_channel:
-          destination: topic-invoicing
-          group: invoicing
-          binder: invoicing_binder
+          destination: topic-placing
+          group: placing
+          binder: placing_binder
         invoicing_input_channel:
-          destination: topic-invoicing
-          group: invoicing
-          binder: invoicing_binder
+          destination: topic-placing
+          group: placing
+          binder: placing_binder
       binders:  
         sms_binder:
           type: rabbit
