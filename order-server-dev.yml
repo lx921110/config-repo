@@ -54,7 +54,7 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        sms_output_channel: 
+        order_output_channel: 
           destination: topic-order
           group: order
           binder: order_binder
