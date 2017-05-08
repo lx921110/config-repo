@@ -7,11 +7,11 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        sms_output_channel:
+        invoicing_output_channel:
           destination: topic-invoicing
           group: invoicing
           binder: invoicing_binder
-        sms_input_channel:
+        invoicing_input_channel:
           destination: topic-invoicing
           group: invoicing
           binder: invoicing_binder
