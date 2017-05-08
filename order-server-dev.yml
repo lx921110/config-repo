@@ -1,7 +1,29 @@
 server:
   port: 10086
   
-spring:
+#RabbitMQ配置   生产者output
+spring: 
+  cloud: 
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        order_output_channel: 
+          destination: topic-order
+          group: order
+          binder: order_binder
+      binders:  
+        order_binder: 
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
+
   jpa:
     show-sql: true
     hibernate:
@@ -47,27 +69,6 @@ spring:
     #  useGlobalDataSourceStat=true
     
     
-#RabbitMQ配置   生产者output
 
-  cloud:
-    stream:
-      instanceIndex: 0
-      instanceCount: 1
-      bindings:
-        order_output_channel: 
-          destination: topic-order
-          group: order
-          binder: order_binder
-      binders:  
-        order_binder: 
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: localhost
-                port: 5672
-                username: guest
-                password: guest
-                virtual-host: /
                 
                
