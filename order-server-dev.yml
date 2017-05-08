@@ -12,17 +12,17 @@ spring:
           destination: topic-invoicing
           group: invoicing
           binder: order_binder
-        order_input_channel: 
-          destination: topic-invoicing
-          group: invoicing
-          binder: order_binder
+#        order_input_channel: 
+#          destination: topic-invoicing
+#          group: invoicing
+#          binder: order_binder
       binders:  
         order_binder: 
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: localhost #修改为李鑫地址
+                host: 192.168.1.69 #修改为李鑫地址
                 port: 5672
                 username: guest
                 password: guest
