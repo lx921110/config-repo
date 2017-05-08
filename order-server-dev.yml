@@ -22,16 +22,10 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 192.168.1.69 #修改为李鑫地址
-                port: 5672
+                addresses: 192.168.1.69:5672 #修改为李鑫地址
                 username: guest
                 password: guest
                 virtual-host: /
-  rabbitmq:
-    addresses: 127.0.0.1:5672, 192.168.1.69:5672
-    username: guest
-    password: guest
-
   jpa:
     show-sql: true
     hibernate:
