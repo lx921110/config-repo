@@ -8,12 +8,12 @@ spring:
       instanceCount: 1
       bindings:
         invoicing_output_channel:
-          destination: topic-invoicing
-          group: placing
+          destination: topic-order
+          group: order
           binder: invoicing_binder
         invoicing_input_channel:
-          destination: topic-invoicing
-          group: placing
+          destination: topic-order
+          group: order
           binder: invoicing_binder
       binders:  
         invoicing_binder:
