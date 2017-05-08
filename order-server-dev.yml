@@ -22,7 +22,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: 192.168.1.69 #修改为李鑫地址
                 port: 5672
                 username: guest
                 password: guest
