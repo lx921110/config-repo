@@ -9,11 +9,11 @@ spring:
       bindings:
         invoicing_output_channel:
           destination: topic-invoicing
-          group: invoicing
+          group: placing
           binder: invoicing_binder
         invoicing_input_channel:
           destination: topic-invoicing
-          group: invoicing
+          group: placing
           binder: invoicing_binder
       binders:  
         invoicing_binder:
