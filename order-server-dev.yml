@@ -9,12 +9,12 @@ spring:
       instanceCount: 1
       bindings:
         order_output_channel: 
-          destination: topic-order
-          group: order
+          destination: topic-invoicing
+          group: invoicing
           binder: order_binder
         order_input_channel: 
-          destination: topic-order
-          group: order
+          destination: topic-invoicing
+          group: invoicing
           binder: order_binder
       binders:  
         order_binder: 
