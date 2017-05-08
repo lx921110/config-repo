@@ -48,7 +48,7 @@ spring:
     
     
 #RabbitMQ配置   生产者output
-spring:
+
   cloud:
     stream:
       instanceIndex: 0
