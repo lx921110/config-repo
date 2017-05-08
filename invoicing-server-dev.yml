@@ -8,13 +8,13 @@ spring:
       instanceCount: 1
       bindings:
         sms_output_channel:
-          destination: topic-sms
-          group: sms
-          binder: sms_binder
+          destination: topic-invoicing
+          group: invoicing
+          binder: invoicing_binder
         sms_input_channel:
-          destination: topic-sms
-          group: sms
-          binder: sms_binder
+          destination: topic-invoicing
+          group: invoicing
+          binder: invoicing_binder
       binders:  
         sms_binder:
           type: rabbit
