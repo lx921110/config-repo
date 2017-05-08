@@ -2,6 +2,30 @@ server:
   port: 19011
 
 spring:
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        invoicing_output_channel:
+          destination: topic-invoicing
+          group: placing
+          binder: invoicing_binder
+        invoicing_input_channel:
+          destination: topic-invoicing
+          group: placing
+          binder: invoicing_binder
+      binders:  
+        invoicing_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
   jpa:
     show-sql: true
     hibernate:
