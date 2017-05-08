@@ -9,11 +9,11 @@ spring:
       bindings:
         invoicing_output_channel:
           destination: topic-invoicing
-          group: placing
+          group: invoicing
           binder: invoicing_binder
         invoicing_input_channel:
           destination: topic-invoicing
-          group: placing
+          group: invoicing
           binder: invoicing_binder
       binders:  
         invoicing_binder:
@@ -21,7 +21,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                hosts: 192.168.0.50
                 port: 5672
                 username: guest
                 password: guest
