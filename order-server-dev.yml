@@ -10,7 +10,7 @@ spring:
       bindings:
         order_output_channel: 
           destination: topic-invoicing 
-          contentType: application / json
+          contentType: application/json
           group: invoicing
           binder: order_binder
 #        order_input_channel: 
