@@ -1,7 +1,34 @@
 server:
   port: 10086
   
-spring:
+#RabbitMQ配置   生产者output
+spring: 
+  cloud: 
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        order_output_channel: 
+          destination: topic-invoicing 
+          contentType: application/json
+          group: invoicing
+          binder: order_binder
+#        order_input_channel: 
+#          destination: topic-invoicing
+#          group: invoicing
+#          binder: order_binder
+      binders:  
+        order_binder: 
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.1.69
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
+        
   jpa:
     show-sql: true
     hibernate:
@@ -16,7 +43,7 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://localhost:3306/wetool?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://localhost:3306/wetool_order?characterEncoding=utf8&useSSL=true
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
@@ -45,7 +72,6 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
-    
     
 # REDIS (RedisProperties)
   redis:
