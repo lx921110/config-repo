@@ -9,6 +9,7 @@ spring:
       bindings:
         invoicing_output_channel:
           destination: topic-invoicing
+          group: invoicing
           binder: invoicing_binder
         invoicing_input_create:
           destination: topic-invoicing
