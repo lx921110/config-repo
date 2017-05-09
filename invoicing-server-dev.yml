@@ -11,12 +11,10 @@ spring:
           destination: topic-invoicing
           group: invoicing
           binder: invoicing_binder
-        invoicing_input_create:
+        invoicing_input_channel:
           destination: topic-invoicing
-          binder: invoicing_binder
-        invoicing_input_update:
-          destination: topic-invoicing
-          binder: invoicing_binder    
+          group: invoicing
+          binder: invoicing_binder   
       binders:  
         invoicing_binder:
           type: rabbit
