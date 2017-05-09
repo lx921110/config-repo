@@ -98,5 +98,5 @@ spring:
 #      key: orderNO #订单自增序列的key值
 
 order: 
-  no: kjhsd
+  num: kjhsd
                
