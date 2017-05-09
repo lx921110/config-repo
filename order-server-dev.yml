@@ -97,5 +97,6 @@ spring:
 #    redis: 
 #      key: orderNO #订单自增序列的key值
 
-order: sfdhg
+order: 
+  no: kjhsd
                
