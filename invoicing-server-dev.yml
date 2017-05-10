@@ -105,6 +105,7 @@ storageType: # 入库类型
     8:  采购入库
     9:  调拨入库
     10: 快速入库
+    11: 拆分入库
   parentProps:    #id ： parentId
     3:  1
     4:  1
@@ -135,6 +136,7 @@ placingType: # 出库类型
     10: 销售出库
     11: 店铺出库
     12: 预售出库
+    13: 拆分出库
   parentProps:    #id ： parentId
     3:  1
     4:  1
