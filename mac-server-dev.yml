@@ -84,6 +84,8 @@ redis:
       suffix: :typeSupplier #redis中取【某批次的零部件产品类别对应的供应商信息】的key的后轴
     smcode: 
       suffix: :smcode #redis中短信验证码的key的后轴
+    batchNO: 
+      prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
       
 #Feignclient服务调用url
 feign_client: 
