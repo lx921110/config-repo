@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 16533 #原8082
   
 spring:
   jpa:
