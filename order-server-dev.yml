@@ -13,7 +13,7 @@ spring:
           group: orderOffline
           binder: order_binder
         payment_status_input_channel: #支付状态消费通道
-          destination: topic-invoicing
+          destination: topic-invoicingsssssss
           group: invoicing
           binder: order_binder
         invoicing_output_channel: #库存生产通道
@@ -22,7 +22,7 @@ spring:
           binder: order_binder
         user_output_channel: #会员积分、余额生产通道
           destination: topic-invoicingssss
-          group: invoicing
+          group: invoicingssssssssss
           binder: order_binder
         invoicing_input_channel: #测试  库存消费
           destination: topic-invoicing
