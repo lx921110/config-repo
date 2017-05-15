@@ -5,7 +5,7 @@ spring:
   cloud:
     stream:
       instanceIndex: 0
-      instanceCount: 2
+      instanceCount: 1
       default-binder: smsbinder
       bindings:
         sms_output_channel:
@@ -15,7 +15,7 @@ spring:
         sms_input_channel:
           destination: topic-sms
           group: sms
-          binder: smsbinder
+          binder: smsbinder2
       binders:
         smsbinder:
           type: rabbit
@@ -26,6 +26,16 @@ spring:
                 port: 5672
                 username: admin
                 password: admin
+                virtual-host: /
+        smsbinder2:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
                 virtual-host: /
 #业务属性↴
 cloopen:  #云通讯平台接入配置
