@@ -27,7 +27,7 @@ spring:
                 password: guest
                 virtual-host: /
 
-=======
+
 server:
   port: 12898
 
@@ -45,7 +45,6 @@ spring:
           destination: topic-invoicing
           group: invoicing
           binder: test_binder
-
       binders:  
         test_binder: 
           type: rabbit
@@ -57,5 +56,3 @@ spring:
                 username: guest
                 password: guest
                 virtual-host: /
-
->>>>>>> branch 'master' of http://gitlab.weitoo.com/wt-micro-services/config-repo.git
