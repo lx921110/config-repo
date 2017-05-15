@@ -7,7 +7,7 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        order_output_channel:
+        order_output_channel: 
           destination: order-offline 
           group: orderOffline
           binder: test_binder
