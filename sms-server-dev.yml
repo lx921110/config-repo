@@ -6,6 +6,7 @@ spring:
     stream:
       instanceIndex: 0
       instanceCount: 2
+      default-binder: sms_binder2
       bindings:
         sms_output_channel:
           destination: topic-sms
