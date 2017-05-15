@@ -16,12 +16,21 @@ spring:
           group: sms
           binder: sms_binder
       binders:  
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.99.100
+                port: 30000
+                username: guest
+                password: guest
         sms_binder:
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: 192.168.1.52
                 port: 5672
                 username: guest
                 password: guest
