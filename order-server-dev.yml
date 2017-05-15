@@ -24,10 +24,6 @@ spring:
           destination: topic-invoicingssss
           group: invoicingssssssssss
           binder: order_binder
-        invoicing_input_channel: #测试  库存消费
-          destination: topic-invoicing
-          group: invoicing
-          binder: order_binder
       binders:  
         order_binder: 
           type: rabbit
