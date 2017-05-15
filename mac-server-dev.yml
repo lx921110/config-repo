@@ -65,7 +65,7 @@ spring:
 
 #自定义属性值(激活短信验证码)
 short_message:
-  intervals: 90 #两次发送激活短信验证码的最短间隔时间
+  intervals: 50 #两次发送激活短信验证码的最短间隔时间
   alive_time: 1800 #验证码有效时间
 
 #sn码设置  此算法总长度最初为15位，随着随着机器增加，位数会增加，但不会出现重复
@@ -84,6 +84,8 @@ redis:
       suffix: :typeSupplier #redis中取【某批次的零部件产品类别对应的供应商信息】的key的后轴
     smcode: 
       suffix: :smcode #redis中短信验证码的key的后轴
+    batchNO: 
+      prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
       
 #Feignclient服务调用url
 feign_client: 

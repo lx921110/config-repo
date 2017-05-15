@@ -10,23 +10,28 @@ spring:
         sms_output_channel:
           destination: topic-sms
           group: sms
-          binder: sms_binder
+          binder: sms-binder
         sms_input_channel:
           destination: topic-sms
           group: sms
-          binder: sms_binder
-      binders:  
-        sms_binder:
+          binder: sms-binder
+      binders:
+        sms-binder:
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: 192.168.1.52
                 port: 5672
-                username: guest
-                password: guest
+                username: admin
+                password: admin
                 virtual-host: /
-
+  rabbitmq:
+    host: 192.168.1.10
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
 #业务属性↴
 cloopen:  #云通讯平台接入配置
   url: sandboxapp.cloopen.com #沙盒环境（用于应用开发调试）
