@@ -22,7 +22,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: amqp://guest@localhost:5672/
                 port: 5672
                 username: guest
                 password: guest
@@ -31,7 +31,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 192.168.1.52
+                host: amqp://guest@192.168.1.52:5672/
                 port: 5672
                 username: guest
                 password: guest
