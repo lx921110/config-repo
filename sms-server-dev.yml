@@ -6,49 +6,27 @@ spring:
     stream:
       instanceIndex: 0
       instanceCount: 2
-      default-binder: sms_binder2
+      default-binder: smsbinder
       bindings:
         sms_output_channel:
           destination: topic-sms
           group: sms
-          binder: sms_binder
+          binder: smsbinder
         sms_input_channel:
           destination: topic-sms
           group: sms
-          binder: sms_binder2
+          binder: smsbinder
       binders:
-        sms_binder:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: localhost
-                port: 5672
-                username: guest
-                password: guest
-                virtual-host: /
-        sms_binder2:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: 192.168.1.52
-                port: 5672
-                username: admin
-                password: admin
-                virtual-host: /
-  rabbitmq:
-    host: 192.168.1.52
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: /
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-    virtual-host: /
+      smsbinder:
+        type: rabbit
+        environment:
+          spring:
+            rabbitmq:
+              host: 192.168.1.52
+              port: 5672
+              username: admin
+              password: admin
+              #virtual-host: /
 #业务属性↴
 cloopen:  #云通讯平台接入配置
   url: sandboxapp.cloopen.com #沙盒环境（用于应用开发调试）
