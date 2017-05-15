@@ -37,12 +37,6 @@ spring:
                 username: admin
                 password: admin
                 virtual-host: /
-  rabbitmq:
-    host: 192.168.1.52
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: /
 #业务属性↴
 cloopen:  #云通讯平台接入配置
   url: sandboxapp.cloopen.com #沙盒环境（用于应用开发调试）
