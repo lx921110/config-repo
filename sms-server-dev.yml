@@ -5,8 +5,7 @@ spring:
   cloud:
     stream:
       instanceIndex: 0
-      instanceCount: 1
-      default-binder: sms_binder
+      instanceCount: 2
       bindings:
         sms_output_channel:
           destination: topic-sms
@@ -16,22 +15,13 @@ spring:
           destination: topic-sms
           group: sms
           binder: sms_binder
-      binders:  
-        rabbit1:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: amqp://guest@localhost:5672/
-                port: 5672
-                username: guest
-                password: guest
+      binders:
         sms_binder:
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: amqp://guest@192.168.1.52:5672/
+                host: 192.168.1.52
                 port: 5672
                 username: guest
                 password: guest
