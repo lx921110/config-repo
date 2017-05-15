@@ -26,7 +26,7 @@ spring:
                 port: 5672
                 username: admin
                 password: admin
-                #virtual-host: /
+                virtual-host: /
 #业务属性↴
 cloopen:  #云通讯平台接入配置
   url: sandboxapp.cloopen.com #沙盒环境（用于应用开发调试）
