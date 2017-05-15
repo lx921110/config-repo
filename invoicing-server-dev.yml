@@ -7,10 +7,6 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        invoicing_output_channel:
-          destination: topic-invoicing
-          group: invoicing
-          binder: invoicing_binder
         invoicing_input_channel:
           destination: topic-invoicing
           group: invoicing
