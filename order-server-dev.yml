@@ -13,8 +13,8 @@ spring:
           group: orderOffline
           binder: order_binder
         payment_status_input_channel: #支付状态消费通道
-          destination: topic-invoicingsssssss
-          group: invoicing
+          destination: payment-status
+          group: payment
           binder: order_binder
         invoicing_output_channel: #库存生产通道
           destination: topic-invoicing

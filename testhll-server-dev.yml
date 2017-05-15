@@ -11,6 +11,10 @@ spring:
           destination: order-offline 
           group: orderOffline
           binder: test_binder
+        payment_output_channel: 
+          destination: payment-status
+          group: payment
+          binder: test_binder
         invoicing_input_channel: 
           destination: topic-invoicing
           group: invoicing
