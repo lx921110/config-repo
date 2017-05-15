@@ -7,7 +7,7 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        order_output_channel:
+        order_output_channel: 
           destination: order-offline 
           group: orderOffline
           binder: test_binder
@@ -15,10 +15,7 @@ spring:
           destination: payment-status
           group: payment
           binder: test_binder
-        invoicing_input_channel: 
-          destination: topic-invoicing
-          group: invoicing
-          binder: test_binder
+
       binders:  
         test_binder: 
           type: rabbit
@@ -30,3 +27,9 @@ spring:
                 username: guest
                 password: guest
                 virtual-host: /
+  rabbitmq:
+    host: 192.168.1.10
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
