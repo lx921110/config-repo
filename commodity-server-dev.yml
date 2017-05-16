@@ -14,6 +14,7 @@ spring:
     username: root
     password:
     driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
     initialize: true   # 是否初始化
     # 导入编码
