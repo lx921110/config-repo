@@ -16,10 +16,6 @@ spring:
           destination: payment-offline
           group: payment
           binder: order_binder
-        order_online_input_channel: #网络订单消费通道
-          destination: order-online 
-          group: orderOnline
-          binder: order_binder
         payment_online_input_channel: #网络支付消费通道
           destination: payment-online
           group: payment
