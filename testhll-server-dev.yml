@@ -12,7 +12,7 @@ spring:
           group: orderOffline
           binder: test_binder
         payment_output_channel: 
-          destination: payment-status
+          destination: payment-offline
           group: payment
           binder: test_binder
 
