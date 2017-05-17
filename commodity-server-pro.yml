@@ -1,5 +1,5 @@
 server:
-  port: 6001
+  port: 16011
 
 spring:
   jpa:
@@ -9,12 +9,13 @@ spring:
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    # For H2
-    # 存储在文件中
-    url: jdbc:h2:file:~/.h2/advert-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
+    # For Mysql
+    url: jdbc:mysql://localhost:3306/commodity?useUnicode=true&characterEncoding=utf-8
+    username: root
     password:
-    driverClassName: org.h2.Driver
+    driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
+    data: classpath:sql/data.sql  # 数据文件
     initialize: false   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8
@@ -44,9 +45,3 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
-  h2:
-    console:
-      enabled: true # 是否允许访问控制台
-      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
-url:
-  upload-server: http://101.201.56.48:8765/api/upload-server/
