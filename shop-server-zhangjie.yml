@@ -38,20 +38,11 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
-    
+
 security:
-  user:
-    password: user  # 直接登录时的密码
-  ignored: /
-  sessions: never   # session策略
   oauth2:
-    sso:
-      loginPath: /login   # 登录路径
     client:
-      clientId: admin
-      clientSecret: admin
-      accessTokenUri: http://localhost:14001/oauth/access_token
-      userAuthorizationUri: http://localhost:14001/oauth/authorize
+      client-id: admin
+      client-secret: admin
     resource:
-      userInfoUri: http://localhost:8082/shop/find
-      preferTokenInfo: false
+      token-info-uri: http://localhost:14001/oauth/check_token
