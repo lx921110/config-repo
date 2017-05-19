@@ -6,7 +6,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update 
-    
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -39,3 +38,11 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://localhost:14001/oauth/check_token
