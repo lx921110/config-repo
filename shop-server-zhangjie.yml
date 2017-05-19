@@ -49,7 +49,7 @@ security:
       loginPath: /login   # 登录路径
     client:
       clientId: admin
-      clientSecret: admin
+      clientSecret: admin123
       accessTokenUri: http://localhost:14001/oauth/access_token
       userAuthorizationUri: http://localhost:14001/oauth/authorize
     resource:
