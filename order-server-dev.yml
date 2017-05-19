@@ -121,7 +121,7 @@ limit:
     payment: 10 #用户付款超时时间，分钟
 auto: 
   confirm: 
-    time: 24 超时未收货自动确认时间，小时
+    time: 24 #超时未收货自动确认时间，小时
 
 
                
