@@ -7,14 +7,18 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        order_output_channel:
+        order_offline_output_channel: #线下订单生产通道
           destination: order-offline 
           group: orderOffline
           binder: test_binder
-        invoicing_input_channel: 
-          destination: topic-invoicing
-          group: invoicing
+        payment_offline_output_channel: #线下支付生产通道
+          destination: payment-offline
+          group: payment
           binder: test_binder
+        payment_online_output_channel: #线上支付生产通道
+          destination: payment-online
+          group: payment
+          binder: test_binder          
 
       binders:  
         test_binder: 
@@ -27,7 +31,13 @@ spring:
                 username: guest
                 password: guest
                 virtual-host: /
-                
+  rabbitmq:
+    host: 192.168.1.10
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+    
   velocity: 
     charset: UTF-8 
     resourceLoaderPath: classpath:/templates/ 
@@ -37,4 +47,3 @@ spring:
         encoding: UTF-8 
       output: 
         encoding: UTF-8 
-
