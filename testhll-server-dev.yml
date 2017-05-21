@@ -27,4 +27,14 @@ spring:
                 username: guest
                 password: guest
                 virtual-host: /
+                
+  velocity: 
+    charset: UTF-8 
+    resourceLoaderPath: classpath:/templates/ 
+    suffix: .html 
+    properties: 
+      input: 
+        encoding: UTF-8 
+      output: 
+        encoding: UTF-8 
 
