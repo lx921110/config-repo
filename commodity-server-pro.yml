@@ -1,6 +1,6 @@
 server:
   port: 16011
-
+  
 spring:
   jpa:
     show-sql: true
