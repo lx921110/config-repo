@@ -48,6 +48,5 @@ spring:
     console:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
-url:
-  #upload-server: http://101.201.56.48:8765/api/upload-server/
-  upload-server: http://localhost:15021/
+zuul:
+  url: http://localhost:18765/api
