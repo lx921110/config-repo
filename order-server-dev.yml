@@ -103,7 +103,7 @@ spring:
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs    
-
+ 
 # 自定义业务属性
 #订单号规则
 order: 
