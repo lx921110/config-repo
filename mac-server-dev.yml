@@ -71,7 +71,7 @@ short_message:
 #sn码设置  此算法总长度最初为15位，随着随着机器增加，位数会增加，但不会出现重复
 sn:
   word_count: 4 #sn中含字母个数
-  number_count: 11 #sn中含数字的个数
+  number_count: 10 #sn中含数字的个数
   
 #扫描二维码跳转的基础url
 machine_detail: 
