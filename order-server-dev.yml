@@ -8,14 +8,18 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        order_input_channel: #订单消费通道
+        order_offline_input_channel: #线下订单消费通道
           destination: order-offline 
           group: orderOffline
           binder: order_binder
-        payment_status_input_channel: #支付状态消费通道
-          destination: topic-invoicingsssssss
-          group: invoicing
+        payment_offline_input_channel: #线下支付消费通道
+          destination: payment-offline
+          group: payment
           binder: order_binder
+        payment_online_input_channel: #网络支付消费通道
+          destination: payment-online
+          group: payment
+          binder: order_binder 
         invoicing_output_channel: #库存生产通道
           destination: topic-invoicing
           group: invoicing
@@ -24,22 +28,23 @@ spring:
           destination: topic-invoicingssss
           group: invoicingssssssssss
           binder: order_binder
-        invoicing_input_channel: #测试  库存消费
-          destination: topic-invoicing
-          group: invoicing
-          binder: order_binder
       binders:  
         order_binder: 
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: 192.168.1.10
                 port: 5672
-                username: guest
-                password: guest
+                username: admin
+                password: admin
                 virtual-host: /
-        
+  rabbitmq:
+    host: 192.168.1.10
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
   jpa:
     show-sql: true
     hibernate:
@@ -100,6 +105,7 @@ spring:
 #   nodes:    # comma-separated list of host:port pairs    
 
 # 自定义业务属性
+#订单号规则
 order: 
   num: 
     total_length: 17 #订单号的总长度，当每日订单量超过7位数时，总长度会+1
@@ -108,4 +114,11 @@ order:
     redis: 
       key: orderNO #订单自增序列的key值的前缀   完整key如：orderNO20170510(保证每天生成一个新key)
 
-               
+#订单超时时间规则
+limit: 
+  time: 
+    order: 10 #商家未接单的订单超时时间，分钟
+    payment: 10 #用户付款超时时间，分钟
+auto: 
+  confirm: 
+    time: 24 #超时未收货自动确认时间，小时
