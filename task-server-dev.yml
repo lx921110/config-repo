@@ -1,26 +1,26 @@
 server:
-  port: 16001
-
+  port: 16066
+  
 spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
-   # 配置数据源
+      ddl-auto: update 
+    
+  # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://localhost:3306/task?useUnicode=true&characterEncoding=utf-8
+    #jdbc:mysql://101.201.56.163:3838/test_db
+   # url: jdbc:mysql://101.201.56.163:3838/test_db
+   # username: wetool_test
+   # password: Weitoo502
+    
+    url: jdbc:mysql://localhost:3306/task?characterEncoding=utf8&useSSL=true
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
-    schema: classpath:sql/schema.sql  # 结构文件
-    data: classpath:sql/data.sql  # 数据文件
-    initialize: false   # 是否初始化
-    # 导入编码
-    sql-script-encoding: UTF-8
-    continue-on-error: false
-
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
