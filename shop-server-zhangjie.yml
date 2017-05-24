@@ -54,4 +54,6 @@ security:
       token-info-uri: http://localhost:14001/oauth/check_token
 feign:
   oauth2:
-    enabled: true 
+    enabled: true
+  hystrix:
+    enabled: false
