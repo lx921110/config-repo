@@ -70,4 +70,4 @@ feign:
     enabled: false
 captcha: # 验证码
   send-interval: 60      #下发间隔时间（单位：秒）
-  expire: 300                 # 过期时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
