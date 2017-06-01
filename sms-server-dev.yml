@@ -49,7 +49,7 @@ alidayu: #阿里大于
   appKey: 23888280 
   appSecret: c14ff71982aac7191e9605b83982db01
   signName: 大鱼测试 #阿里大于短信签名
-  templateCodeDefault: SMS_69870060 #默认短信模板
-  templateCodeRegister: SMS_69715174 #注册短信模板
-  templateCodePassword: SMS_69755130 #修改密码短信模板
+  templateCodeDefault: SMS_69780153 #默认短信模板
+  templateCodeRegister: SMS_69870254 #注册短信模板
+  templateCodePassword: SMS_69830246 #修改密码短信模板
   
