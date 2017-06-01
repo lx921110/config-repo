@@ -45,7 +45,7 @@ spring:
     
     
 alidayu: #阿里大于
-  url: http://gw.api.tbsandbox.com/router/rest #沙箱环境，开发调试
+  url: http://gw.api.taobao.com/router/rest #
   appKey: 23888280 
   appSecret: c14ff71982aac7191e9605b83982db01
   signName: 大鱼测试 #阿里大于短信签名
