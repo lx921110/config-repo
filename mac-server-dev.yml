@@ -88,4 +88,4 @@ feign_client:
 #标签打印机设置
 print: 
   large-number: 1 #每次打印大标签一份
-  small-number: 2 #每次打印小标签一份
+  small-number: 2 #每次打印小标签两份
