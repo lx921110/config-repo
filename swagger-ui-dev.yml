@@ -10,7 +10,7 @@ security:
     tokenUrl: http://localhost:8080/oauth/token
     tokenName: access_token
     scope:
-      code: merchant.mgt
+      code: read
       desc: 用户信息
 app:
   key: learning
