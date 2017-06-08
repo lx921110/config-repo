@@ -1,5 +1,5 @@
 server:
-  port: 16020
+  port: 6000
   
 spring:
   jpa:
@@ -16,11 +16,11 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://localhost:3306/shop?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://localhost:3306/wetool?characterEncoding=utf8&useSSL=true
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
-    initialize: false
+    initialize: true
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
@@ -45,3 +45,47 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+    
+    
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: localhost # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs
+
+
+#sn码设置  此算法总长度最初为15位，随着随着机器增加，位数会增加，但不会出现重复
+sn:
+  word_count: 4 #sn中含字母个数
+  number_count: 10 #sn中含数字的个数
+  
+#扫描二维码跳转的基础url
+machine_detail: 
+  base_path: http://localhost:8080/machine/sn/
+ 
+#redis中存储数据的key前缀或后缀
+redis: 
+  key: 
+    type_supplier: 
+      suffix: :typeAndSupplier #redis中取【某批次的零部件产品类别对应的供应商信息】的key的后轴
+    batchNO: 
+      prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
+      
+#Feignclient服务调用url
+feign_client: 
+  url: 
+    shop: http://localhost:8082 #shop-server根据id查询代理商的接口
+
+#标签打印机设置
+print: 
+  large-number: 1 #每次打印大标签一份
+  small-number: 2 #每次打印小标签两份

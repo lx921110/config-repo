@@ -1,5 +1,5 @@
 server:
-  port: 4010
+  port: 25010
 
 spring:
   jpa:
@@ -11,11 +11,11 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     # For H2
     # 存储在文件中
-    url: jdbc:h2:file:~/.h2/login-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:file:~/.h2/area-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
     driverClassName: org.h2.Driver
-    data: classpath:sql/login_data.sql  # 数据文件
+    data: classpath:sql/area_data.sql  # 数据文件
     initialize: false   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8

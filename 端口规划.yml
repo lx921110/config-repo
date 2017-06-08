@@ -6,9 +6,9 @@ auth-server: # 认证鉴权服务
   st: 24000
   pro: 4000
 login-server: # 登录服务
-  dev: 15000
-  st: 25000
-  pro: 5000
+  dev: 14010
+  st: 24010
+  pro: 4010
 area-server: # 地区服务
   dev: 15010
   st: 25010

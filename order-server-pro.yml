@@ -1,5 +1,5 @@
 server:
-  port: 16040
+  port: 6040
   
 #RabbitMQ配置   生产者output
 spring: 

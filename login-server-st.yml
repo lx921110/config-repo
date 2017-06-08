@@ -1,26 +1,26 @@
 server:
-  port: 8082
-  
+  port: 24010
+
 spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update 
-    
-  # 配置数据源
+      ddl-auto: update
+   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    
-    url: jdbc:mysql://localhost:3306/role?characterEncoding=utf8&useSSL=true
-    username: root
-    password: 123456
-    driverClassName: com.mysql.jdbc.Driver
-    initialize: true
+    # For H2
+    # 存储在文件中
+    url: jdbc:h2:file:~/.h2/login-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    data: classpath:sql/login_data.sql  # 数据文件
+    initialize: false   # 是否初始化
+    # 导入编码
+    sql-script-encoding: UTF-8
+    continue-on-error: false
+
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
@@ -45,3 +45,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+  h2:
+    console:
+      enabled: true # 是否允许访问控制台
+      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
