@@ -10,7 +10,7 @@ security:
     tokenUrl: http://localhost:14001/oauth/token
     tokenName: access_token
     scope:
-      code: userinfo
+      code: merchant.mgt
       desc: 用户信息
 app:
   key: learning
