@@ -1,5 +1,5 @@
 server:
-  port: 16000
+  port: 16050
 
 spring:
   jpa:
