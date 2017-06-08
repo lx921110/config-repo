@@ -1,4 +1,26 @@
 server:
   port: 8080
 
-  
+security:
+  userOauth:
+    clientId: swagger-ui
+    clientSecret: Sa0rk3kgx
+    type: oauth2
+    authorizationUrl: http://dev.jyx365.top/sso/login
+    tokenUrl: http://dev.jyx365.top/oauth/access_token
+    tokenName: access_token
+    scope:
+      code: userinfo
+      desc: 用户信息
+app:
+  key: learning
+  name: 每日一学
+  desc: 每日一学RESTful
+  version: 0.1
+  termsOfServiceUrl: http://blog.csdn.net/jacktonny1
+  contact:
+    name: 闫不由衷
+    url: http://blog.csdn.net/jacktonny1
+    email: hulala208@126.com
+  license: The Apache License, Version 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
