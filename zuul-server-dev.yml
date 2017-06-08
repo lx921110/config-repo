@@ -24,16 +24,16 @@ zuul:
       serviceId: advert-server
 login-server: # 地区服务
   ribbon:
-    listOfServers: localhost:15001 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: localhost:15000 #为area-server服务指定一组服务地址，用于负载均衡
 area-server: # 地区服务
   ribbon:
-    listOfServers: localhost:15011 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: localhost:15010 #为area-server服务指定一组服务地址，用于负载均衡
 upload-server: # 上传服务
   ribbon:
-    listOfServers: localhost:15021
+    listOfServers: localhost:15020
 advert-server: # 广告服务
   ribbon:
-    listOfServers: localhost:16001
+    listOfServers: localhost:16050
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
