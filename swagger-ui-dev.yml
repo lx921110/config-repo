@@ -3,11 +3,11 @@ server:
 
 security:
   userOauth:
-    clientId: test
-    clientSecret: $2a$10$73bh/i.jUxmcg8lmAWwDC.aCG3WjDIIR2Fic2EldS5/yjqCOXcOci
+    clientId: curl
+    clientSecret: password
     type: oauth2
-    authorizationUrl: http://localhost:14001/oauth/authorize
-    tokenUrl: http://localhost:14001/oauth/token
+    authorizationUrl: http://localhost:8080/oauth/authorize
+    tokenUrl: http://localhost:8080/oauth/token
     tokenName: access_token
     scope:
       code: merchant.mgt
