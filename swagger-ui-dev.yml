@@ -4,23 +4,18 @@ server:
 security:
   userOauth:
     clientId: admin
-    clientSecret: admin
+    clientSecret: Wt1472583695
     type: oauth2
-    authorizationUrl: http://localhost:14001/oauth/authorize
-    tokenUrl: http://localhost:14001/oauth/token
+    authorizationUrl: http://localhost:8080/oauth/authorize
+    tokenUrl: http://localhost:8080/oauth/token
     tokenName: access_token
     scope:
-      code: merchant.mgt
-      desc: 用户信息
+      code: read
+      desc: Wetool API
+
 app:
   key: learning
   name: 每日一学
   desc: 每日一学RESTful
   version: 0.1
   termsOfServiceUrl: http://blog.csdn.net/jacktonny1
-  contact:
-    name: 闫不由衷
-    url: http://blog.csdn.net/jacktonny1
-    email: hulala208@126.com
-  license: The Apache License, Version 2.0
-  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
