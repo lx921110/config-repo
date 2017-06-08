@@ -3,8 +3,8 @@ server:
 
 security:
   userOauth:
-    clientId: admin
-    clientSecret: admin
+    clientId: test
+    clientSecret: $2a$10$73bh/i.jUxmcg8lmAWwDC.aCG3WjDIIR2Fic2EldS5/yjqCOXcOci
     type: oauth2
     authorizationUrl: http://localhost:14001/oauth/authorize
     tokenUrl: http://localhost:14001/oauth/token
