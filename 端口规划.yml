@@ -1,0 +1,55 @@
+# dev=开发环境，st=系统测试环境，pro=生产环境
+# 基础服务
+auth-server: # 认证鉴权服务
+        dev: 14000
+        st: 24000
+        pro: 4000
+login-server: # 登录服务
+        dev: 15000
+        st: 25000
+        pro: 5000
+area-server: # 地区服务
+        dev: 15010
+        st: 25010
+        pro: 5010
+upload-server: # 上传服务
+        dev: 15020
+        st: 25020
+        pro: 5020
+sms-server: # 短信服务
+        dev: 15030
+        st: 15030
+        pro: 5030
+zuul-server: # api路由服务
+        dev: 18765
+        st: 28765
+        pro: 8765
+# 业务服务
+advert-server: # 广告服务
+        dev: 16000
+        st: 26000
+        pro: 6000
+mac-server: # 设备服务
+        dev: 16010
+        st: 26010
+        pro: 6010
+commodity-server: # 商品服务
+        dev: 16020
+        st: 26020
+        pro: 6020
+invoicing-server: # 库存服务
+        dev: 16030
+        st: 26030
+        pro: 6030
+order-server: # 订单服务
+        dev: 16040
+        st: 26040
+        pro: 6040
+shop-server: # 店铺服务
+        dev: 16050
+        st: 26050
+        pro: 6050
+# 其它服务
+task-server: # 商品数据同步任务服务
+        dev: 3000
+        st: 13000

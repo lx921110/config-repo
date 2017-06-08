@@ -1,5 +1,5 @@
 server:
-  port: 15021
+  port: 15020
 
 # REDIS (RedisProperties)
 spring:
