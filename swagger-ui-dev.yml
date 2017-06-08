@@ -6,8 +6,8 @@ security:
     clientId: admin
     clientSecret: admin
     type: oauth2
-    authorizationUrl: http://dev.jyx365.top/sso/login
-    tokenUrl: http://localhost:14001/oauth/access_token
+    authorizationUrl: http://localhost:14001/oauth/authorize
+    tokenUrl: http://localhost:14001/oauth/token
     tokenName: access_token
     scope:
       code: userinfo
