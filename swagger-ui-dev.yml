@@ -3,8 +3,8 @@ server:
 
 security:
   userOauth:
-    clientId: curl
-    clientSecret: password
+    clientId: zhangjie
+    clientSecret: 123123
     type: oauth2
     authorizationUrl: http://localhost:8080/oauth/authorize
     tokenUrl: http://localhost:8080/oauth/token
