@@ -32,18 +32,7 @@ spring:
     username: admin
     password: admin
     virtual-host: /
-#业务属性↴
-#cloopen:  #云通讯平台接入配置
-#  url: sandboxapp.cloopen.com #沙盒环境（用于应用开发调试）
-#  port: 8883
-#  account:
-#    sid: aaf98f8945f991db0145f9ed9389005b   #帐号
-#    token: 57312a8ab3a043d2b28beb7be7fed8b7 #令牌
-#  appid: aaf98f8945f991db0145fa1cd5da0083 #应用ID
-#  template: #模板ID
-#    default: 91752  #短信验证码模板ID
-    
-    
+
 alidayu: #阿里大于
   url: http://gw.api.taobao.com/router/rest #
   appKey: 23888280 
@@ -52,4 +41,3 @@ alidayu: #阿里大于
   templateCodeDefault: SMS_69780153 #默认短信模板
   templateCodeRegister: SMS_69870254 #注册短信模板
   templateCodePassword: SMS_69830246 #修改密码短信模板
-  
