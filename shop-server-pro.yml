@@ -62,7 +62,7 @@ security:
       client-id: admin
       client-secret: admin
     resource:
-      token-info-uri: http://localhost:14001/oauth/check_token
+      token-info-uri: http://localhost:14000/oauth/check_token
 feign:
   oauth2:
     enabled: true
