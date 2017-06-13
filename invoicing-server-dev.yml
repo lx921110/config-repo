@@ -17,14 +17,14 @@ spring:
           binder: invoicing_binder
       binders:  
         invoicing_binder:
-          type: rabbitmq
+          type: rabbit
           environment:
             spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: guest
-                password: guest
+                username: admin
+                password: admin
                 virtual-host: /
   rabbitmq:
     host: rabbitmq
