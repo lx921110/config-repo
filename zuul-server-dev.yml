@@ -16,6 +16,9 @@ zuul:
     area-server: #注册服务的名称，属性spring.application.name
       path: /areas/** #路由设置
       serviceId: area-server #指定路由到的serviceId
+    login-server:
+      path: /**
+      serviceId: login-server
     upload-server:
       path: /**
       serviceId: upload-server
@@ -27,7 +30,7 @@ zuul:
       serviceId: shop-server
 login-server: # 地区服务
   ribbon:
-    listOfServers: login:15000 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: login:14010 #为area-server服务指定一组服务地址，用于负载均衡
 area-server: # 地区服务
   ribbon:
     listOfServers: area:15010 #为area-server服务指定一组服务地址，用于负载均衡
