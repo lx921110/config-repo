@@ -17,7 +17,7 @@ spring:
           binder: invoicing_binder
       binders:  
         invoicing_binder:
-          type: rabbitmq
+          type: rabbit
           environment:
             spring:
               rabbitmq:
