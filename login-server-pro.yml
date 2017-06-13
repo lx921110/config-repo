@@ -2,4 +2,4 @@ server:
   port: 4010
 
 url:
-  auth-server: http://localhost:4000   #认证服务
+  auth-server: http://auth:4000   #认证服务

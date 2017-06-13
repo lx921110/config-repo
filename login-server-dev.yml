@@ -2,4 +2,4 @@ server:
   port: 14010
 
 url:
-  auth-server: http://localhost:14000   #认证服务
+  auth-server: http://auth:14000   #认证服务
