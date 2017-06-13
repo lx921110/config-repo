@@ -22,18 +22,24 @@ zuul:
     advert-server:
       path: /** 
       serviceId: advert-server
+    shop-server:
+      path: /** 
+      serviceId: shop-server
 login-server: # 地区服务
   ribbon:
-    listOfServers: localhost:15000 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: login:15000 #为area-server服务指定一组服务地址，用于负载均衡
 area-server: # 地区服务
   ribbon:
-    listOfServers: localhost:15010 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: area:15010 #为area-server服务指定一组服务地址，用于负载均衡
 upload-server: # 上传服务
   ribbon:
-    listOfServers: localhost:15020
+    listOfServers: upload:15020
 advert-server: # 广告服务
   ribbon:
-    listOfServers: localhost:16050
+    listOfServers: advert:16050
+shop-server: # 店铺服务
+  ribbon:
+    listOfServers: shop:16020
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
