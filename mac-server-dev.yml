@@ -70,7 +70,7 @@ sn:
   
 #扫描二维码跳转的基础url
 machine_detail: 
-  base_path: http://localhost:8080/machine/sn/
+  base_path: http://mac:8080/machine/sn/
  
 #redis中存储数据的key前缀或后缀
 redis: 
@@ -83,7 +83,7 @@ redis:
 #Feignclient服务调用url
 feign_client: 
   url: 
-    shop: http://localhost:8082 #shop-server根据id查询代理商的接口
+    shop: http://shop:8082 #shop-server根据id查询代理商的接口
 
 #标签打印机设置
 print: 
