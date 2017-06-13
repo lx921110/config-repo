@@ -65,3 +65,5 @@ feign:
 captcha: # 验证码
   send-interval: 60      #下发间隔时间（单位：秒）
   expire: 900                 # 过期时间（单位：秒）
+url:
+  auth-server: http://auth:14000   #认证服务 
