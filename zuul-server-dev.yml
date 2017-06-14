@@ -42,7 +42,7 @@ login-server: # 登录服务
     listOfServers: login:14010
 area-server: # 地区服务
   ribbon:
-    listOfServers: area:15010 #为area-server服务指定一组服务地址，用于负载均衡
+    listOfServers: area:15010
 upload-server: # 上传服务
   ribbon:
     listOfServers: upload:15020
