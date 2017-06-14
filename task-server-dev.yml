@@ -16,7 +16,7 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://mysql:3306/task?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://mysql:3306/task?characterEncoding=utf8
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
