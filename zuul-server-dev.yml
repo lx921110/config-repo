@@ -34,6 +34,12 @@ zuul:
     mac-server:
       path: /** 
       serviceId: mac-server
+    commodity-server:
+      path: /** 
+      serviceId: commodity-server
+    task-server:
+      path: /** 
+      serviceId: task-server
 auth-server: # 认证鉴权服务
   ribbon:
     listOfServers: auth:14000 # 可指定一组服务地址，用于负载均衡
@@ -55,6 +61,12 @@ shop-server: # 店铺服务
 mac-server: # 设备服务
   ribbon:
     listOfServers: 192.168.1.7:16000
+commodity-server: # 商品服务
+  ribbon:
+    listOfServers: commodity:16010
+task-server: # 商品数据同步任务服务
+  ribbon:
+    listOfServers: task:3000   
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
