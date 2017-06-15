@@ -1,5 +1,10 @@
 server:
   port: 14010
-
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+      
 url:
   auth-server: http://auth:14000   #认证服务

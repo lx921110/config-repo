@@ -1,12 +1,7 @@
 info:
   description: 微兔微服务
   url: https://www.wetool.com
-
-eureka:
-  client:
-    serviceUrl:
-#      defaultZone: http://${LV1_DISCOVERY_1_PORT_8761_TCP_ADDR:localhost}:${LV1_DISCOVERY_1_PORT_8761_TCP_PORT:8761}/eureka/
-      defaultZone: http://eureka:28761/eureka/
+  
 spring:
   cloud:
     stream: 

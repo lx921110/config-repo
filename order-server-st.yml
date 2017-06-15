@@ -1,6 +1,11 @@
 server:
   port: 26040
   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:28761/eureka/
+      
 #RabbitMQ配置   生产者output
 spring: 
   cloud: 

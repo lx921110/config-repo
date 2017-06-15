@@ -1,6 +1,11 @@
 server:
   port: 16020
   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+      
 spring:
   redis:
     database: 0 # database name  

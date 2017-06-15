@@ -1,6 +1,11 @@
 server:
   port: 8080
-
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+      
 security:
   userOauth:
     clientId: admin

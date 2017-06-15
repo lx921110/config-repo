@@ -1,6 +1,11 @@
 server:
   port: 15030
-
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+      
 spring:
   cloud:
     stream:
