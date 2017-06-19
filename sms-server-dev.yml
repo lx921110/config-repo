@@ -1,4 +1,5 @@
 server:
+  host-name: sms
   port: 15030
   
 eureka:

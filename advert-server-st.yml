@@ -1,4 +1,5 @@
 server:
+  host-name: advert
   port: 26050
   
 eureka:

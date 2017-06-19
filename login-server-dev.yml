@@ -1,4 +1,5 @@
 server:
+  host-name: login
   port: 14010
   
 eureka:

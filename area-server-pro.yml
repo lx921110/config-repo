@@ -1,4 +1,5 @@
 server:
+  host-name: area
   port: 5010
   
 eureka:

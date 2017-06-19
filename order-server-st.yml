@@ -1,4 +1,5 @@
 server:
+  host-name: order
   port: 26040
   
 eureka:

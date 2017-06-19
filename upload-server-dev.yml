@@ -1,4 +1,5 @@
 server:
+  host-name: upload
   port: 15020
   
 eureka:

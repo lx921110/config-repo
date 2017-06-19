@@ -1,4 +1,5 @@
 server:
+  host-name: auth
   port: 14000
   
 eureka:

@@ -1,4 +1,5 @@
 server:
+  host-name: mac
   port: 26000
   
 eureka:

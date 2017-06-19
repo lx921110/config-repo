@@ -1,4 +1,5 @@
 server:
+  host-name: zuul
   port: 8765
   
 eureka:

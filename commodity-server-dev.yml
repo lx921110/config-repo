@@ -1,4 +1,5 @@
 server:
+  host-name: commodity
   port: 16010
   
 eureka:
