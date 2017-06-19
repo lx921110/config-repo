@@ -6,7 +6,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
-      
+
 info:
   component: Zuul Server
 endpoints:

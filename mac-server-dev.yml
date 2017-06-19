@@ -1,12 +1,12 @@
 server:
-  host-name: mac
   port: 16000
   
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
-      
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
   address: 192.168.1.10:18765
   api-url: /api/mac-server/

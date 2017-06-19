@@ -1,5 +1,4 @@
 server:
-  host-name: task
   port: 8082
   
 eureka:

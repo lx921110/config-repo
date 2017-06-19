@@ -1,12 +1,11 @@
 server:
-  host-name: task
   port: 3000
   
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
-      
+
 spring:
   jpa:
     show-sql: true
