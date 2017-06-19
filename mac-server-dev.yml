@@ -7,7 +7,7 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
       
 zuul:
-  address: zuul:18765
+  address: 192.168.1.10:18765
   api-url: /api/mac-server/
       
 spring:
@@ -86,11 +86,6 @@ redis:
   key: 
     batchNO: 
       prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
-      
-#Feignclient服务调用url
-feign_client: 
-  url: 
-    shop: http://shop:8082 #shop-server根据id查询代理商的接口
 
 #标签打印机设置
 print: 
