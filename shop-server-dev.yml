@@ -1,5 +1,4 @@
 server:
-  host-name: shop
   port: 16020
   
 eureka:
@@ -7,11 +6,11 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
   instance:
-    status-page-url: http://${server.host-name}:${server.port}/swagger-ui.html
+    status-page-url: http://${zuul.address}${zuul.api-url}/swagger-ui.html
     
 zuul:
   address: 192.168.1.10:18765
-  api-url: /api/shop-server/ 
+  api-url: /api/shop-server/
   
 spring:
   redis:
