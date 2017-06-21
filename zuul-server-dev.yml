@@ -64,7 +64,7 @@ advert-server: # 广告服务
     listOfServers: advert:16050
 shop-server: # 店铺服务
   ribbon:
-    listOfServers: 192.168.1.110:16020
+    listOfServers: shop:16020
 mac-server: # 设备服务
   ribbon:
     listOfServers: 192.168.1.7:16000
@@ -73,7 +73,7 @@ commodity-server: # 商品服务
     listOfServers: 192.168.1.91:16010 
 task-server: # 商品数据同步任务服务
   ribbon:
-    listOfServers: task:3000   
+    listOfServers: task:3000
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
