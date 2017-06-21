@@ -7,9 +7,9 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
-zuul:
-  address: 192.168.1.10:18765
-  api-url: /api/invoicing-server/
+#zuul:
+  #address: 192.168.1.10:18765
+  #api-url: /api/invoicing-server/
   
 spring:
   cloud:
