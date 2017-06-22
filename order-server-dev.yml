@@ -8,8 +8,8 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: 192.168.1.10:18765
-  api-url: /api/order-server/
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/order-server/}
   
 #RabbitMQ配置   生产者output
 spring: 
