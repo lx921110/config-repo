@@ -8,8 +8,8 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: 192.168.1.10:18765
-  api-url: /api/login-server/
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/login-server/}
   
 url:
   auth-server: http://auth:14000   #认证服务
