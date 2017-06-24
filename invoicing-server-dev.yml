@@ -5,7 +5,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
-      
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/shop-server/}
+  
 spring:
   cloud:
     stream:
@@ -95,8 +100,7 @@ spring:
     console:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
-zuul:
-  url: http://zuul:18765/api
+
 storageType: # 入库类型
   array1: 3,4,5,6,7 #调整入库所属子类
   array2: 8,9,10    #新增入库所属子类
@@ -127,7 +131,7 @@ storageType: # 入库类型
     9:  2
     10: 2  
 placingType: # 出库类型
-  array1: 3,4,5,6,7      #调整出库所属子类
+  array1: 4,5,6,7      #调整出库所属子类
   array2: 8,9,10,11,12   #新增出库所属子类
   listProp1:   #父类对应的多个子类数组
     - name: 1  #调整出库
@@ -140,9 +144,9 @@ placingType: # 出库类型
     3:  调拨出库
     4:  采购退货出库
     5:  破损出库
-    6:  换货出库
+    6:  采购换货出库
     7:  其他出库库
-    8:  采购退货出库
+    8:  退货出库
     9:  调拨出库
     10: 销售出库
     11: 店铺出库

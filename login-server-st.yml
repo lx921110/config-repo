@@ -5,6 +5,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:28761/eureka/
-      
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: 192.168.1.10:28765
+  api-url: /api/login-server/
+  
 url:
   auth-server: http://auth:24000   #认证服务

@@ -5,7 +5,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:8761/eureka/
-      
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: 192.168.1.10:8765
+  api-url: /api/invoicing-server/
+  
 spring:
   cloud:
     stream:
@@ -95,8 +100,7 @@ spring:
     console:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
-zuul:
-  url: http://zuul:18765/api
+
 storageType: # 入库类型
   array1: 3,4,5,6,7 #调整入库所属子类
   array2: 8,9,10    #新增入库所属子类

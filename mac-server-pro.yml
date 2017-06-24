@@ -5,7 +5,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:8761/eureka/
-      
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: 192.168.1.10:8765
+  api-url: /api/mac-server/
+  
 spring:
   jpa:
     show-sql: true
@@ -83,11 +88,6 @@ redis:
     batchNO: 
       prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
       
-#Feignclient服务调用url
-feign_client: 
-  url: 
-    shop: http://shop:8082 #shop-server根据id查询代理商的接口
-
 #标签打印机设置
 print: 
   large-number: 1 #每次打印大标签一份

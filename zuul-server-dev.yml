@@ -1,4 +1,5 @@
 server:
+  host-name: zuul
   port: 18765
   
 eureka:
@@ -72,7 +73,7 @@ commodity-server: # 商品服务
     listOfServers: commodity:16010
 task-server: # 商品数据同步任务服务
   ribbon:
-    listOfServers: task:3000   
+    listOfServers: task:3000
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
