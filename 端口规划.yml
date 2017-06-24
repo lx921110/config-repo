@@ -50,6 +50,10 @@ advert-server: # 广告服务
   dev: 16050
   st: 26050
   pro: 6050
+convenient-server: # 便利服务
+  dev: 16060
+  st: 26060
+  pro: 6060
 # 其它服务
 task-server: # 商品数据同步任务服务
   dev: 3000
