@@ -26,11 +26,13 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://mysql:3306/wetool?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://mysql:3306/mac?characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
-    initialize: true
+#    schema: classpath:sql/schema.sql  # 结构文件
+    data: classpath:sql/data.sql  # 数据文件
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
