@@ -7,6 +7,7 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+#    status-page-url: http://192.168.1.110:14010/swagger-ui.html
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/login-server/}
