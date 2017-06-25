@@ -75,21 +75,10 @@ spring:
 #   nodes:    # comma-separated list of host:port pairs
 
 
-#sn码设置
-sn:
-  word_count: 4 #sn中含字母个数
-  number_count: 10 #sn中含数字的个数
-  
 #扫描二维码跳转的基础url
 machine_detail: 
-  base_path: http://mac:8080/machine/sn/
- 
-#redis中存储数据的key前缀或后缀
-redis: 
-  key: 
-    batchNO: 
-      prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
-      
+  base_path: http://mac:16000/mac/sn/
+
 #标签打印机设置
 print: 
   large-number: 1 #每次打印大标签一份
