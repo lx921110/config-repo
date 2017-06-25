@@ -43,8 +43,7 @@ spring:
 								port: 5672
 								username: admin
 								password: admin
-								virtual-host: /
-								rabbit.queue: testExchange.testQueue 
+								virtual-host: / 
 	jpa:
 		show-sql: true
 		hibernate:
