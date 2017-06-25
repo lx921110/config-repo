@@ -64,7 +64,7 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://localhost:3306/convenient?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://mysql:3306/convenient?characterEncoding=utf8&useSSL=true
     
     username: root
     password: 123456
@@ -127,8 +127,8 @@ order:
     redis-key: orderNO #订单自增序列的key值的前缀   完整key如：orderNO20170510(保证每天生成一个新key)
 qm:
   app:
-    key:
-    url:
-    secret:
+    key: 10001337
+    url: http://gw.api.qianmi.com/api
+    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
       
 
