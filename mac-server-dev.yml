@@ -31,7 +31,7 @@ spring:
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
 #    schema: classpath:sql/schema.sql  # 结构文件
-    data: classpath:sql/data.sql  # 数据文件
+#    data: classpath:sql/data.sql  # 数据文件
     initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
