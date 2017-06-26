@@ -47,6 +47,9 @@ zuul:
     task-server:
       path: /** 
       serviceId: task-server
+    convenient-server: 
+      path: /** 
+      serviceId: convenient-server 
 auth-server: # 认证鉴权服务
   ribbon:
     listOfServers: auth:14000 # 可指定一组服务地址，用于负载均衡
@@ -67,13 +70,16 @@ shop-server: # 店铺服务
     listOfServers: shop:16020
 mac-server: # 设备服务
   ribbon:
-    listOfServers: 192.168.1.7:16000
+    listOfServers: mac:16000
 commodity-server: # 商品服务
   ribbon:
     listOfServers: commodity:16010
 task-server: # 商品数据同步任务服务
   ribbon:
     listOfServers: task:3000
+convenient-server: # 便利
+  ribbon:
+    listOfServers: convenient:16060
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
