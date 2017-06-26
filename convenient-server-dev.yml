@@ -9,7 +9,7 @@ eureka:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
   address: ${address:192.168.1.10:18765}
-  api-url: ${api-url:/api/order-server/}
+  api-url: ${api-url:/api/convenient-server/}
 #RabbitMQ配置   生产者output
 spring:
   cloud:
@@ -91,7 +91,23 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
-    
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
+captcha: # 验证码
+  send-interval: 60      #下发间隔时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
+url:
+  auth-server: http://auth:14000   #认证服务     
  
 
 # 自定义业务属性
