@@ -30,7 +30,7 @@ spring:
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
-#    schema: classpath:sql/schema.sql  # 结构文件
+    schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
     initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
@@ -74,21 +74,10 @@ spring:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
 
-
-#sn码设置
-sn:
-  word_count: 4 #sn中含字母个数
-  number_count: 10 #sn中含数字的个数
   
 #扫描二维码跳转的基础url
 machine_detail: 
-  base_path: http://mac:8080/machine/sn/
- 
-#redis中存储数据的key前缀或后缀
-redis: 
-  key: 
-    batchNO: 
-      prefix: batchNO #redis中存batchNO自增序列的key前缀，完整key:batchNO+年月日
+  base_path: http://mac:16000/mac/sn/
 
 #标签打印机设置
 print: 
