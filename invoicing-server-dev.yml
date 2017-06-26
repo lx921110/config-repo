@@ -102,7 +102,8 @@ spring:
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 
 #出入库类型列表
-storageType: # 入库类型
+# 入库类型列表构造
+storageType: 
   listProp:   #父类对应的多个子类节点
     - name: 1 #mapNames中的1
       value: array1 #展示出库类型列表数组(数组中存入mapNams对应出库类型编号)
@@ -115,8 +116,9 @@ storageType: # 入库类型
     5:  商品退换货入库
     6:  盘点调整入库
     7:  其他入库
-    
-placingType: # 出库类型
+ 
+ # 出库类型列表构造   
+placingType: 
   listProp1:   #父类对应的多个子类数组
     - name: 1  #map name 对应数组名
       value: array1 
