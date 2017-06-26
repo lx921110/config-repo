@@ -82,3 +82,5 @@ mac:
     small-number: 2 #每次打印小标签两份
   csv-path: ${csv.path:/data/mac/csv} #csv文件缓存目录
   qrcode-path: ${qrcode.path:/data/mac/qrcode} #二维码图片缓存目录
+  large-html-path: ${large.html.path:/data/mac/large_html} #大标签html模板目录
+  small-html-path: ${small.html.path:/data/mac/small_html} #小标签html模板目录
