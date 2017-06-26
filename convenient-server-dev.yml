@@ -129,5 +129,5 @@ qm:
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion
-server:
+convenient: 
   ip: http://test.wetool.com/server
