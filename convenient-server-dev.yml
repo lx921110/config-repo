@@ -130,4 +130,4 @@ qm:
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion
 convenient: 
-  ip: http://test.wetool.com/server
+  ip: http://test.wetool.com/server  #服务IP 
