@@ -112,3 +112,6 @@ qm:
     key: 10001337
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
+    group: lesion
+server:
+  ip: http://test.wetool.com/server
