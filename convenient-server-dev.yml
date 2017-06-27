@@ -9,7 +9,7 @@ eureka:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
   address: ${address:192.168.1.10:18765}
-  api-url: ${api-url:/api/order-server/}
+  api-url: ${api-url:/api/convenient-server/}
 #RabbitMQ配置   生产者output
 spring:
   cloud:
@@ -66,6 +66,8 @@ spring:
     password: 123456
     
     driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
+    # data: classpath:sql/data.sql  # 数据文件
     initialize: true
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
@@ -91,7 +93,23 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
-    
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
+captcha: # 验证码
+  send-interval: 60      #下发间隔时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
+url:
+  auth-server: http://auth:14000   #认证服务     
  
 
 # 自定义业务属性
@@ -112,3 +130,6 @@ qm:
     key: 10001337
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
+    group: lesion
+convenient: 
+  ip: http://test.wetool.com/server  #服务IP 

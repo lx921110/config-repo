@@ -1,0 +1,151 @@
+server:
+  port: 15000
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+  instance:
+#    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+    status-page-url: http://192.168.1.10:18765/api/basic-server/swagger-ui.html
+zuul:
+  address: 192.168.1.56:18765
+  api-url: /api/basic-server/
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+#
+#Area-Server Configuration
+#
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+   # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # For H2
+    # 存储在内存中 2
+    url: jdbc:h2:mem:area-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    data: classpath:sql/area_data.sql  # 数据文件
+    initialize: true   # 是否初始化
+    # 导入编码
+    sql-script-encoding: UTF-8
+    continue-on-error: false
+
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+  h2:
+    console:
+      enabled: true # 是否允许访问控制台
+      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
+
+
+#
+#SMS-Server Configuration
+#
+
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        sms_output_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+        sms_input_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+      binders:
+        sms_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+
+alidayu: #阿里大于
+  url: http://gw.api.taobao.com/router/rest #
+  appKey: 23888280
+  appSecret: c14ff71982aac7191e9605b83982db01
+  signName: 微兔科技 #阿里大于短信签名
+  templateCodeDefault: SMS_69780153 #默认短信模板
+  templateCodeRegister: SMS_69870254 #注册短信模板
+  templateCodePassword: SMS_69830246 #修改密码短信模板
+
+#
+#Upload-Server Configuration
+#
+
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name
+    host: redis # server host
+    password:   # server password
+    port: 6379    # connection port
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs
+
+#业务属性↴
+aliyun: #aliyun OSS info
+  oss:
+    access_id: LTAIrEv8URC1EymP
+    access_key: OZ8seK2tYRSo3AsvDGak30xgIsZQrq
+    endpoint: http://oss-cn-beijing.aliyuncs.com/
+    bucket_name: wetool
+    file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
+module: # 模块类型
+    types:
+      test: ms.test.dev/  #OSS路径
+      advert: ms.advert.dev/
+      commodity: ms.commodity.dev/
+      shop: ms.shop.dev/

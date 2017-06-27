@@ -9,18 +9,24 @@ login-server: # 登录服务
   dev: 14010
   st: 24010
   pro: 4010
-area-server: # 地区服务
+basic-server: # 基础服务(area+upload+SMS)
   dev: 15010
   st: 25010
   pro: 5010
-upload-server: # 上传服务
-  dev: 15020
-  st: 25020
-  pro: 5020
-sms-server: # 短信服务
-  dev: 15030
-  st: 15030
-  pro: 5030
+
+#area-server: # area区域服务
+#  dev: 15010
+#  st: 25010
+#  pro: 5010
+#upload-server: # upload上传服务
+#  dev: 15010
+#  st: 25010
+#  pro: 5010
+#sms-server: # SMS服务
+#  dev: 15010
+#  st: 25010
+#  pro: 5010
+
 zuul-server: # api路由服务
   dev: 18765
   st: 28765
