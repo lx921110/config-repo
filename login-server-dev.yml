@@ -10,7 +10,7 @@ eureka:
 #    status-page-url: http://192.168.1.110:14010/swagger-ui.html
 zuul:
   address: ${address:login:18765}
-  api-url: ${api-url:/api/login-server/}
+  api-url: ${api-url:/login-server/}
   
 url:
   auth-server: http://auth:14000   #认证服务
