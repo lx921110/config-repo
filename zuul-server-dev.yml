@@ -47,6 +47,9 @@ zuul:
     task-server:
       path: /** 
       serviceId: task-server
+    basic-server:
+      path: /**
+      serviceId: basic-server
 #    convenient-server: 
 #      path: /** 
 #      serviceId: convenient-server 
@@ -77,6 +80,9 @@ commodity-server: # 商品服务
 task-server: # 商品数据同步任务服务
   ribbon:
     listOfServers: task:3000
+basic-server: # 商品数据同步任务服务
+  ribbon:
+    listOfServers: 192.168.1.56:15010
 #convenient-server: # 便利
 #  ribbon:
 #    listOfServers: convenient:16060
