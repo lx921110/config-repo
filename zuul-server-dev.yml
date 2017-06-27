@@ -67,7 +67,7 @@ shop-server: # 店铺服务
     listOfServers: shop:16020
 mac-server: # 设备服务
   ribbon:
-    listOfServers: 192.168.1.7:16000
+    listOfServers: mac:16000
 commodity-server: # 商品服务
   ribbon:
     listOfServers: commodity:16010
