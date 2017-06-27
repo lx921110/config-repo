@@ -1,0 +1,22 @@
+server:
+  port: 2000
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+
+netty:  #Netty服务配置
+  read.idel.timeout: 120
+  write.idel.timeout: 0
+  all.idel.timeout: 0
+
+#线程池设置
+tpool:
+  corePoolSize: 1
+  MaxPoolSize: 1000
+  keepAliveSeconds: 300
+
+#对象池设置
+#kryopool.maxPoolSize=10000
+#dispatcher.sleepTime=100
