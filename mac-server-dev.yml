@@ -74,12 +74,13 @@ spring:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
 
-  
-#扫描二维码跳转的基础url
-machine_detail: 
-  base_path: http://mac:16000/mac/sn/
 
-#标签打印机设置
-print: 
-  large-number: 1 #每次打印大标签一份
-  small-number: 2 #每次打印小标签两份
+mac:
+  info-url: http://mac:16000/mac/sn/  #扫描二维码跳转的基础url
+  print: #标签打印机设置
+    large-number: 1 #每次打印大标签一份
+    small-number: 2 #每次打印小标签两份
+  csv-path: ${csv.path:/data/mac/csv} #csv文件缓存目录
+  qrcode-path: ${qrcode.path:/data/mac/qrcode} #二维码图片缓存目录
+  large-html-path: ${large.html.path:/data/mac/large_html} #大标签html模板目录
+  small-html-path: ${small.html.path:/data/mac/small_html} #小标签html模板目录

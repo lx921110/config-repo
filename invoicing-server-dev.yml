@@ -101,15 +101,14 @@ spring:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 
-storageType: # 入库类型
-  array1: 3,4,5,6,7 #调整入库所属子类
-  array2: 8,9,10    #新增入库所属子类
-  listProp:   #父类对应的多个子类数组
-    - name: 1
-      value: array1
-    - name: 2
-      value: array2
-  mapNames:    #id ： name
+#出入库类型列表
+# 入库类型列表构造
+storageType: 
+  listProp:   #父类对应的多个子类节点
+    - name: 1 #mapNames中的1
+      value: array1 #展示出库类型列表数组(数组中存入mapNams对应出库类型编号)
+  array1: 3,4,5,6,7 
+  mapNames:    #入库类型编号映射入库类型名称
     1:  调整入库
     2:  新增入库
     3:  调拨入库
@@ -117,49 +116,22 @@ storageType: # 入库类型
     5:  商品退换货入库
     6:  盘点调整入库
     7:  其他入库
-    8:  采购入库
-    9:  调拨入库
-    10: 快速入库
-    11: 拆分入库
-  parentProps:    #id ： parentId
-    3:  1
-    4:  1
-    5:  1
-    6:  1
-    7:  1
-    8:  2
-    9:  2
-    10: 2  
-placingType: # 出库类型
-  array1: 4,5,6,7      #调整出库所属子类
-  array2: 8,9,10,11,12   #新增出库所属子类
+ 
+ # 出库类型列表构造   
+placingType: 
   listProp1:   #父类对应的多个子类数组
-    - name: 1  #调整出库
-      value: array1
-    - name: 2  #新增出库
-      value: array2
-  mapNames:    #id ： name
-    1:  调整出库
-    2:  新增出库
-    3:  调拨出库
-    4:  采购退货出库
-    5:  破损出库
-    6:  采购换货出库
-    7:  其他出库库
-    8:  退货出库
-    9:  调拨出库
-    10: 销售出库
-    11: 店铺出库
-    12: 预售出库
-    13: 拆分出库
-  parentProps:    #id ： parentId
-    3:  1
-    4:  1
-    5:  1
-    6:  1
-    7:  1
-    8:  2
-    9:  2
-    10: 2
-    11: 2 
-    12: 2   
+    - name: 1  #map name 对应数组名
+      value: array1 
+  array1: 2,3,4,5  #展示出库类型列表数组(数组中存入mapNams对应出库类型编号)
+  #array2: 8,9,10,11,12 
+  mapNames:    #出库类型编号映射入库类型名称
+    1:  调拨出库
+    2:  采购退货出库
+    3:  采购换货出库
+    4:  破损出库
+    5:  其他出库库
+    6:  退货出库
+    7:  线上销售出库
+    8:  店铺销售出库
+    9:  拆分出库
+  
