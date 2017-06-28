@@ -68,7 +68,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     # data: classpath:sql/data.sql  # 数据文件
-    initialize: false
+    initialize: true
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
@@ -145,5 +145,6 @@ wy:
   flow: 
     url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount
     key: 42f1043712c192bfe2294c4e5d806423
-    merid: 2439   
+    merid: 2439
+    order_url: http://www.juzhishang.com/Api/A2/flowCharge   
    
