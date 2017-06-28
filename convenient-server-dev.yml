@@ -134,7 +134,7 @@ qm:
     group: lesion
 #回调函数设置
 convenient: 
-  ip: http://localhost #${zuul.api-url}  #服务IP 
+  ip: http://1702b5q978.imwork.net/convenient #${zuul.api-url}  #服务IP 
 #51配置
 wy: 
   phone: 
