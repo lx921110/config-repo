@@ -80,9 +80,10 @@ commodity-server: # 商品服务
 task-server: # 商品数据同步任务服务
   ribbon:
     listOfServers: task:3000
-basic-server: # 商品数据同步任务服务
+basic-server: # Basic服务(area+upload+sms)
   ribbon:
-    listOfServers: 192.168.1.56:15000
+#    listOfServers: 192.168.1.56:15000
+    listOfServers: basic:15000
 #convenient-server: # 便利
 #  ribbon:
 #    listOfServers: convenient:16060

@@ -1,5 +1,5 @@
 server:
-  port: 2000
+  port: 7000
   
 eureka:
   client:
@@ -7,8 +7,8 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
 
 netty:  #Netty服务配置
-  read.idel.timeout: 120
-  write.idel.timeout: 0
+  read.idel.timeout: 20
+  write.idel.timeout: 10
   all.idel.timeout: 0
 
 #线程池设置
@@ -20,3 +20,6 @@ tpool:
 #对象池设置
 #kryopool.maxPoolSize=10000
 #dispatcher.sleepTime=100
+
+url:
+  auth-server: http://auth:14000   #认证服务
