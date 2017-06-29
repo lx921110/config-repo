@@ -38,8 +38,8 @@ public class Application implements CommandLineRunner {
         socketChannel.writeAndFlush(loginMsg);
         while (true){
         	try {
-        		if(!socketChannel.isActive()) {
-            		reconnect();
+        		if(!socketChannel.isActive()) {	// 如果通道断开
+            		reconnect();	// 重新连接
             	} else {
             		TimeUnit.SECONDS.sleep(3);
                     VersionReq versionReq=new VersionReq();
@@ -52,6 +52,10 @@ public class Application implements CommandLineRunner {
         }
 	}
 	
+	/**
+	 * 重新连接
+	 * @throws InterruptedException
+	 */
 	private void reconnect() throws InterruptedException {
 		try {
 			ChannelFuture future = bootstrap.connect(host, port).sync();

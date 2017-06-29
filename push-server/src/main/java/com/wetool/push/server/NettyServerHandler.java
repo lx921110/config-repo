@@ -43,7 +43,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			ContextHolder.set(token);
 			System.out.println("客户端[" + loginMsg.getClientId() + "] token=" + token);
 //			LoginService loginService = new LoginService();
-			loginService.login(token);
+			loginService.login();
 			if (true) {
 				// 登录成功,把channel存到服务端的map中
 				NettyChannelMap.add(loginMsg.getClientId(), (SocketChannel) channelHandlerContext.channel());

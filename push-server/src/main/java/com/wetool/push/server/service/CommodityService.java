@@ -13,7 +13,7 @@ public class CommodityService {
 	@Autowired
 	Feign.Builder builder;
 	
-	public void commSync(String token) {
+	public void commSync() {
 		String url = "http://192.168.1.110:16020/";
 		EmployeeFeignClient employeeFeignClient = builder.target(EmployeeFeignClient.class, url);
 		ResponseEntity<Message<?>> resp = employeeFeignClient.listEmployee();
