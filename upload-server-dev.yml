@@ -25,7 +25,7 @@ spring:
       max-wait: -1
   http:
     multipart:
-      max-file-size: 5MB
+      max-file-size: 15MB
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
