@@ -1,0 +1,11 @@
+version = '1.0.0.0609.Alpha'
+
+jar {
+	baseName = 'push-client'
+}
+
+dependencies {
+	compile project(':push-api')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('io.netty:netty-all:5.0.0.Alpha1')
+}
