@@ -1,14 +1,14 @@
 server:
-  port: 16060
+  port: 26060
   
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka:18761/eureka/
+      defaultZone: http://eureka:28761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:18765}
+  address: ${address:192.168.1.10:28765}
   api-url: ${api-url:/api/convenient-server/}
 #RabbitMQ配置   生产者output
 spring:
@@ -99,7 +99,7 @@ security:
       client-id: admin
       client-secret: admin
     resource:
-      token-info-uri: http://auth:14000/oauth/check_token
+      token-info-uri: http://auth:24000/oauth/check_token
 feign:
   oauth2:
     enabled: true
@@ -109,7 +109,7 @@ captcha: # 验证码
   send-interval: 60      #下发间隔时间（单位：秒）
   expire: 900                 # 过期时间（单位：秒）
 url:
-  auth-server: http://auth:14000   #认证服务     
+  auth-server: http://auth:24000   #认证服务     
  
 
 # 自定义业务属性
