@@ -4,14 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
+import com.wetool.push.api.model.Result;
+import com.wetool.push.api.model.S2ClientResp;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.client.VersionReq;
-import com.wetool.push.api.model.server.PingResp;
 import com.wetool.push.api.model.server.ReloginReq;
 import com.wetool.push.server.NettyChannelMap;
 import com.wetool.push.server.service.CommodityService;
 import com.wetool.push.server.service.LoginService;
+import com.wetool.push.server.service.VersionService;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
@@ -22,6 +25,9 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 	
 	@Autowired
 	LoginService loginService;
+	
+	@Autowired
+	VersionService versionService;
 	
 	@Autowired
 	CommodityService commodityService;
@@ -39,16 +45,18 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 
 		if (MsgType.LOGIN_REQ.equals(c2ServerReq.getType())) {
 			LoginReq loginMsg = (LoginReq) c2ServerReq;
-			String token = loginMsg.getToken();
+			String clientId = loginMsg.getClientId();	//客户端ID（设备SN）
+			String token = loginMsg.getToken();	// 令牌
 			ContextHolder.set(token);
+			
 			System.out.println("客户端[" + loginMsg.getClientId() + "] token=" + token);
-//			LoginService loginService = new LoginService();
-			loginService.login();
-			if (true) {
-				// 登录成功,把channel存到服务端的map中
-				NettyChannelMap.add(loginMsg.getClientId(), (SocketChannel) channelHandlerContext.channel());
-				System.out.println("client" + loginMsg.getClientId() + " 登录成功");
+			S2ClientResp resp = loginService.login(clientId);
+			if (Result.SUCCESS == resp.getResult()) {	// 如果登录成功
+				// 当前客户端通道加入通道集合
+				NettyChannelMap.add(clientId, (SocketChannel) channelHandlerContext.channel());
 			}
+			/* 返回响应消息 */
+			NettyChannelMap.get(loginMsg.getClientId()).writeAndFlush(resp);
 		} else {
 			/* 未登录或连接中断，服务器要求客户端重新登录 */
 			if (NettyChannelMap.get(c2ServerReq.getClientId()) == null) {
@@ -56,20 +64,18 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 				channelHandlerContext.channel().writeAndFlush(reloginReq);
 			}
 		}
-
+		
 		switch (c2ServerReq.getType()) {
 		case PING_REQ: {
 			PingReq pingReq = (PingReq) c2ServerReq;
-			PingResp pingResp = new PingResp();
-			NettyChannelMap.get(pingReq.getClientId()).writeAndFlush(pingResp);
+			S2ClientResp s2ClientResp = new S2ClientResp(MsgType.PING_RESP, Result.SUCCESS);
+			NettyChannelMap.get(pingReq.getClientId()).writeAndFlush(s2ClientResp);
 		}
 			break;
 		case VERSION_REQ: {	// 版本同步请求
 			VersionReq versionReq = (VersionReq) c2ServerReq;
-			String token = versionReq.getToken();
-			if (true) { // 令牌验证
-				System.out.println("客户端[" + versionReq.getClientId() + "，商家端版本：" + versionReq.getShopVersion());
-			}
+			S2ClientResp s2ClientResp = versionService.save(versionReq);
+			NettyChannelMap.get(versionReq.getClientId()).writeAndFlush(s2ClientResp);
 		}
 			break;
 		default:

@@ -17,9 +17,15 @@ public enum  MsgType {
     VERSION_REQ	,
     
     /** ============消息类型（服务端 -> 客户端） */
+	/** 登录响应 */
+    LOGIN_RESP,
+    
     /** 重新登录请求 */
 	RELOGIN_REQ,
 	
 	 /** ping响应 */
-    PING_RESP
+	PING_RESP,
+    
+    /** 版本同步响应 */
+    VERSION_RESP
 }

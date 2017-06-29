@@ -7,8 +7,8 @@ import feign.Param;
 import feign.RequestLine;
 
 @FeignClient("auth-server")
-public interface AuthFeignClient {
+public interface LoginFeignClient {
 	
 	@RequestLine("GET " + "/oauth/check_token?token={token}")
-	ResponseEntity<Map> checkToken(@Param("token") String token);
+	ResponseEntity<Map<String, String>> checkToken(@Param("token") String token);
 }
