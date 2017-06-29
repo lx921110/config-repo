@@ -131,7 +131,8 @@ qm:
     key: 10001337
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
-    group: lesion
+    group: lesion 
+    token: 824ee3a2ccf94b698e6302fc533839c1 
 #回调函数设置
 convenient: 
   ip: http://1702b5q978.imwork.net/convenient #${zuul.api-url}  #服务IP 
@@ -147,4 +148,8 @@ wy:
     key: 42f1043712c192bfe2294c4e5d806423
     merid: 2439
     order_url: http://www.juzhishang.com/Api/A2/flowCharge   
+balance:
+  sms: 
+    phone: 13510491208 #余额预警电话号码
+    money: 500 #余额预警金额
    
