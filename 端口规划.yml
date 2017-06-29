@@ -19,13 +19,13 @@ basic-server: # 基础服务(area+upload+SMS)
 #  st: 25010
 #  pro: 5010
 #upload-server: # upload上传服务
-#  dev: 15010
-#  st: 25010
-#  pro: 5010
+#  dev: 15020
+#  st: 25020
+#  pro: 5020
 #sms-server: # SMS服务
-#  dev: 15010
-#  st: 25010
-#  pro: 5010
+#  dev: 15030
+#  st: 25030
+#  pro: 5030
 
 zuul-server: # api路由服务
   dev: 18765

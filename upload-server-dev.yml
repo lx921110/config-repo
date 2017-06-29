@@ -23,6 +23,9 @@ spring:
       min-idle: 0
       max-active: 1000
       max-wait: -1
+  http:
+    multipart:
+      max-file-size: 5MB
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
