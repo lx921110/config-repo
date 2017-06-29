@@ -1,8 +1,17 @@
+apply plugin: 'java'
+
 jar {
 	baseName = 'push-api'
 	version = '1.0-SNAPSHOT'
 }
 
+repositories {
+	maven {url "http://123.56.78.149:83/content/groups/public/"}
+	jcenter()
+	mavenCentral()
+}
+
 dependencies {
-	
+	compile('org.projectlombok:lombok:1.16.6')
+	testCompile 'junit:junit:4.8.2'
 }

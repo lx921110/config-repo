@@ -1,6 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.4.RELEASE'
+	}
+	repositories {
+		maven {url "http://123.56.78.149:83/content/groups/public/"}
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath('se.transmode.gradle:gradle-docker:1.2')
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'docker'
+
 jar {
 	baseName = 'push-server'
 	version = '1.0-SNAPSHOT'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR5"
+	}
+}
+
+repositories {
+	maven {url "http://123.56.78.149:83/content/groups/public/"}
+	jcenter()
+	mavenCentral()
 }
 
 dependencies {
@@ -13,3 +45,19 @@ dependencies {
 	compile ('io.jmnarloch:feign-oauth2-spring-cloud-starter:1.0.0')
 	compile('io.netty:netty-all:5.0.0.Alpha1')
 }
+
+task push(type: Docker, dependsOn: build) {
+	push = true
+ 	applicationName = jar.baseName
+ 	tagVersion = version
+ 	dockerfile = file('src/main/docker/Dockerfile')
+ 	doFirst {
+ 		copy {
+			 from jar
+			 from 'src/main/docker/start'
+			 into stageDir
+		}
+ 	}
+}
+	
+group = '192.168.1.10:5000'
