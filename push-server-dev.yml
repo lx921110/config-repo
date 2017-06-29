@@ -25,3 +25,4 @@ tpool:
 url:
   auth-server: http://auth:14000   #认证服务
   mac-server: http://mac:16000   #设备服务
+  commodity-server: http://commodity:16020   #商品服务
