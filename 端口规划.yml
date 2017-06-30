@@ -60,6 +60,10 @@ convenient-server: # 便利服务
   dev: 16060
   st: 26060
   pro: 6060
+member-server: # 会员服务
+  dev: 16070
+  st: 26070
+  pro: 6070
 # 其它服务
 task-server: # 商品数据同步任务服务
   dev: 3000
