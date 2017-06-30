@@ -84,7 +84,7 @@ basic-server: # Basic服务(area+upload+sms)
   ribbon:
     listOfServers: basic:15000
 #    listOfServers: 192.168.1.56:15000
-convenient-server: # 便利
+convenient: # 便利
   ribbon:
     listOfServers: convenient:16060
 ribbon:
