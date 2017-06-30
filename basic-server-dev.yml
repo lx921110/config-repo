@@ -133,6 +133,9 @@ alidayu: #阿里大于
       min-idle: 0
       max-active: 1000
       max-wait: -1
+  http:
+    multipart:
+      max-file-size: 15MB
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs

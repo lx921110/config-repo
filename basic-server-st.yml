@@ -68,7 +68,6 @@ spring:
 #
 # SMS-Server Configuration
 #
-spring:
   cloud:
     stream:
       instanceIndex: 0
@@ -115,7 +114,7 @@ alidayu: #阿里大于
 #
 
 # REDIS (RedisProperties)
-spring:
+
   redis:
     database: 0 # database name
     host: redis # server host
@@ -126,6 +125,9 @@ spring:
       min-idle: 0
       max-active: 1000
       max-wait: -1
+  http:
+    multipart:
+      max-file-size: 15MB
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
