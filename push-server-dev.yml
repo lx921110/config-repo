@@ -8,7 +8,7 @@ eureka:
       
 logging:
   level:
-#    feign: DEBUG
+    feign: DEBUG
     com.wetool.push.server.service.LoginService: DEBUG
 
 netty:  #Netty服务配置
