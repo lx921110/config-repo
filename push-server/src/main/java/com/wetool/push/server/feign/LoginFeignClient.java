@@ -10,5 +10,5 @@ import feign.RequestLine;
 public interface LoginFeignClient {
 	
 	@RequestLine("GET " + "/oauth/check_token?token={token}")
-	ResponseEntity<Map<String, String>> checkToken(@Param("token") String token);
+	ResponseEntity<Map<String, Object>> checkToken(@Param("token") String token);
 }

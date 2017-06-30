@@ -29,11 +29,23 @@ public class VersionService {
 			MacFeignClient macFeignClient = builder.target(MacFeignClient.class, url);
 			MacVersion macVersion = new MacVersion();
 			BeanUtils.copyProperties(req, macVersion);	// 属性拷贝
-			ResponseEntity<Message<?>> response = macFeignClient.save(clientId, macVersion);
+			macVersion.setSn(clientId);
+			macVersion.setAdvertVersion("1");
+			macVersion.setCashierVersion("1.1");
+			macVersion.setFirmwareVersion("1.2");
+			macVersion.setPosVersion("1.3");
+			macVersion.setShopVersion("1.4");
+			ResponseEntity<Message<?>> response = macFeignClient.save(macVersion);
 			Message<?> message = response.getBody();
 			switch (message.getCode()) {
 			case 0: // 成功状态
 				System.out.println("客户端【 " + clientId + "】版本同步成功! ");
+				return new S2ClientResp(MsgType.VERSION_RESP, Result.SUCCESS);
+			case 3: // 未找到设备
+				System.out.println("客户端【 " + clientId + "】版本同步失败，未找到设备! ");
+				return new S2ClientResp(MsgType.VERSION_RESP, Result.SUCCESS);
+			case 4: // 请求参数异常
+				System.out.println("客户端【 " + clientId + "】版本同步失败，请求参数异常! ");
 				return new S2ClientResp(MsgType.VERSION_RESP, Result.SUCCESS);
 			default:	// 其它状态码全部判定为异常
 				throw new Exception();

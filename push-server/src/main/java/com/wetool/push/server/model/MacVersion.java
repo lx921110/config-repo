@@ -1,9 +1,16 @@
 package com.wetool.push.server.model;
 
-import lombok.Data;
+import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class MacVersion {
+@Setter
+@Getter
+public class MacVersion implements Serializable {
+	private static final long serialVersionUID = 6381840232661167808L;
+
+	/** 设备编号 */
+	private String sn;
 	
 	/** 商家端版本号 */
 	private String shopVersion;

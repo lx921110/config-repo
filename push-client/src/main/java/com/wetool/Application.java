@@ -31,7 +31,7 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		Constants.setClientId("001");
+		Constants.setClientId("17063000010001");
 		Constants.setToken("8611c2b6-7e11-460b-bc88-43f5d401e841");
 		
         LoginReq loginMsg=new LoginReq();

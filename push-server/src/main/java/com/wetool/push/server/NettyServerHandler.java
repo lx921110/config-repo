@@ -17,10 +17,12 @@ import com.wetool.push.server.service.VersionService;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.util.ReferenceCountUtil;
 
 @Component
+@Sharable
 public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq> {
 	
 	@Autowired

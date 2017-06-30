@@ -5,6 +5,7 @@ import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.cloud.netflix.feign.support.ResponseEntityDecoder;
 import org.springframework.cloud.netflix.feign.support.SpringDecoder;
+import org.springframework.cloud.netflix.feign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -13,6 +14,7 @@ import feign.Feign;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import feign.codec.Decoder;
+import feign.codec.Encoder;
 
 @Configuration
 public class FeignConfig {
@@ -38,13 +40,21 @@ public class FeignConfig {
 	}
 	
 	@Bean
+	public Encoder springEncoder() {
+		return new SpringEncoder(messageConverters());
+	}
+	
+	@Bean
 	public Decoder feignDecoder() {
 		return new ResponseEntityDecoder(new SpringDecoder(messageConverters()));
 	}
 	
+	
+	
 	@Bean
 	public Feign.Builder feignBuilder() {
 		return Feign.builder()
+				.encoder(springEncoder())
 				.decoder(feignDecoder())
 				.requestInterceptor(requestTokenBearerInterceptor());
 	}

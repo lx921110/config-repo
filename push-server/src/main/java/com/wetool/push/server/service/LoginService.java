@@ -25,9 +25,9 @@ public class LoginService {
 	public S2ClientResp login(String clientId) {
 		try {
 			LoginFeignClient authFeignClient = builder.target(LoginFeignClient.class, url);
-			ResponseEntity<Map<String, String>> response = authFeignClient.checkToken(ContextHolder.get());
-			Map<String, String> body = response.getBody();
-			String userName = body.get("user_name");
+			ResponseEntity<Map<String, Object>> response = authFeignClient.checkToken(ContextHolder.get());
+			Map<String, Object> body = response.getBody();
+			String userName = String.valueOf(body.get("user_name"));
 			if(!StringUtils.isEmpty(userName)) {
 				System.out.println("客户端【 " + clientId + "】登录成功! ");
 				return new S2ClientResp(MsgType.LOGIN_RESP, Result.SUCCESS);
