@@ -43,7 +43,11 @@ public class Application implements CommandLineRunner {
             	} else {
             		TimeUnit.SECONDS.sleep(3);
                     VersionReq versionReq=new VersionReq();
-                    versionReq.setShopVersion("v0.0.1");
+                    versionReq.setAdvertVersion("v1.0.0");
+        			versionReq.setCashierVersion("v1.0.0");
+        			versionReq.setFirmwareVersion("v1.0.0");
+        			versionReq.setPosVersion("v1.0.0");
+        			versionReq.setShopVersion("v1.0.0");
                     socketChannel.writeAndFlush(versionReq);
             	}
 			}catch (Exception e) {

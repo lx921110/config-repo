@@ -30,11 +30,6 @@ public class VersionService {
 			MacVersion macVersion = new MacVersion();
 			BeanUtils.copyProperties(req, macVersion);	// 属性拷贝
 			macVersion.setSn(clientId);
-			macVersion.setAdvertVersion("1");
-			macVersion.setCashierVersion("1.1");
-			macVersion.setFirmwareVersion("1.2");
-			macVersion.setPosVersion("1.3");
-			macVersion.setShopVersion("1.4");
 			ResponseEntity<Message<?>> response = macFeignClient.save(macVersion);
 			Message<?> message = response.getBody();
 			switch (message.getCode()) {
