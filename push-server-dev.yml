@@ -9,7 +9,6 @@ eureka:
 logging:
   level:
     feign: DEBUG
-    com.wetool.push.server.service.LoginService: DEBUG
 
 netty:  #Netty服务配置
   port: 3333
