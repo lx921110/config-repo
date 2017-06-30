@@ -10,7 +10,11 @@ eureka:
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/shop-server/}
-  
+        
+logging:
+  level:
+    feign: DEBUG
+    
 spring:
   redis:
     database: 0 # database name  
