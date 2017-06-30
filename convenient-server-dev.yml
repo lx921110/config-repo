@@ -61,7 +61,7 @@ spring:
 # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://mysql:3306/convenient?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://mysql:3306/convenient?characterEncoding=utf8
     username: root
     password: 123456
     
