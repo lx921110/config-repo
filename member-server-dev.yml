@@ -10,12 +10,47 @@ eureka:
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/mac-server/}
+    
       
-spring:
+#RabbitMQ配置   生产者output
+spring: 
+  cloud: 
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings: 
+        member_point_input_channel: #会员积分消费通道
+          destination: member-point
+          group: point
+          binder: order_binder
+        member_balance_input_channel: #会员余额消费通道
+          destination: member-balance
+          group: balance
+          binder: order_binder
+      binders:  
+        order_binder: 
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: admin
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update 
+      ddl-auto: update
+      
+      
+      
     
   # 配置数据源
   datasource:
