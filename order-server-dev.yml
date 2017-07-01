@@ -34,9 +34,13 @@ spring:
           destination: topic-invoicing
           group: invoicing
           binder: order_binder
-        user_output_channel: #会员积分、余额生产通道
-          destination: topic-invoicingssss
-          group: invoicingssssssssss
+        member_point_output_channel: #会员积分生产通道
+          destination: member-point
+          group: point
+          binder: order_binder
+        member_balance_output_channel: #会员余额生产通道
+          destination: member-balance
+          group: balance
           binder: order_binder
       binders:  
         order_binder: 
