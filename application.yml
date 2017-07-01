@@ -19,5 +19,3 @@ spring:
     port: 5672
     username: admin
     password: admin
-encrypt:
-  key: Wt1472583695
