@@ -5,6 +5,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
+      
+logging:
+  level:
+    feign: DEBUG
 
 netty:  #Netty服务配置
   port: 3333
