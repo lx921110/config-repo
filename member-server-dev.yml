@@ -112,7 +112,13 @@ feign:
     enabled: true
   hystrix:
     enabled: false
-
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
 captcha: #注册会员短信验证码
   send-interval: 60 #下发间隔时间（单位：秒）
   expire: 600 #过期时间（单位：秒）
