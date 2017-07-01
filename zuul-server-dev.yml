@@ -44,6 +44,9 @@ zuul:
     commodity-server:
       path: /** 
       serviceId: commodity-server
+    invoicing-server:
+      path: /**
+      serviceId: invoicing-server
     task-server:
       path: /** 
       serviceId: task-server
@@ -77,6 +80,9 @@ mac-server: # 设备服务
 commodity-server: # 商品服务
   ribbon:
     listOfServers: commodity:16010
+invoicing-server: # 进销存服务
+  ribbon:
+    listOfServers: invoicing:16030
 task-server: # 商品数据同步任务服务
   ribbon:
     listOfServers: task:3000
