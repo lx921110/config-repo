@@ -1,7 +1,5 @@
 package com.wetool.push.server;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.Result;
@@ -10,16 +8,16 @@ import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.client.VersionReq;
 import com.wetool.push.api.model.server.ReloginReq;
-import com.wetool.push.server.NettyChannelMap;
 import com.wetool.push.server.service.CommodityService;
 import com.wetool.push.server.service.LoginService;
 import com.wetool.push.server.service.VersionService;
-
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.util.ReferenceCountUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Component
 @Sharable
@@ -85,4 +83,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 		}
 		ReferenceCountUtil.release(c2ServerReq);
 	}
+
+
+
 }

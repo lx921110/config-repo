@@ -31,23 +31,13 @@ public class FeignConfig {
 	}
 	
 	public ObjectFactory<HttpMessageConverters> messageConverters() {
-		return new ObjectFactory<HttpMessageConverters>() {
-			@Override
-			public HttpMessageConverters getObject() throws BeansException {
-				return new HttpMessageConverters();
-			}
-		};
+		return () -> new HttpMessageConverters();
 	}
 
 	@Primary
 	@Bean
 	public RequestInterceptor requestTokenBearerInterceptor() {
-	    return new RequestInterceptor() {
-	        @Override
-	        public void apply(RequestTemplate requestTemplate) {
-	        	requestTemplate.header("Authorization", "Bearer " + ContextHolder.get());
-	        }
-	    };
+	    return requestTemplate -> requestTemplate.header("Authorization", "Bearer " + ContextHolder.get());
 	}
 	
 	@Bean

@@ -22,6 +22,11 @@ public enum  MsgType {
     
     /** 重新登录请求 */
 	RELOGIN_REQ,
+
+    /**
+     * 推送服务
+     */
+    PUSH_REQ,
 	
 	 /** ping响应 */
 	PING_RESP,
