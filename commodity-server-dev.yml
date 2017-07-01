@@ -22,7 +22,7 @@ spring:
     # For Mysql
     url: jdbc:mysql://mysql:3306/commodity?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: '{cipher}AIBwTz5MLHLMjbPRcyRwHi0YeR89ow+VvHXnWLH5FOuaC0GlQNcO7l+5TvTgQMzIjgO4OprxN0+mpnSLBfOK8P7HdGQxEFoC3eytRZ/ZR358FGdsbohvdaeTjNKLcc3M8tR5K23iPQ4wDGjllqFVlTwPguTbsADJbUUSO1Ba3aggnVTTtfMnN1YmWket9H5os6J0BKDWZBaHmJGRKZb0uKj4'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
