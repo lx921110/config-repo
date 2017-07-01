@@ -30,3 +30,32 @@ url:
   auth-server: http://auth:14000   #认证服务
   mac-server: http://mac:16000   #设备服务
   commodity-server: http://commodity:16020   #商品服务
+
+
+spring:
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        push_input_channel:
+          destination: topic-push
+          group: push
+          binder: push_binder
+      binders:
+        push_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+    virtual-host: /
