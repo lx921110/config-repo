@@ -109,11 +109,11 @@ spring:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
 
-feign:
-  oauth2:
-    enabled: true
-  hystrix:
-    enabled: false
+#feign:
+#  oauth2:
+#    enabled: true
+#  hystrix:
+#    enabled: false
 
 captcha: #注册会员短信验证码
   send-interval: 60 #下发间隔时间（单位：秒）
