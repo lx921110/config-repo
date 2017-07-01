@@ -13,7 +13,7 @@ zuul:
     
       
 #RabbitMQ配置   生产者output
-spring: 
+
 #  cloud: 
 #    stream:
 #      instanceIndex: 0
@@ -44,6 +44,7 @@ spring:
 #    username: admin
 #    password: admin
 #    virtual-host: /
+spring: 
   jpa:
     show-sql: true
     hibernate:
