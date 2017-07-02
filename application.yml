@@ -19,3 +19,5 @@ spring:
     port: 5672
     username: admin
     password: admin
+  zipkin:
+    base-url: http://zipkin:9411
