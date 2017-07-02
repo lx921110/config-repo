@@ -106,7 +106,7 @@ hystrix:
           enabled: false
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     org.springframework.web: INFO
 security:
   oauth2:
