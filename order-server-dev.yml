@@ -53,12 +53,6 @@ spring:
                 username: admin
                 password: admin
                 virtual-host: /
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: /
   jpa:
     show-sql: true
     hibernate:

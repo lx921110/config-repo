@@ -19,5 +19,6 @@ spring:
     port: 5672
     username: admin
     password: admin
-  zipkin:
-    base-url: http://zipkin:9411
+  sleuth:
+    scheduled:
+      skipPattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask #跳过采集内容
