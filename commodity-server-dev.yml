@@ -70,13 +70,13 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 127.0.0.1
+                host: rabbitmq
                 port: 5672
                 username: admin
                 password: admin
                 virtual-host: /
   rabbitmq:
-    host: 192.168.1.91
+    host: rabbitmq
     port: 5672
     username: admin
     password: admin
