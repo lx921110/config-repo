@@ -19,3 +19,6 @@ spring:
     port: 5672
     username: admin
     password: admin
+  sleuth:
+    scheduled:
+      skipPattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask
