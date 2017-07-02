@@ -21,4 +21,4 @@ spring:
     password: admin
   sleuth:
     scheduled:
-      skipPattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask
+      skipPattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask #跳过采集内容
