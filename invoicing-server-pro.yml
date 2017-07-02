@@ -4,12 +4,12 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka:8761/eureka/
+      defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: 192.168.1.10:8765
-  api-url: /api/invoicing-server/
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/invoicing-server/}
   
 spring:
   cloud:
@@ -36,12 +36,7 @@ spring:
                 username: admin
                 password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
                 virtual-host: /
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: admin
-    password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
-    virtual-host: /
+
   jpa:
     show-sql: true
     hibernate:
@@ -135,3 +130,4 @@ placingType:
     7:  线上销售出库
     8:  店铺销售出库
     9:  拆分出库
+  

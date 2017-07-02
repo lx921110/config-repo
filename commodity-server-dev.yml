@@ -73,14 +73,8 @@ spring:
                 host: rabbitmq
                 port: 5672
                 username: admin
-                password: admin
+                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
                 virtual-host: /
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: admin
-    password: admin
-    virtual-host: /
 security:
   oauth2:
     client:
