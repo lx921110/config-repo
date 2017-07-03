@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 jar {
 	baseName = 'push-api'
-	version = '1.0-SNAPSHOT'
+	version = '1.0'
 }
 
 repositories {
@@ -14,4 +14,9 @@ repositories {
 dependencies {
 	compile('org.projectlombok:lombok:1.16.6')
 	testCompile 'junit:junit:4.8.2'
+}
+
+task copy(type: Copy, dependsOn: build) {
+	from 'build/libs/push-api-1.0.jar'
+  	into '../../'
 }
