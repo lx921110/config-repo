@@ -20,6 +20,10 @@ spring:
           destination: payment-offline
           group: payment
           binder: test_binder
+        payment_offline_out_channel: #线下退货退款生产通道
+          destination: refund-offline
+          group: refund
+          binder: order_binder
         payment_online_output_channel: #线上支付生产通道
           destination: payment-online
           group: payment
