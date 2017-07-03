@@ -1,13 +1,9 @@
 package com.wetool.push.api.model;
 
-/**
- * 常量类
- * @author zhangjie
- */
 public class Constants {
 	
-    private static String clientId;		// 客户端ID
-    private static String token;		// 令牌
+    private static String clientId;
+    private static String token;
     
     public static String getClientId() {
         return clientId;
