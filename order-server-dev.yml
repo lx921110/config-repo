@@ -26,7 +26,7 @@ spring:
           destination: payment-offline
           group: payment
           binder: order_binder
-        payment_offline_input_channel: #线下退货退款消费通道
+        refund_offline_input_channel: #线下退货退款消费通道
           destination: refund-offline
           group: refund
           binder: order_binder
