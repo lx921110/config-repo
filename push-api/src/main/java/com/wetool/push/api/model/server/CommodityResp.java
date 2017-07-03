@@ -16,8 +16,7 @@ public class CommodityResp extends S2ClientResp {
 		super(type, result);
 	}
 	
-	int number;	//当前页
-	int totalPages;	//总页数
+	private Boolean flag; //检索是否还有内容
 
-	public List<Commodity> commoditys;
+	public List<Commodity> commoditys; //商品信息集合
 }

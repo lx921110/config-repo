@@ -1,5 +1,7 @@
 package com.wetool.push.api.model.client;
 
+import java.util.Date;
+
 import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
 
@@ -16,22 +18,13 @@ import lombok.Setter;
 public class CommodityReq extends C2ServerReq {
 	private static final long serialVersionUID = -4708193591146035124L;
 
-	/** 商家端版本号 */
-	private String shopVersion;
+	private String updateDate;//商品更新时间作为条件查询
 	
-	/** 收银端版本号 */
-	private String cashierVersion;
+	private Long merchantId; //商家ID
 	
-	/** 广告端版本号 */
-	private String advertVersion;
-	
-	/** pos service版本号 */
-	private String posVersion;
-	
-	/** 固件版本号 */
-	private String firmwareVersion;
+	private Integer size ; // 查询条数
 	
 	public CommodityReq() {
-        super(MsgType.VERSION_REQ);
+        super(MsgType.COMMODITY_REQ);
     }
 }

@@ -4,6 +4,7 @@ import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.Result;
 import com.wetool.push.api.model.S2ClientResp;
+import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.client.VersionReq;
@@ -78,6 +79,12 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			NettyChannelMap.get(versionReq.getClientId()).writeAndFlush(s2ClientResp);
 		}
 			break;
+		case COMMODITY_REQ :{// 商品信息同步请求 
+			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
+			S2ClientResp s2ClientResp = commodityService.commSync(commodityReq);
+			NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
+		}
+		  break;	
 		default:
 			break;
 		}

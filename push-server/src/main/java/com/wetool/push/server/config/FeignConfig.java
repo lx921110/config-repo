@@ -1,6 +1,5 @@
 package com.wetool.push.server.config;
 
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.cloud.netflix.feign.support.ResponseEntityDecoder;
@@ -13,7 +12,6 @@ import com.wetool.push.server.ContextHolder;
 import feign.Feign;
 import feign.Logger;
 import feign.RequestInterceptor;
-import feign.RequestTemplate;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 
@@ -50,6 +48,7 @@ public class FeignConfig {
 		return new ResponseEntityDecoder(new SpringDecoder(messageConverters()));
 	}
 	
+	@Primary
 	@Bean
 	public Feign.Builder feignBuilder() {
 		return Feign.builder()
