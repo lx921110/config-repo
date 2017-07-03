@@ -1,9 +1,12 @@
 package com.wetool.push.api.model;
 
+import lombok.Getter;
+
 /**
  * 响应结果枚举
  * @author zhangjie
  */
+@Getter
 public enum Result {
 	SUCCESS(0, "操作成功！"),
 	ERROR(1, "操作失败！");
