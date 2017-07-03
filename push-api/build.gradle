@@ -16,7 +16,11 @@ dependencies {
 	testCompile 'junit:junit:4.8.2'
 }
 
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
 task copy(type: Copy, dependsOn: build) {
 	from 'build/libs/push-api-1.0.jar'
-  	into '../../'
+  	into '../../pos-service-2.0/app/libs'
 }
