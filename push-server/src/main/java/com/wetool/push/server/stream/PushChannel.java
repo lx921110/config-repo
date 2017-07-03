@@ -8,12 +8,13 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface PushChannel {
 
-    String INPUT_CHANNEL_NAME="push_input_channel";
+    String INPUT_CHANNEL_NAME = "push_input_channel";
+    String OUTPUT_CHANNEL_NAME = "push_output_channel";
 
-    @Input("push_input_channel")
+    @Input(PushChannel.INPUT_CHANNEL_NAME)
     SubscribableChannel receiveMessageChannel();
 
 /*
-    @Output("push_output_channel")
+    @Output(PushChannel.OUTPUT_CHANNEL_NAME)
     MessageChannel sendMessageChannel();*/
 }

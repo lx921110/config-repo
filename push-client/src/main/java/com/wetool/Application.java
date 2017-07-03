@@ -32,8 +32,8 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		Constants.setClientId("13500000000");
-		Constants.setToken("ec5cfd78-f9f7-4047-b9e0-ca92f16c8153");
+		Constants.setClientId("17070200010002");
+		Constants.setToken("0ed3c2e6-b904-4259-949b-dac1087eba4b");
 		
         LoginReq loginMsg=new LoginReq();
         socketChannel.writeAndFlush(loginMsg);
@@ -44,7 +44,7 @@ public class Application implements CommandLineRunner {
         		if(!socketChannel.isActive()) {	// 如果通道断开
             		reconnect();	// 重新连接
             	} else {
-            		TimeUnit.SECONDS.sleep(3);
+            		TimeUnit.SECONDS.sleep(30);
             		CommodityReq commodityMsg = new CommodityReq();
             		commodityMsg.setMerchantId(1L);
             		commodityMsg.setSize(20);
