@@ -27,7 +27,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://mysql:3306/auth?characterEncoding=utf8
     username: root
-    password: 
+    password: 123456
     ##'{cipher}AIABsa7pOZsgmOptJDVfDdmcd66820S25vVAP4HA8egXis3cf9q5j+x9AIoFeWTA/pyGaxd36kP+YON8CFth+5DqVurIeOgHbUQv2mQhqy6AdixAgavQCNN46SC6MRuYUMBDXBpAEUx3AdEjjPRKyO4WX1Qkj5+1yARz/YKdC2/bs0SZX1Y0pJZOs1lOeljRzAPQYBugKZwhgPVSMp/AWFyI'
     driverClassName: com.mysql.jdbc.Driver
     initialize: false
