@@ -20,7 +20,7 @@ apply plugin: 'docker'
 
 jar {
 	baseName = 'push-server'
-	version = '1.0-SNAPSHOT'
+	version = '1.0'
 }
 
 dependencyManagement {
