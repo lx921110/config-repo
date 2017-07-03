@@ -115,3 +115,6 @@ security:
       client-secret: admin
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
+  sleuth:
+    schedule:
+      enabled: false
