@@ -1,5 +1,5 @@
 server:
-  port: 26040
+  port: 26070
   
 eureka:
   client:
@@ -9,40 +9,21 @@ eureka:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
   address: 192.168.1.10:28765
-  api-url: /api/order-server/
-  
+  api-url: /api/member-server/
+    
+      
 #RabbitMQ配置   生产者output
 spring: 
   cloud: 
     stream:
       instanceIndex: 0
       instanceCount: 1
-      bindings:
-        order_offline_input_channel: #线下订单消费通道
-          destination: order-offline 
-          group: orderOffline
-          binder: order_binder
-        payment_offline_input_channel: #线下支付消费通道
-          destination: payment-offline
-          group: payment
-          binder: order_binder
-        refund_offline_input_channel: #线下退货退款消费通道
-          destination: refund-offline
-          group: refund
-          binder: order_binder
-        payment_online_input_channel: #网络支付消费通道
-          destination: payment-online
-          group: payment
-          binder: order_binder 
-        invoicing_output_channel: #库存生产通道
-          destination: topic-invoicing
-          group: invoicing
-          binder: order_binder
-        member_point_output_channel: #会员积分生产通道
+      bindings: 
+        member_point_input_channel: #会员积分消费通道
           destination: member-point
           group: point
           binder: order_binder
-        member_balance_output_channel: #会员余额生产通道
+        member_balance_input_channel: #会员余额消费通道
           destination: member-balance
           group: balance
           binder: order_binder
@@ -57,10 +38,11 @@ spring:
                 username: admin
                 password: admin
                 virtual-host: /
+
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update 
+      ddl-auto: update
     
   # 配置数据源
   datasource:
@@ -71,11 +53,13 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://mysql:3306/order?characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://mysql:3306/member?characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
-    initialize: true
+    schema: classpath:sql/schema.sql  # 结构文件
+    data: classpath:sql/data.sql  # 数据文件
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
@@ -101,6 +85,7 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
     
+    
 # REDIS (RedisProperties)
   redis:
     database: 0 # database name  
@@ -114,8 +99,13 @@ spring:
       max-wait: -1
 # sentinel:
 #   master:  # name of Redis server
-#   nodes:    # comma-separated list of host:port pairs    
- 
+#   nodes:    # comma-separated list of host:port pairs
+
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
 security:
   oauth2:
     client:
@@ -123,19 +113,6 @@ security:
       client-secret: admin
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
-
-
-
-# 自定义业务属性
-#订单号规则
-order: 
-  rules: 
-    max-length: 13 #订单号的总长度，当每日订单量超过7位数时，总长度会+1
-#订单超时时间规则
-    accept-time: 10 #商家未接单的订单超时时间，分钟
-    pay-time: 10 #用户付款超时时间，分钟
-    auto-confirm: 24 #超时未收货自动确认时间，小时
-    
-#订单号相关规则
-    prefix-length: 0 #订单号前缀随机数长度    订单号：订单类型 + 前缀随机数 + 时间 + 自增长序列号
-    redis-key: orderNO #订单自增序列的key值的前缀   完整key如：orderNO20170510
+captcha: #注册会员短信验证码
+  send-interval: 60 #下发间隔时间（单位：秒）
+  expire: 600 #过期时间（单位：秒）

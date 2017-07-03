@@ -73,11 +73,13 @@ spring:
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
-
-
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+      
 mac:
-  info-url: http://mac:16000/mac/sn/  #扫描二维码跳转的基础url
-  print: #标签打印机设置
-    large-number: 1 #每次打印大标签一份
-    small-number: 2 #每次打印小标签两份
   csv-path: ${csv.path:/data/mac/csv} #csv文件缓存目录
