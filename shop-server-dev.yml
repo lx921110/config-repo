@@ -12,7 +12,6 @@ zuul:
   api-url: ${api-url:/api/shop-server/}
 
 logging:
-  config: classpath:log4j2.xml
   level:
     root: DEBUG
     feign: DEBUG
