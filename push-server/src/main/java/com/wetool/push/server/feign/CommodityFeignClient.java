@@ -18,7 +18,7 @@ public interface CommodityFeignClient {
 	 * @param size 请求查询条数
 	 * @return
 	 */
-	@RequestLine("GET " + "/commodity/list?updateTime={updateTime}&merchantId={merchantId}&page=0&size={size}&sort=createDate,asc")
+	@RequestLine("GET " + "/commodity/list?updateTime={updateTime}&merchantId={merchantId}&page=0&size={size}&sort=id,asc")
 	ResponseEntity<Message<?>> list(@Param("updateTime") String updateTime,@Param("merchantId") Long merchantId, @Param("size") Integer size);
 	
 }

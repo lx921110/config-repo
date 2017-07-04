@@ -7,8 +7,11 @@ import com.wetool.push.api.model.S2ClientResp;
 import com.wetool.push.api.model.model.Commodity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class CommodityResp extends S2ClientResp {
 	private static final long serialVersionUID = -3828291867249691076L;
 	

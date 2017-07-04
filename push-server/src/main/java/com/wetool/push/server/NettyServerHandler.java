@@ -70,6 +70,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 		case PING_REQ: {
 			PingReq pingReq = (PingReq) c2ServerReq;
 			S2ClientResp s2ClientResp = new S2ClientResp(MsgType.PING_RESP, Result.SUCCESS);
+			System.out.println(pingReq.getClientId());
 			NettyChannelMap.get(pingReq.getClientId()).writeAndFlush(s2ClientResp);
 		}
 			break;
@@ -82,6 +83,9 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 		case COMMODITY_REQ :{// 商品信息同步请求 
 			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
 			S2ClientResp s2ClientResp = commodityService.commSync(commodityReq);
+			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
+			System.out.println(commodityReq.getClientId());
+//			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);
 			NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
 		}
 		  break;	
