@@ -13,6 +13,7 @@ zuul:
         
 logging:
   level:
+    root: DEBUG
     feign: DEBUG
     
 spring:
