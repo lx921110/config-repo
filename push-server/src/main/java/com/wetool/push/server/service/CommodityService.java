@@ -50,11 +50,14 @@ public class CommodityService {
 			CommodityResp commodityResp = null;
 			switch (message.getCode()) {
 			case 0: // 成功
-				commodityResp = new CommodityResp(MsgType.COMMODITY_RESP, Result.SUCCESS);
+				S2ClientResp s2ClientResp = new S2ClientResp(MsgType.COMMODITY_RESP, Result.SUCCESS);
+				//commodityResp = new CommodityResp(MsgType.COMMODITY_RESP, Result.SUCCESS);
+				commodityResp = new CommodityResp();
 				commodityResp.setCommoditys(commoditys);
 				commodityResp.setFlag(flag);
 				System.out.println("返回客户端------->"+commodityResp);
-				return commodityResp;
+				s2ClientResp.setData(commodityResp);
+				return s2ClientResp;
 			case 1:// 操作失败
 				System.out.println("商品信息查询【 " + commodityReq.getSize() + "】条数据失败！ ");
 				return new S2ClientResp(MsgType.COMMODITY_RESP, Result.SUCCESS);

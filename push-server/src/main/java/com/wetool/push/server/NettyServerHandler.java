@@ -86,7 +86,11 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
 			System.out.println(commodityReq.getClientId());
 //			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);
-			NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
+			try{
+				NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		  break;	
 		default:
