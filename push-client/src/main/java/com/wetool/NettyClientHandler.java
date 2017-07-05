@@ -3,7 +3,8 @@ package com.wetool;
 import com.wetool.push.api.model.*;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
-
+import com.wetool.push.api.model.server.CategoryMessage;
+import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.PushMessage;
 import com.wetool.push.api.model.server.push.ImageSyncMessage;
 import io.netty.channel.ChannelHandlerContext;
@@ -60,6 +61,16 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMessage>
                 System.out.println("receive push message from server …");
             }
             break;
+            case CATEGORY_REQ:{
+            	CategoryMessage cm = (CategoryMessage) baseMsg;
+            	System.out.println(cm);
+            }
+            break;
+            case COMMODITY_RESP:{
+            	CommodityResp cm = (CommodityResp) baseMsg;
+            	System.out.println(cm.getFlag());
+            	System.out.println(cm);
+            }
             default:
                 System.out.println("receive " + msgType.name() + " from server …");
                 break;

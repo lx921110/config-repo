@@ -31,6 +31,12 @@ public enum MsgType {
      * Client - > Server
      */
     COMMODITY_REQ,
+    
+    /**
+     * 商品分类信息同步请求
+     * Client - > Server
+     */
+    CATEGORY_REQ,
 
     /** ============消息类型（服务端 -> 客户端） */
     /**
@@ -62,7 +68,10 @@ public enum MsgType {
      * Server - > Client
      */
     COMMODITY_RESP,
-
+    
+    /** 商品分类信息同步响应 */
+    CATEGORY_RESP,
+    
     /**
      * 版本同步响应
      * Server - > Client

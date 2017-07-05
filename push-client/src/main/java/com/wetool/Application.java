@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.wetool.push.api.model.Constants;
+import com.wetool.push.api.model.client.CategoryReq;
 import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.VersionReq;
@@ -32,8 +33,8 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		Constants.setClientId("17070200010002");
-		Constants.setToken("0ed3c2e6-b904-4259-949b-dac1087eba4b");
+		Constants.setClientId("17070200010001");
+		Constants.setToken("f5bbc7e0-bea4-44a3-843b-ce76dba2bdf8");
 		
         LoginReq loginMsg=new LoginReq();
         socketChannel.writeAndFlush(loginMsg);
@@ -49,6 +50,9 @@ public class Application implements CommandLineRunner {
             		commodityMsg.setMerchantId(1L);
             		commodityMsg.setSize(20);
             		commodityMsg.setUpdateDate("2011-10-01");
+            		CategoryReq categoryReq = new CategoryReq();
+            		categoryReq.setMerchantId(1L);
+            		socketChannel.writeAndFlush(categoryReq);
                     VersionReq versionReq=new VersionReq();
                     versionReq.setAdvertVersion("v1.0.0");
         			versionReq.setCashierVersion("v1.0.0");

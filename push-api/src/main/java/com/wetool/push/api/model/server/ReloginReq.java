@@ -17,6 +17,6 @@ public class ReloginReq extends BaseMessage {
 	private static final long serialVersionUID = 8275791167051070676L;
 
 	public ReloginReq() {
-        super(MsgType.LOGIN_REQ);
+        super(MsgType.RELOGIN_REQ);
     }
 }
