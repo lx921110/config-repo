@@ -3,11 +3,15 @@ package com.wetool.push.server.config;
 import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.ContextRefreshedEvent;
+
 import com.wetool.push.server.NettyServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
@@ -21,6 +25,7 @@ import io.netty.handler.codec.serialization.ObjectEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
 @Configuration
+@Sharable
 public class NettyConfig {
 	
 	@Value("${netty.port}")
@@ -35,6 +40,11 @@ public class NettyConfig {
 	@Autowired
 	NettyServerHandler nettyServerHandler;
 	
+    @Bean
+    public ApplicationListener<ContextRefreshedEvent> applicationListener() {
+    	return event -> serverBootstrap();
+    }
+    
 	@Bean
 	public ChannelInitializer<SocketChannel> channelInitializer() {
 		return new ChannelInitializer<SocketChannel>() {
@@ -49,8 +59,7 @@ public class NettyConfig {
 		};
 	}
 	
-	@Bean
-    public ServerBootstrap serverBootstrap() {
+    private void serverBootstrap() {
 		EventLoopGroup boss = new NioEventLoopGroup();
 		EventLoopGroup worker = new NioEventLoopGroup();
 		ServerBootstrap bootstrap = new ServerBootstrap();
@@ -68,6 +77,5 @@ public class NettyConfig {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return bootstrap;
     }
 }

@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.4.RELEASE'
+		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
 		maven {url "http://123.56.78.149:83/content/groups/public/"}
@@ -20,12 +20,12 @@ apply plugin: 'docker'
 
 jar {
 	baseName = 'push-server'
-	version = '1.0-SNAPSHOT'
+	version = '1.0'
 }
 
 dependencyManagement {
 	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR5"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR1"
 	}
 }
 
@@ -37,13 +37,17 @@ repositories {
 
 dependencies {
 	compile project(':push-api')
+	compile ('org.springframework.cloud:spring-cloud-sleuth-stream')
+	compile ('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+	compile('org.springframework.cloud:spring-cloud-stream')
+	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.cloud:spring-cloud-config-client')
 	compile('org.springframework.cloud:spring-cloud-starter-feign')
 	compile('io.github.openfeign:feign-httpclient:9.5.0')
 	compile ('io.jmnarloch:feign-oauth2-spring-cloud-starter:1.0.0')
-	compile('io.netty:netty-all:5.0.0.Alpha1')
+	compile('io.netty:netty-all:5.0.0.Alpha2')
 }
 
 task push(type: Docker, dependsOn: build) {

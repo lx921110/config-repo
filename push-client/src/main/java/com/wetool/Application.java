@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.wetool.push.api.model.Constants;
+import com.wetool.push.api.model.client.CategoryReq;
+import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.VersionReq;
 
@@ -16,7 +18,7 @@ import io.netty.channel.socket.SocketChannel;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 	
-	private final String host = "192.168.1.110"; // 服务地址
+	private final String host = "192.168.1.91"; // 服务地址
 	private final int port = 3333; // 服务端口号
 	
 	@Autowired
@@ -31,20 +33,33 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		Constants.setClientId("001");
-		Constants.setToken("8611c2b6-7e11-460b-bc88-43f5d401e841");
+		Constants.setClientId("17070200010001");
+		Constants.setToken("f5bbc7e0-bea4-44a3-843b-ce76dba2bdf8");
 		
         LoginReq loginMsg=new LoginReq();
         socketChannel.writeAndFlush(loginMsg);
+        
+        
         while (true){
         	try {
         		if(!socketChannel.isActive()) {	// 如果通道断开
             		reconnect();	// 重新连接
             	} else {
-            		TimeUnit.SECONDS.sleep(3);
+            		TimeUnit.SECONDS.sleep(30);
+            		CommodityReq commodityMsg = new CommodityReq();
+            		commodityMsg.setMerchantId(1L);
+            		commodityMsg.setSize(20);
+            		commodityMsg.setUpdateDate("2011-10-01");
+            		CategoryReq categoryReq = new CategoryReq();
+            		categoryReq.setMerchantId(1L);
+            		socketChannel.writeAndFlush(categoryReq);
                     VersionReq versionReq=new VersionReq();
-                    versionReq.setShopVersion("v0.0.1");
-                    socketChannel.writeAndFlush(versionReq);
+                    versionReq.setAdvertVersion("v1.0.0");
+        			versionReq.setCashierVersion("v1.0.0");
+        			versionReq.setFirmwareVersion("v1.0.0");
+        			versionReq.setPosVersion("v1.0.0");
+        			versionReq.setShopVersion("v1.0.0");
+                    socketChannel.writeAndFlush(commodityMsg);
             	}
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -62,7 +77,6 @@ public class Application implements CommandLineRunner {
 			if (future.isSuccess()) {
 				socketChannel = (SocketChannel) future.channel();
 				System.out.println("reconnect server is successful.");
-				
 		        LoginReq loginMsg=new LoginReq();
 		        socketChannel.writeAndFlush(loginMsg);
 			}
