@@ -96,6 +96,18 @@ spring:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+
 #出入库类型列表构造
 type: 
   listProp:   #父类对应的多个子类节点
