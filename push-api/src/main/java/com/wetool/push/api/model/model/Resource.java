@@ -13,8 +13,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Resource {
-	
+public class Resource implements Serializable{
+
+	private static final long serialVersionUID = 5726047074482003508L;
 	/** id（流水号主键） */
 	private Long id;
 

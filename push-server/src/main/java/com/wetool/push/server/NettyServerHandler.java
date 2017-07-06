@@ -8,6 +8,7 @@ import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.client.VersionReq;
+import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.ReloginReq;
 import com.wetool.push.server.service.CommodityService;
 import com.wetool.push.server.service.LoginService;
@@ -82,7 +83,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			break;
 		case COMMODITY_REQ :{// 商品信息同步请求 
 			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
-			S2ClientResp s2ClientResp = commodityService.commSync(commodityReq);
+			CommodityResp s2ClientResp = commodityService.commSync(commodityReq);
 			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
 			System.out.println(commodityReq.getClientId());
 //			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);

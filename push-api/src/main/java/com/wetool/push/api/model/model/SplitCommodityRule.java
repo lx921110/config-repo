@@ -1,9 +1,9 @@
 package com.wetool.push.api.model.model;
 
-import java.io.Serializable;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * 商品拆分规则
@@ -11,11 +11,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SplitCommodityRule {
+public class SplitCommodityRule implements Serializable {
 
-	private Long id;
+    private static final long serialVersionUID = 8839680717041453515L;
+    private Long id;
 
-	private Long commodityId;// 拆分后商品编号
+    private Long commodityId;// 拆分后商品编号
 
-	private Double splitNumber;// 拆分数量
+    private Double splitNumber;// 拆分数量
 }
