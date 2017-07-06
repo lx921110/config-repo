@@ -1,13 +1,13 @@
 package com.wetool.push.api.model.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class Commodity implements Serializable {
-	private static final long serialVersionUID = 7165007362209942970L;
+@Setter
+@Getter
+public class Commodity {
 
 	private Long id;
 

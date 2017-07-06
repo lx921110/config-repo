@@ -2,14 +2,16 @@ package com.wetool.push.api.model.model;
 
 import java.io.Serializable;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 商品拆分规则
  */
 
-@Data
-public class SplitCommodityRule implements Serializable {
-	private static final long serialVersionUID = 8525410992607003727L;
+@Getter
+@Setter
+public class SplitCommodityRule {
 
 	private Long id;
 

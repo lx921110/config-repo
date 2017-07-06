@@ -10,7 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CommodityResp extends BaseMessage {
-    private static final long serialVersionUID = -3828291867249691076L;
 
     private Boolean flag; //检索是否还有内容
 
