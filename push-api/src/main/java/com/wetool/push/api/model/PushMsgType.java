@@ -10,4 +10,8 @@ public enum PushMsgType {
      * 二维码扫码图片同步消息
      */
     QRCODE_IMAGE_SYNC,
+    /**
+     * 支付状态同步
+     */
+    PAYMENT_STATUS_SYNC,
 }

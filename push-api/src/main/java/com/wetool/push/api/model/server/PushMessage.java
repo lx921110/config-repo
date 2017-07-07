@@ -18,9 +18,15 @@ public abstract class PushMessage extends BaseMessage {
     private static final long serialVersionUID = 2781667713166507274L;
     private PushMsgType pushMsgType;
 
-    public PushMessage(PushMsgType pushMsgType) {
+    /**
+     * 设备唯一序列号
+     */
+    private String sn;
+
+    public PushMessage(PushMsgType pushMsgType,String sn) {
         super(MsgType.PUSH_REQ);
         this.pushMsgType = pushMsgType;
+        this.sn = sn;
     }
 
 }
