@@ -45,6 +45,7 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
 	compile('org.springframework.cloud:spring-cloud-config-client')
 	compile('org.springframework.cloud:spring-cloud-starter-feign')
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('io.github.openfeign:feign-httpclient:9.5.0')
 	compile ('io.jmnarloch:feign-oauth2-spring-cloud-starter:1.0.0')
 	compile('io.netty:netty-all:4.1.12.Final')

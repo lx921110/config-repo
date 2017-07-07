@@ -21,6 +21,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.util.ReferenceCountUtil;
+
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -95,7 +98,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			break;
 		case COMMODITY_REQ :{// 商品信息同步请求 
 			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
-			CommodityResp s2ClientResp = commodityService.commSync(commodityReq);
+			S2ClientResp s2ClientResp = commodityService.commSync(commodityReq);
 			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
 			System.out.println(commodityReq.getClientId());
 //			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);

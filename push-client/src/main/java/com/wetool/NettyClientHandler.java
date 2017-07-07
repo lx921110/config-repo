@@ -74,9 +74,11 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMessage>
 	            }
 	            break;
 	            case COMMODITY_RESP:{
-	            	CommodityResp cm = (CommodityResp) baseMsg;
-	            	System.out.println(cm.getFlag());
-	            	System.out.println(cm.getCommoditys().toString());
+	            	S2ClientResp cm = (S2ClientResp) baseMsg;
+	            	System.out.println(cm.getData());
+	            	CommodityResp rs = (CommodityResp) cm.getData();
+	            	rs.getFlag();
+	            	System.out.println(rs.getCommoditys().get(0).getName());
 	            }
 	            default:
 	                System.out.println("receive " + msgType.name() + " from server …");
