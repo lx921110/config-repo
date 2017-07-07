@@ -15,12 +15,16 @@ public class PaymentStatusMessage extends PushMessage {
     private static final long serialVersionUID = -2358907654287814L;
     private String orderNo;
     private String orderType;
-    private String shopId;
+    private long shopId;
     private String status;
     private String statusCode;
-    private String message;
 
-    public PaymentStatusMessage(PushMsgType pushMsgType, String sn) {
-        super(pushMsgType, sn);
+    public PaymentStatusMessage(String sn, String orderNo, String orderType, long shopId, String status, String statusCode) {
+        super(PushMsgType.PAYMENT_STATUS_SYNC, sn);
+        this.orderNo = orderNo;
+        this.orderType = orderType;
+        this.shopId = shopId;
+        this.status = status;
+        this.statusCode = statusCode;
     }
 }
