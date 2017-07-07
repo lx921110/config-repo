@@ -32,7 +32,7 @@ public class CommodityService {
     //@Value("${url.commodity-server}")
     private String url;
 
-    public S2ClientResp commSync(CommodityReq commodityReq) throws Exception {
+    public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
 //        try {
         url = "http://127.0.0.1:16010";
         Boolean flag = true;
@@ -62,11 +62,9 @@ public class CommodityService {
         		commodityReq.getSize() < pages.getMetadata().getTotalElements()) {
             flag = false;
         }
-        S2ClientResp s2ClientResp = new S2ClientResp(MsgType.COMMODITY_RESP, Result.SUCCESS);
-        CommodityResp commodityResp = new CommodityResp();
+        CommodityResp commodityResp = new CommodityResp(MsgType.COMMODITY_RESP);
 		commodityResp.setCommoditys(commoditys);
         commodityResp.setFlag(flag);
-		s2ClientResp.setData(commodityResp);
-        return s2ClientResp;
+        return commodityResp;
     }
 }

@@ -12,7 +12,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CommodityResp implements Serializable {
+public class CommodityResp extends BaseMessage implements Serializable {
+	public CommodityResp(MsgType type) {
+		super(type);
+	}
+
 	private static final long serialVersionUID = 2727427364204442836L;
 
 	private Boolean flag; //检索是否还有内容
