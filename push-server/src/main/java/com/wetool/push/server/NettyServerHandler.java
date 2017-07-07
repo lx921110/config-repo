@@ -4,12 +4,15 @@ import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.Result;
 import com.wetool.push.api.model.S2ClientResp;
+import com.wetool.push.api.model.client.CategoryReq;
 import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.client.VersionReq;
+import com.wetool.push.api.model.server.CategoryResp;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.ReloginReq;
+import com.wetool.push.server.service.CategoryService;
 import com.wetool.push.server.service.CommodityService;
 import com.wetool.push.server.service.LoginService;
 import com.wetool.push.server.service.VersionService;
@@ -34,6 +37,9 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 	@Autowired
 	CommodityService commodityService;
 	
+	@Autowired
+	CategoryService categoryService;
+	
 	/** 通道失效处理 */
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
@@ -42,8 +48,14 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 	}
 
 	/** 消息接收 */
+//	@Override
+//	protected void messageReceived(ChannelHandlerContext channelHandlerContext, C2ServerReq c2ServerReq) throws Exception {
+//
+//	}
+
 	@Override
-	protected void messageReceived(ChannelHandlerContext channelHandlerContext, C2ServerReq c2ServerReq) throws Exception {
+	protected void channelRead0(ChannelHandlerContext channelHandlerContext, C2ServerReq c2ServerReq) throws Exception {
+		// TODO Auto-generated method stub
 
 		if (MsgType.LOGIN_REQ.equals(c2ServerReq.getType())) {
 			LoginReq loginMsg = (LoginReq) c2ServerReq;
@@ -93,7 +105,12 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 				e.printStackTrace();
 			}
 		}
-		  break;	
+		  break;
+		case CATEGORY_REQ:{
+			CategoryReq categoryReq = (CategoryReq)c2ServerReq;
+			CategoryResp categoryResp = categoryService.categorySync(categoryReq);
+			NettyChannelMap.get(categoryReq.getClientId()).writeAndFlush(categoryResp);
+		}
 		default:
 			break;
 		}

@@ -15,6 +15,9 @@ import io.netty.handler.timeout.IdleStateHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.wetool.coder.KryoDecoder;
+import com.wetool.coder.KryoEncoder;
+
 @Configuration
 public class NettyClientConfig {
 
@@ -37,8 +40,8 @@ public class NettyClientConfig {
 			protected void initChannel(SocketChannel socketChannel) throws Exception {
 				socketChannel.pipeline()
 						.addLast(new IdleStateHandler(READ_IDEL_TIME_OUT, WRITE_IDEL_TIME_OUT, ALL_IDEL_TIME_OUT));
-				socketChannel.pipeline().addLast(new ObjectEncoder());
-				socketChannel.pipeline().addLast(new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
+				socketChannel.pipeline().addLast(new KryoEncoder());
+				socketChannel.pipeline().addLast(new KryoDecoder(ClassResolvers.cacheDisabled(null)));
 				socketChannel.pipeline().addLast(new NettyClientHandler());
 			}
 		});

@@ -3,7 +3,7 @@ package com.wetool;
 import com.wetool.push.api.model.*;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
-import com.wetool.push.api.model.server.CategoryMessage;
+import com.wetool.push.api.model.server.CategoryResp;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.PushMessage;
 import com.wetool.push.api.model.server.push.ImageSyncMessage;
@@ -35,46 +35,53 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMessage>
         }
     }
 
-    @Override
-    protected void messageReceived(ChannelHandlerContext channelHandlerContext, BaseMessage baseMsg) throws Exception {
-        MsgType msgType = baseMsg.getType();
-        switch (msgType) {
-            case RELOGIN_REQ: {
-                // 向服务器发起登录
-                LoginReq loginReq = new LoginReq();
-                channelHandlerContext.writeAndFlush(loginReq);
-            }
-            break;
-            case PING_RESP: {
-                System.out.println("receive ping from server …");
-            }
-            break;
-            case PUSH_REQ: {
-                PushMessage pushMessage = (PushMessage) baseMsg;
-                switch (pushMessage.getPushMsgType()) {
+//    @Override
+//    protected void messageReceived(ChannelHandlerContext channelHandlerContext, BaseMessage baseMsg) throws Exception {
+//      
+//    }
 
-                    case QRCODE_IMAGE_SYNC:
-                        ImageSyncMessage ism = (ImageSyncMessage) pushMessage;
-                        System.out.println(ism.getImageId());
-                        break;
-                }
-                System.out.println("receive push message from server …");
-            }
-            break;
-            case CATEGORY_REQ:{
-            	CategoryMessage cm = (CategoryMessage) baseMsg;
-            	System.out.println(cm);
-            }
-            break;
-            case COMMODITY_RESP:{
-            	CommodityResp cm = (CommodityResp) baseMsg;
-            	System.out.println(cm.getFlag());
-            	System.out.println(cm);
-            }
-            default:
-                System.out.println("receive " + msgType.name() + " from server …");
-                break;
-        }
-        ReferenceCountUtil.release(msgType);
-    }
+	@Override
+	protected void channelRead0(ChannelHandlerContext channelHandlerContext, BaseMessage baseMsg) throws Exception {
+		// TODO Auto-generated method stub
+		  MsgType msgType = baseMsg.getType();
+	        switch (msgType) {
+	            case RELOGIN_REQ: {
+	                // 向服务器发起登录
+	                LoginReq loginReq = new LoginReq();
+	                channelHandlerContext.writeAndFlush(loginReq);
+	            }
+	            break;
+	            case PING_RESP: {
+	                System.out.println("receive ping from server …");
+	            }
+	            break;
+	            case PUSH_REQ: {
+	                PushMessage pushMessage = (PushMessage) baseMsg;
+	                switch (pushMessage.getPushMsgType()) {
+
+	                    case QRCODE_IMAGE_SYNC:
+	                        ImageSyncMessage ism = (ImageSyncMessage) pushMessage;
+	                        System.out.println(ism.getImageId());
+	                        break;
+	                }
+	                System.out.println("receive push message from server …");
+	            }
+	            break;
+	            case CATEGORY_RESP:{
+	            	CategoryResp cm = (CategoryResp) baseMsg;
+	            	System.out.println(cm.getCategorys().size());
+	            	System.out.println(cm.getCategorys().get(0).getValue());
+	            }
+	            break;
+	            case COMMODITY_RESP:{
+	            	CommodityResp cm = (CommodityResp) baseMsg;
+	            	System.out.println(cm.getFlag());
+	            	System.out.println(cm.getCommoditys().toString());
+	            }
+	            default:
+	                System.out.println("receive " + msgType.name() + " from server …");
+	                break;
+	        }
+	        ReferenceCountUtil.release(msgType);
+	}
 }

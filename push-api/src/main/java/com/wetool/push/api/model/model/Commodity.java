@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Commodity implements Serializable {
-
     private static final long serialVersionUID = 7638029644952868046L;
     private Long id;
 

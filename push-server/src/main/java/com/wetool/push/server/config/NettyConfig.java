@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 import com.wetool.push.server.NettyServerHandler;
+import com.wetool.push.server.codec.KryoDecoder;
+import com.wetool.push.server.codec.KryoEncoder;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler.Sharable;
@@ -51,8 +54,8 @@ public class NettyConfig {
 			@Override
 			protected void initChannel(SocketChannel socketChannel) throws Exception {
 				ChannelPipeline p = socketChannel.pipeline();
-				p.addLast(new ObjectEncoder());
-				p.addLast(new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
+				p.addLast(new KryoEncoder());
+				p.addLast(new KryoDecoder(ClassResolvers.cacheDisabled(null)));
 				p.addLast(new IdleStateHandler(READ_IDEL_TIME_OUT, WRITE_IDEL_TIME_OUT, ALL_IDEL_TIME_OUT, TimeUnit.SECONDS));
 				p.addLast(nettyServerHandler);
 			}

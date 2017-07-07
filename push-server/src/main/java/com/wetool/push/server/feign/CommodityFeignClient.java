@@ -21,4 +21,6 @@ public interface CommodityFeignClient {
 	@RequestLine("GET " + "/commodity/list?updateTime={updateTime}&merchantId={merchantId}&page=0&size={size}&sort=id,asc")
 	ResponseEntity<Message<?>> list(@Param("updateTime") String updateTime,@Param("merchantId") Long merchantId, @Param("size") Integer size);
 	
+	@RequestLine("GET " + "/category/tree?merchantId={merchantId}")
+	ResponseEntity<Message<?>> categorylist(@Param("merchantId") Long merchantId);
 }
