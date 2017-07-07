@@ -1,5 +1,6 @@
 package com.wetool.push.server.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,14 @@ public class CategoryService {
 		url = "http://192.168.1.91:16010";
 		/* 商品获取接口 */
 		CommodityFeignClient commodityFeignClient = builder.target(CommodityFeignClient.class, url);
-		ResponseEntity<Message<?>> res = commodityFeignClient.categorylist(categoryReq.getMerchantId());
+		ResponseEntity<Message<ArrayList<CategoryTree>>> res = commodityFeignClient.categorylist(categoryReq.getMerchantId());
 		Message message = res.getBody();
-		List<CategoryTree> cate = (List<CategoryTree>) message.getData();
-		System.out.println(cate.size());
+//		List<CategoryTree> cate = (List<CategoryTree>) message.getData();
+//		System.out.println(cate.size());
 		//return new S2ClientResp<>(MessageType., result);
-		
-		return new CategoryResp(cate);
+		ArrayList<CategoryTree> list = new ArrayList<CategoryTree>();
+		ArrayList<CategoryTree> ca = (ArrayList<CategoryTree>) message.getData();
+		list.addAll(ca);
+		return new CategoryResp(list);
 	}
 }

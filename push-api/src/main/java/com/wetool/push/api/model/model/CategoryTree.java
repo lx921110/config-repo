@@ -1,5 +1,6 @@
 package com.wetool.push.api.model.model;
 
+import java.io.Serializable;
 import java.util.List;
 import com.wetool.push.api.model.BaseMessage;
 import com.wetool.push.api.model.MsgType;
@@ -12,7 +13,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class CategoryTree {
+public class CategoryTree implements Serializable {
+	private static final long serialVersionUID = -2565160515726603404L;
 	
 	private Long value;
 	private String label;
