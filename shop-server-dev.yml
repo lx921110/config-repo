@@ -122,10 +122,7 @@ url:
   auth-server: http://auth:14000   #认证服务 
   
 settings: #网店开关
-  type: #开关类型
-    meituan: 1 #美团开关
-    wetool: 2 #微兔App开关
-  status: #开关状态
-    off: 0 #关闭
-    on: 1 #开启
+  status: #开关状态初始值
+    meituan: 0 #关闭
+    wetool: 0 #开启
   
