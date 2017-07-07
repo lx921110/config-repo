@@ -77,3 +77,7 @@ captcha: # 验证码
   expire: 900                 # 过期时间（单位：秒）
 url:
   auth-server: http://auth:14000   #认证服务 
+  
+online-shop: #网店开关状态初始值 0：关  1：开
+  meituan: 0 #美团
+  wetool: 0 #微兔
