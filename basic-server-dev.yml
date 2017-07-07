@@ -7,12 +7,10 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
-#    status-page-url: http://192.168.1.10:18765/api/basic-server/swagger-ui.html
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/basic-server/}
-#  address: 192.168.1.10:18765
-#  api-url: /api/basic-server/
+
 security:
   oauth2:
     client:
@@ -21,6 +19,10 @@ security:
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 
+logging:
+  level:
+    root: INFO
+    feign: DEBUG
 #
 #Area-Server Configuration
 #
@@ -108,20 +110,6 @@ spring:
     username: admin
     password: admin
     virtual-host: /
-
-alidayu: #阿里大于
-  url: http://gw.api.taobao.com/router/rest #
-  appKey: 23888280
-  appSecret: c14ff71982aac7191e9605b83982db01
-  signName: 微兔科技 #阿里大于短信签名
-  templateCodeDefault: SMS_69780153 #默认短信模板
-  templateCodeRegister: SMS_69870254 #注册短信模板
-  templateCodePassword: SMS_69830246 #修改密码短信模板
-
-#
-#Upload-Server Configuration
-#
-
 # REDIS (RedisProperties)
   redis:
     database: 0 # database name
@@ -139,6 +127,21 @@ alidayu: #阿里大于
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
+
+alidayu: #阿里大于
+  url: http://gw.api.taobao.com/router/rest #
+  appKey: 23888280
+  appSecret: c14ff71982aac7191e9605b83982db01
+  signName: 微兔科技 #阿里大于短信签名
+  templateCodeDefault: SMS_69780153 #默认短信模板
+  templateCodeRegister: SMS_69870254 #注册短信模板
+  templateCodePassword: SMS_69830246 #修改密码短信模板
+
+#
+#Upload-Server Configuration
+#
+
+
 
 #业务属性↴
 aliyun: #aliyun OSS info
