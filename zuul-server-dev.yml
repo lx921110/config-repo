@@ -7,6 +7,10 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
       
+logging:
+  level:
+    root: DEBUG
+    
 info:
   component: Zuul Server
 endpoints:
