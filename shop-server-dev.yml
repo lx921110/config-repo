@@ -1,6 +1,6 @@
 server:
   port: 16020
-  
+
 eureka:
   client:
     serviceUrl:
@@ -125,4 +125,6 @@ settings: #网店开关
   status: #开关状态初始值
     meituan: 0 #关闭
     wetool: 0 #开启
-  
+
+lefu:
+  callback-url: http://shop:16020/
