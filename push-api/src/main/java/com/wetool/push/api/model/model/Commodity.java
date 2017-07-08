@@ -37,25 +37,25 @@ public class Commodity implements Serializable {
 
     private Boolean isDetachable; // 是否可拆分(is开头后台无法接收jsonboolean)
 
-    private String description; // 描述
+    //private String description; // 描述
 
     private BigDecimal sellingPrice; // 销售价格
 
     private BigDecimal buyingPrice; // 进货价格
 
-    private Timestamp createDate = new Timestamp(System.currentTimeMillis()); // 创建时间
+    //private Timestamp createDate = new Timestamp(System.currentTimeMillis()); // 创建时间
 
-    private Timestamp updateDate; // 修改时间
+    //private Timestamp updateDate; // 修改时间
 
     private Boolean isGs1; // 是否为正规条码商品
 
-    private String country; // 商品所属国家
+    //private String country; // 商品所属国家
 
-    private SplitCommodityRule splitRule; // 拆分规则
+    //private SplitCommodityRule splitRule; // 拆分规则
 
-    private Double warningNumber; // 商品预警数
+    //private Double warningNumber; // 商品预警数
 
-    private boolean isDeleted; // 逻辑删除标记 0-未删除 1-已删除
+    //private boolean isDeleted; // 逻辑删除标记 0-未删除 1-已删除
 
-    private Double inventoryQuantity; //商家商品库存数
+    //private Double inventoryQuantity; //商家商品库存数
 }
