@@ -1,11 +1,9 @@
 package com.wetool.push.api.model.model;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 @Setter
 @Getter
@@ -37,9 +35,9 @@ public class Commodity implements Serializable {
 
     private Boolean isDetachable; // 是否可拆分(is开头后台无法接收jsonboolean)
 
-    private BigDecimal sellingPrice; // 销售价格
-
-    private BigDecimal buyingPrice; // 进货价格
+//    private BigDecimal sellingPrice; // 销售价格
+//
+//    private BigDecimal buyingPrice; // 进货价格
 
     private Boolean isGs1; // 是否为正规条码商品
     
