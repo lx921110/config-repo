@@ -114,10 +114,6 @@ hystrix:
       execution:
         timeout:
           enabled: false
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: INFO
 security:
   oauth2:
     client:
