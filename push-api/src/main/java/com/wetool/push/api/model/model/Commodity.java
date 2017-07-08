@@ -1,12 +1,10 @@
 package com.wetool.push.api.model.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.io.Serializable;
 
-@Setter
-@Getter
+@Data
 public class Commodity implements Serializable {
     private static final long serialVersionUID = 7638029644952868046L;
     private Long id;
@@ -35,10 +33,10 @@ public class Commodity implements Serializable {
 
     private Boolean isDetachable; // 是否可拆分(is开头后台无法接收jsonboolean)
 
-//    private BigDecimal sellingPrice; // 销售价格
-//
-//    private BigDecimal buyingPrice; // 进货价格
+    private String sellingPrice; // 销售价格
+
+    private String buyingPrice; // 进货价格
 
     private Boolean isGs1; // 是否为正规条码商品
-    
+
 }
