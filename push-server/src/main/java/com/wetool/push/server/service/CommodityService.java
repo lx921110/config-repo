@@ -28,6 +28,7 @@ public class CommodityService {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
+    	url = "http://192.168.1.91:16010";
         Boolean flag = true;
             /* 商品获取接口 */
         CommodityFeignClient commodityFeignClient = builder.target(CommodityFeignClient.class, url);
@@ -42,11 +43,12 @@ public class CommodityService {
         ArrayList<Commodity> commoditys = new ArrayList<>();
         if (collComds != null) {
         	Commodity commodity = null;
-            for (Commodity co : commoditys) {
+            for (Resource<Commodity> co : collComds) {
+            	Commodity cs = co.getContent();
             	commodity = new Commodity();
-            	BeanUtils.copyProperties(co, commodity);
-            	if (co.getResources() != null) {//图片路径处理
-            		String rul = co.getResources().getResUrl();
+            	BeanUtils.copyProperties(cs, commodity);
+            	if (cs.getResources() != null) {//图片路径处理
+            		String rul = cs.getResources().getResUrl();
             		commodity.setPicPath(rul);
             		commodity.setResources(null);
             	}
