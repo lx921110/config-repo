@@ -4,11 +4,7 @@ import com.wetool.push.api.model.C2ServerReq;
 import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.Result;
 import com.wetool.push.api.model.S2ClientResp;
-import com.wetool.push.api.model.client.CategoryReq;
-import com.wetool.push.api.model.client.CommodityReq;
-import com.wetool.push.api.model.client.LoginReq;
-import com.wetool.push.api.model.client.PingReq;
-import com.wetool.push.api.model.client.VersionReq;
+import com.wetool.push.api.model.client.*;
 import com.wetool.push.api.model.server.CategoryResp;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.ReloginReq;
@@ -21,9 +17,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.util.ReferenceCountUtil;
-
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
