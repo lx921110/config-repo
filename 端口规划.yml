@@ -10,9 +10,9 @@ login-server: # 登录服务
   st: 24010
   pro: 4010
 basic-server: # 基础服务(area+upload+SMS)
-  dev: 15010
-  st: 25010
-  pro: 5010
+  dev: 15000
+  st: 25000
+  pro: 5000
 
 #area-server: # area区域服务
 #  dev: 15010
