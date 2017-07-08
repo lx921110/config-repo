@@ -59,7 +59,10 @@ zuul:
       serviceId: basic-server
     convenient-server: 
       path: /** 
-      serviceId: convenient-server 
+      serviceId: convenient-server
+    member-server: 
+      path: /** 
+      serviceId: member-server  
 auth-server: # 认证鉴权服务
   ribbon:
     listOfServers: auth:14000 # 可指定一组服务地址，用于负载均衡
@@ -97,6 +100,9 @@ basic-server: # Basic服务(area+upload+sms)
 convenient-server: # 便利
   ribbon:
     listOfServers: convenient:16060
+member-server: # 会员管理
+  ribbon:
+    listOfServers: member:16070
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
