@@ -2,12 +2,9 @@ package com.wetool.push.api.model.server;
 
 import java.io.Serializable;
 import java.util.List;
-
 import com.wetool.push.api.model.BaseMessage;
 import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.model.Commodity;
-import com.wetool.push.api.model.model.Commodity2;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +19,6 @@ public class CommodityResp extends BaseMessage implements Serializable {
 
 	private Boolean flag; //检索是否还有内容
 
-    public List<Commodity2> commoditys; //商品信息集合
+    public List<Commodity> commoditys; //商品信息集合
 
 }

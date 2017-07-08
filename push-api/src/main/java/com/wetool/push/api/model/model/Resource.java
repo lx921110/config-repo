@@ -19,12 +19,6 @@ public class Resource implements Serializable{
 	/** id（流水号主键） */
 	private Long id;
 
-
-	/**
-	 * 资源类型 0-图片 1-视频
-	 */
-	private int type;
-
 	/**
 	 * 资源路径
 	 */
@@ -33,15 +27,5 @@ public class Resource implements Serializable{
 	public String getResUrl() {
 		return "http://wetool.oss-cn-beijing.aliyuncs.com/"+this.resUrl;
 	}
-
-	/**
-	 * 图片宽度
-	 */
-	private float width;
-
-	/**
-	 * 图片高度
-	 */
-	private float heigth;
 
 }
