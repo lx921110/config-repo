@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.hateoas.PagedResources;
@@ -17,6 +18,7 @@ import com.wetool.push.api.model.Result;
 import com.wetool.push.api.model.S2ClientResp;
 import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.model.Commodity;
+import com.wetool.push.api.model.model.Commodity2;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.server.feign.CommodityFeignClient;
 import com.wetool.push.server.model.Message;
@@ -32,7 +34,8 @@ public class CommodityService {
     //@Value("${url.commodity-server}")
     private String url;
 
-    public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
 //        try {
         url = "http://127.0.0.1:16010";
         Boolean flag = true;
@@ -47,6 +50,7 @@ public class CommodityService {
         PagedResources<Resource<Commodity>> pages =  (PagedResources<Resource<Commodity>>) message.getData();
         Collection<Resource<Commodity>> collComds = pages.getContent();
         ArrayList<Commodity> commoditys = new ArrayList<>();
+        ArrayList<Commodity2> commodity2s = new ArrayList<>();
         if (collComds != null) {
         /* 商品信息数据集合 */
         commoditys = collComds.stream()
@@ -57,13 +61,19 @@ public class CommodityService {
         				(list1, list2) -> list1.addAll(list2)
         				);
         }
+        Commodity2 commodity2 = null;
+        for (Commodity commodity : commoditys) {
+        	commodity2 = new Commodity2();
+        	BeanUtils.copyProperties(commodity, commodity2);
+        	commodity2s.add(commodity2);
+		}
 		/* 判断是否获取全部查询信息 */
         if ( pages.getMetadata() != null && 
         		commodityReq.getSize() < pages.getMetadata().getTotalElements()) {
             flag = false;
         }
         CommodityResp commodityResp = new CommodityResp(MsgType.COMMODITY_RESP);
-		commodityResp.setCommoditys(commoditys);
+		commodityResp.setCommoditys(commodity2s);
         commodityResp.setFlag(flag);
         return commodityResp;
     }
