@@ -9,7 +9,7 @@ eureka:
       
 logging:
   level:
-    root: DEBUG
+    root: INFO
     
 info:
   component: Zuul Server
