@@ -62,10 +62,12 @@ public class CommodityReceive implements Serializable {
 
         c.setType(type); // 商品类型 0:正规商品 1:自编码; 3:称重商品
 
-        c.setPicPath(picPath); // 商品图片路径
-
-        c.setResources(resources);// 资源列表
-
+        if (this.getResources() != null) {
+        	c.setPicPath(this.getResources().getResUrl()); // 商品图片路径
+        }else {
+        	c.setPicPath(null);
+        }
+        
         c.setSpecification(specification); // 商品规格
 
         c.setUnit(unit); // 商品单位

@@ -25,8 +25,6 @@ public class Commodity implements Serializable {
 
     private String picPath; // 商品图片路径
 
-    private Resource resources;// 资源列表
-
     private String specification; // 商品规格
 
     private String unit; // 商品单位

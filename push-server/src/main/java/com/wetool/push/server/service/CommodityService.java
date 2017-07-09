@@ -47,12 +47,6 @@ public class CommodityService {
             collComds.forEach(co -> {
                         CommodityReceive cs = co.getContent();
                         Commodity commodity = cs.getCommodity();
-
-                        if (cs.getResources() != null) {//图片路径处理
-                            String rul = cs.getResources().getResUrl();
-                            commodity.setPicPath(rul);
-                            commodity.setResources(null);
-                        }
                         commoditys.add(commodity);
                     }
             );
