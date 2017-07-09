@@ -7,6 +7,7 @@ eureka:
       defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/shop-server/}
@@ -119,4 +120,7 @@ settings: #网店开关
     wetool: 0 #开启
 
 lefu:
-  callback-url: http://shop:16020/
+  callback-url: http://shop:16020/api/v1/payment/mobile/notifyCallback
+  trade-url: http://61.50.130.246:18081/gateway/api/trade.htm
+  query-url: http://61.50.130.246:18081/gateway/query.htm
+  refund-url: http://61.50.130.246:18081/gateway/api/refund.htm
