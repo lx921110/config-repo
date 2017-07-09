@@ -3,6 +3,7 @@ package com.wetool.push.server.service;
 import com.wetool.push.api.model.server.PushMessage;
 import com.wetool.push.server.NettyChannelMap;
 import com.wetool.push.server.stream.PushChannel;
+import io.netty.channel.Channel;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 
@@ -28,6 +29,11 @@ public class PushService {
      * 发送消息到客户端
      */
     private void sendMessageToClient(PushMessage pushMessage) {
-        NettyChannelMap.get(pushMessage.getSn()).writeAndFlush(pushMessage);
+
+        Channel client = NettyChannelMap.get(pushMessage.getSn());
+        if (client != null) {
+            client.writeAndFlush(pushMessage);
+        }
+        //TODO 重发
     }
 }
