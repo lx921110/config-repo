@@ -108,7 +108,7 @@ member-server: # 会员管理
     listOfServers: member:16070
 order-server: # 订单管理
   ribbon:
-    listOfServers: member:16040
+    listOfServers: order:16040
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
