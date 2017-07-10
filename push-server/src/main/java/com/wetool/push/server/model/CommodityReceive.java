@@ -1,17 +1,22 @@
 package com.wetool.push.server.model;
 
-import com.wetool.push.api.model.model.Commodity;
-import com.wetool.push.api.model.model.Resource;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
+
+import com.wetool.push.api.model.model.Commodity;
+import com.wetool.push.api.model.model.Resource;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class CommodityReceive implements Serializable {
     private static final long serialVersionUID = 7638029644952868046L;
+   
     private Long id;
 
     private Long merchantId; // 商家ID
@@ -30,7 +35,7 @@ public class CommodityReceive implements Serializable {
 
     private String picPath; // 商品图片路径
 
-    private Resource resources;// 资源列表
+    private List<Resource> resources;// 资源列表
 
     private String specification; // 商品规格
 
@@ -43,6 +48,8 @@ public class CommodityReceive implements Serializable {
     private BigDecimal buyingPrice; // 进货价格
 
     private Boolean isGs1; // 是否为正规条码商品
+    
+    private Integer totalPage;//总条数
 
     public Commodity getCommodity() {
         Commodity c = new Commodity();
@@ -62,8 +69,8 @@ public class CommodityReceive implements Serializable {
 
         c.setType(type); // 商品类型 0:正规商品 1:自编码; 3:称重商品
 
-        if (this.getResources() != null) {
-        	c.setPicPath(this.getResources().getResUrl()); // 商品图片路径
+        if (this.getResources() != null && this.getResources().size() > 0) {
+        	c.setPicPath(this.getResources().get(0).getResUrl()); // 商品图片路径
         }else {
         	c.setPicPath(null);
         }

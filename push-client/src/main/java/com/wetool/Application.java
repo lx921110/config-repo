@@ -48,9 +48,9 @@ public class Application implements CommandLineRunner {
             		TimeUnit.SECONDS.sleep(30);
             		CommodityReq commodityMsg = new CommodityReq();
             		commodityMsg.setMerchantId(1L);
-            		commodityMsg.setSize(20);
+            		commodityMsg.setSize(30);
             		commodityMsg.setUpdateDate("");
-            		commodityMsg.setPage(0L);
+            		commodityMsg.setPage(10L);
             		CategoryReq categoryReq = new CategoryReq();
             		categoryReq.setMerchantId(1L);
             		socketChannel.writeAndFlush(categoryReq);
