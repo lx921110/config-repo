@@ -31,19 +31,20 @@ public class CommodityService {
     public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
         url = "http://192.168.1.91:16010";
         Boolean flag = true;
-            /* 商品获取接口 */
+        /* 商品获取接口 */
         CommodityFeignClient commodityFeignClient = builder.target(CommodityFeignClient.class, url);
-            /* 获取接口返回数据 */
+        /* 传入数据调整 */
         if ("".equals(commodityReq.getUpdateDate()) || commodityReq.getUpdateDate() == null) {
         	commodityReq.setUpdateDate(null);
         }
+        /* 获取接口返回数据 */
         ResponseEntity<Message<List<CommodityReceive>>> resp =
                 commodityFeignClient.findByUpTime(commodityReq.getUpdateDate(), commodityReq.getMerchantId(), commodityReq.getSize(),commodityReq.getPage());
 
-        System.out.println(resp.getBody());
+        //System.out.println(resp.getBody());
         Message<List<CommodityReceive>> message = resp.getBody();
         
-            /* 数据对象 */
+        /* 数据对象转换 */
         ArrayList<Commodity> commoditys = new ArrayList<>();
         if (message.getData() != null) {
         	message.getData().forEach(co -> {
@@ -52,13 +53,13 @@ public class CommodityService {
                     }
             );
         }
-        
 		/* 判断是否获取全部查询信息 */
         if (commoditys != null || commoditys.size() > 0){
             if (commodityReq.getPage() + 1 < message.getData().get(0).getTotalPage()) {
             	 flag = false;
             }
         }
+        /** 返回客户端数据封装 */
         CommodityResp commodityResp = new CommodityResp(MsgType.COMMODITY_RESP);
         commodityResp.setCommoditys(commoditys);
         commodityResp.setPage(commodityReq.getPage());
