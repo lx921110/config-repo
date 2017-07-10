@@ -8,8 +8,8 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address:  ${address:192.168.1.10:18765}
-  api-url:  ${api-url:/api/convenient-server/}
+  address: 192.168.1.67:16060 #${address:192.168.1.10:18765}
+  api-url: / #${api-url:/api/convenient-server/}
 #RabbitMQ配置   生产者output
 spring:
   cloud:
@@ -132,7 +132,7 @@ qm:
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
-    token: 824ee3a2ccf94b698e6302fc533839c1 
+    token: cea39a8555194442bf0a7461cf3afa02 
 #回调函数设置
 convenient: 
   ip: http://1702b5q978.imwork.net/convenient #${zuul.api-url}  #服务IP 
