@@ -34,7 +34,7 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		Constants.setClientId("17070200010001");
-		Constants.setToken("f5bbc7e0-bea4-44a3-843b-ce76dba2bdf8");
+		Constants.setToken("105026da-e5bc-4d63-956e-09f8f908711d");
 		
         LoginReq loginMsg=new LoginReq();
         socketChannel.writeAndFlush(loginMsg);
@@ -49,7 +49,8 @@ public class Application implements CommandLineRunner {
             		CommodityReq commodityMsg = new CommodityReq();
             		commodityMsg.setMerchantId(1L);
             		commodityMsg.setSize(20);
-            		commodityMsg.setUpdateDate("2011-10-01");
+            		commodityMsg.setUpdateDate("");
+            		commodityMsg.setPage(0L);
             		CategoryReq categoryReq = new CategoryReq();
             		categoryReq.setMerchantId(1L);
             		socketChannel.writeAndFlush(categoryReq);
