@@ -16,12 +16,11 @@ import lombok.ToString;
 public class CategoryTree implements Serializable {
 	private static final long serialVersionUID = -2565160515726603404L;
 	
-	private Long value;
-	private String label;
-	private Long parent;
-	private boolean isLeaf;
+	private Long value; //id
+	private String label; //名称
+	private Long parent; //父ID
+	private boolean isLeaf; //是否是叶子节点
 	
-//	@JsonInclude(Include.NON_NULL)
-	private List<CategoryTree> children;
+	private List<CategoryTree> children; //子目录
 	
 }
