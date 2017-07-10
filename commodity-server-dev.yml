@@ -15,12 +15,12 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://mysql:3306/commodity?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://mysql:13306/commodity_db?useUnicode=true&characterEncoding=utf-8
     username: root
     password: '{cipher}AIBwTz5MLHLMjbPRcyRwHi0YeR89ow+VvHXnWLH5FOuaC0GlQNcO7l+5TvTgQMzIjgO4OprxN0+mpnSLBfOK8P7HdGQxEFoC3eytRZ/ZR358FGdsbohvdaeTjNKLcc3M8tR5K23iPQ4wDGjllqFVlTwPguTbsADJbUUSO1Ba3aggnVTTtfMnN1YmWket9H5os6J0BKDWZBaHmJGRKZb0uKj4'
     driverClassName: com.mysql.jdbc.Driver
@@ -42,7 +42,7 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     # 配置一个连接在池中最小生存的时间，单位是毫秒
     minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
+    validationQuery: SELECT 1
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
