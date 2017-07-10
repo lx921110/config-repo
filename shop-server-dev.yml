@@ -23,20 +23,20 @@ spring:
       instanceIndex: 0
       instanceCount: 1
       bindings:
-        offlineOrderPaymentRequest: #消息推送的生产通道
+        payment_offline_output_channel: #线下订单支付通道
           destination: payment-offline
           group: payment
           binder: order_binder
-        convenientOrderPaymentRequest:
-          destination: convenientOrderPayment #话题-推送
+        convenientOrderPaymentRequest: #便利服务订单支付通道
+          destination: convenientOrderPayment
           group: payment
           binder: order_binder
-        memberOrderPaymentRequest:
-          destination: memberOrderPayment #话题-推送
+        memberOrderPaymentRequest: #会员订单支付通道
+          destination: memberOrderPayment
           group: payment
           binder: order_binder
-        push_output_channel: #消息推送的生产通道
-          destination: topic-push #话题-推送
+        push_output_channel: #消息推送通道
+          destination: topic-push
           group: push
           binder: order_binder
       binders:
