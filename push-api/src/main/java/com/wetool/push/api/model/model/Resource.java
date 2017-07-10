@@ -1,30 +1,32 @@
 package com.wetool.push.api.model.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 图片资源文件
- *
- * @author zhangjie
  */
-@Data
+@Getter
+@Setter
 public class Resource implements Serializable {
 
-    private static final long serialVersionUID = 5726047074482003508L;
-    /**
-     * id（流水号主键）
-     */
-    private Long id;
+	private static final long serialVersionUID = -5949216842396501491L;
 
-    /**
-     * 资源路径
-     */
-    private String resUrl;
+	/** id（流水号主键） */
+	private Long id;
 
-    public String getResUrl() {
-        return "http://wetool.oss-cn-beijing.aliyuncs.com/" + this.resUrl;
-    }
+	/**
+	 * 资源路径
+	 */
+	private String resUrl;
+
+	public void setResUrl(String resUrl) {
+		this.resUrl = resUrl;
+	}
+
+	public String getResUrl() {
+		return "http://wetool.oss-cn-beijing.aliyuncs.com/"+this.resUrl;
+	}
 
 }
