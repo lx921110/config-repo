@@ -18,14 +18,10 @@ public class ImageSyncMessage extends PushMessage {
      * 图片位于阿里OSS的唯一ID(路径+图片名称)
      */
     private String imageId;
-    /**
-     * 设备唯一序列号
-     */
-    private String sn;
+
 
     public ImageSyncMessage(String imageId, String sn) {
-        super(PushMsgType.QRCODE_IMAGE_SYNC);
+        super(PushMsgType.QRCODE_IMAGE_SYNC, sn);
         this.imageId = imageId;
-        this.sn = sn;
     }
 }
