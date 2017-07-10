@@ -34,8 +34,11 @@ public class CommodityService {
             /* 商品获取接口 */
         CommodityFeignClient commodityFeignClient = builder.target(CommodityFeignClient.class, url);
             /* 获取接口返回数据 */
+        if ("".equals(commodityReq.getUpdateDate()) || commodityReq.getUpdateDate() == null) {
+        	commodityReq.setUpdateDate(null);
+        }
         ResponseEntity<Message<PagedResources<Resource<CommodityReceive>>>> resp =
-                commodityFeignClient.list(commodityReq.getUpdateDate(), commodityReq.getMerchantId(), commodityReq.getSize());
+                commodityFeignClient.list(commodityReq.getUpdateDate(), commodityReq.getMerchantId(), commodityReq.getSize(),commodityReq.getPage());
 
 //        System.out.println(resp.getBody());
         Message<PagedResources<Resource<CommodityReceive>>> message = resp.getBody();
@@ -53,12 +56,14 @@ public class CommodityService {
         }
         
 		/* 判断是否获取全部查询信息 */
-        if (pages.getMetadata() != null &&
-                commodityReq.getSize() < pages.getMetadata().getTotalElements()) {
-            flag = false;
+        if (pages.getMetadata() != null ){
+            if (commodityReq.getPage() < pages.getMetadata().getTotalPages()) {
+            	 flag = false;
+            }
         }
         CommodityResp commodityResp = new CommodityResp(MsgType.COMMODITY_RESP);
         commodityResp.setCommoditys(commoditys);
+        commodityResp.setPage(commodityReq.getPage());
         commodityResp.setFlag(flag);
         return commodityResp;
     }

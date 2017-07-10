@@ -16,8 +16,10 @@ public class CommodityResp extends BaseMessage {
 	public CommodityResp(MsgType type) {
 		super(type);
 	}
+	
+	private Long page; //当前页数
 
-	private Boolean flag; //检索是否还有内容
+	private Boolean flag; //true 同步商品完成 false 商品未完成同步
 
     public List<Commodity> commoditys; //商品信息集合
 

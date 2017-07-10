@@ -23,8 +23,8 @@ public interface CommodityFeignClient {
      * @param size       请求查询条数
      * @return
      */
-    @RequestLine("GET " + "/commodity/list?updateTime={updateTime}&merchantId={merchantId}&page=0&size={size}&sort=id,asc")
-    ResponseEntity<Message<PagedResources<Resource<CommodityReceive>>>> list(@Param("updateTime") String updateTime, @Param("merchantId") Long merchantId, @Param("size") Integer size);
+    @RequestLine("GET " + "/commodity/list?updateTime={updateTime}&merchantId={merchantId}&page={page}&size={size}&sort=id,asc")
+    ResponseEntity<Message<PagedResources<Resource<CommodityReceive>>>> list(@Param("updateTime") String updateTime, @Param("merchantId") Long merchantId, @Param("size") Integer size,@Param("page") Long page);
 
     @RequestLine("GET " + "/category/tree?merchantId={merchantId}")
     ResponseEntity<Message<ArrayList<CategoryTree>>> categorylist(@Param("merchantId") Long merchantId);

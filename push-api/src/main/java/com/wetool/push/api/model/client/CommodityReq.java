@@ -20,6 +20,8 @@ public class CommodityReq extends C2ServerReq {
 
 	private String updateDate;//商品更新时间作为条件查询
 	
+	private Long page;//请求页数
+	
 	private Long merchantId; //商家ID
 	
 	private Integer size ; // 查询条数
