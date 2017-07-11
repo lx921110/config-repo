@@ -9,7 +9,7 @@ eureka:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
   address: ${address:192.168.1.10:8765}
-  api-url: ${api-url:/api/basic-server/}
+  api-url: ${api-url:/api/advert-server/}
   
 spring:
   jpa:
@@ -59,4 +59,4 @@ spring:
       enabled: true # 是否允许访问控制台
       path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
 url:
-  upload-server: http://lv2_zuul_1:8765/api/upload-server/
+  upload-server: http://zuul:8765/api/upload-server/
