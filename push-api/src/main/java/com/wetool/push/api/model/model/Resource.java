@@ -21,12 +21,4 @@ public class Resource implements Serializable {
 	 */
 	private String resUrl;
 
-	public void setResUrl(String resUrl) {
-		this.resUrl = resUrl;
-	}
-
-	public String getResUrl() {
-		return "http://wetool.oss-cn-beijing.aliyuncs.com/"+this.resUrl;
-	}
-
 }

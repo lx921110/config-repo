@@ -46,7 +46,7 @@ public class CommodityService {
         
         /* 数据对象转换 */
         ArrayList<Commodity> commoditys = new ArrayList<>();
-        if (message.getData() != null) {
+        if (message.getData() != null && message.getData().size() > 0) {
         	message.getData().forEach(co -> {
                         Commodity commodity = co.getCommodity();
                         commoditys.add(commodity);
@@ -54,7 +54,7 @@ public class CommodityService {
             );
         }
 		/* 判断是否获取全部查询信息 */
-        if (commoditys != null || commoditys.size() > 0){
+        if (commoditys != null && commoditys.size() > 0){
             if (commodityReq.getPage() + 1 < message.getData().get(0).getTotalPage()) {
             	 flag = false;
             }
