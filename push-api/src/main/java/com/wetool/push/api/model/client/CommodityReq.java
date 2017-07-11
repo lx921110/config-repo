@@ -29,4 +29,5 @@ public class CommodityReq extends C2ServerReq {
 	public CommodityReq() {
         super(MsgType.COMMODITY_REQ);
     }
+
 }
