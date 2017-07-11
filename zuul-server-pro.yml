@@ -19,24 +19,18 @@ zuul:
   prefix: /api #为zuul设置一个公共的前缀
   #ignoredServices: '*'
   routes:
-    area-server: # 地区服务
-      path: /areas/** #路由设置
-      serviceId: area-server #指定路由到的serviceId
-    upload-server: # 上传服务
-      path: /**
-      serviceId: upload-server
+    basic-server: # 地区服务
+      path: /**     #路由设置
+      serviceId: basic-server #指定路由到的serviceId
     advert-server: # 广告服务
       path: /** 
       serviceId: advert-server
-area-server:  # 地区服务
+basic-server:  # 地区服务
   ribbon:
-    listOfServers: ${LV2_AREA_1_PORT_5010_TCP_ADDR}:${LV2_AREA_1_PORT_5010_TCP_PORT} #为area-server服务指定一组服务地址，用于负载均衡
-upload-server: # 上传服务
-  ribbon:
-    listOfServers: ${LV2_UPLOAD_1_PORT_5020_TCP_ADDR}:${LV2_UPLOAD_1_PORT_5020_TCP_PORT}
+    listOfServers: basic:5000 #为area-server服务指定一组服务地址，用于负载均衡
 advert-server:  # 广告服务
   ribbon:
-    listOfServers: ${ADVERT_1_PORT_6050_TCP_ADDR}:${ADVERT_1_PORT_6050_TCP_PORT}
+    listOfServers: advert:6050
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
