@@ -15,14 +15,6 @@ import io.netty.handler.timeout.IdleStateHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.wetool.codec.NettyMessageDecoder;
-import com.wetool.codec.NettyMessageEncoder;
-import com.wetool.coder.KryoDecoder;
-import com.wetool.coder.KryoEncoder;
-import com.wetool.push.api.model.BaseMessage;
-import com.wetool.push.api.model.C2ServerReq;
-import com.wetool.push.api.model.S2ClientResp;
-
 @Configuration
 public class NettyClientConfig {
 

@@ -2,10 +2,9 @@ package com.wetool.push.api.model.model;
 
 import java.io.Serializable;
 import java.util.List;
-import com.wetool.push.api.model.BaseMessage;
-import com.wetool.push.api.model.MsgType;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 商品分类树结构数据（Json返回对象）
@@ -13,15 +12,15 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 public class CategoryTree implements Serializable {
 	private static final long serialVersionUID = -2565160515726603404L;
 	
-	private Long value;
-	private String label;
-	private Long parent;
-	private boolean isLeaf;
+	private Long value; //id
+	private String label; //名称
+	private Long parent; //父ID
+	private boolean isLeaf; //是否是叶子节点
 	
-//	@JsonInclude(Include.NON_NULL)
-	private List<CategoryTree> children;
+	private List<CategoryTree> children; //子目录
 	
 }
