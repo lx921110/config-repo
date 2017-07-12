@@ -24,18 +24,12 @@ zuul:
   prefix: /api #为zuul设置一个公共的前缀
   #ignoredServices: '*'
   routes:
-    area-server: #注册服务的名称，属性spring.application.name
-      path: /areas/** #路由设置
-      serviceId: area-server #指定路由到的serviceId
-    auth-server:
-      path: /**
-      serviceId: auth-server
+    auth-server: #注册服务的名称，属性spring.application.name
+      path: /** #路由设置
+      serviceId: auth-server #指定路由到的serviceId
     login-server:
       path: /**
       serviceId: login-server
-    upload-server:
-      path: /**
-      serviceId: upload-server
     advert-server:
       path: /** 
       serviceId: advert-server
@@ -72,12 +66,6 @@ auth-server: # 认证鉴权服务
 login-server: # 登录服务
   ribbon:
     listOfServers: login:14010
-area-server: # 地区服务
-  ribbon:
-    listOfServers: area:15010
-upload-server: # 上传服务
-  ribbon:
-    listOfServers: upload:15020
 advert-server: # 广告服务
   ribbon:
     listOfServers: advert:16050
