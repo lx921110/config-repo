@@ -26,7 +26,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
-    initialize: false   # 是否初始化
+    initialize: true   # 是否初始化
     # 导入编码
     sql-script-encoding: UTF-8
     continue-on-error: false
