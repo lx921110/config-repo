@@ -1,14 +1,17 @@
 package com.wetool;
 
 import java.util.concurrent.TimeUnit;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import com.wetool.push.api.model.Constants;
 import com.wetool.push.api.model.client.CategoryReq;
 import com.wetool.push.api.model.client.CommodityReq;
 import com.wetool.push.api.model.client.LoginReq;
+import com.wetool.push.api.model.client.SimpleTest;
 import com.wetool.push.api.model.client.VersionReq;
 
 import io.netty.bootstrap.Bootstrap;
@@ -18,7 +21,7 @@ import io.netty.channel.socket.SocketChannel;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 	
-	private final String host = "192.168.1.91"; // 服务地址
+	private final String host = "192.168.1.70"; // 服务地址
 	private final int port = 3333; // 服务端口号
 	
 	@Autowired
@@ -34,7 +37,7 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		Constants.setClientId("17070200010001");
-		Constants.setToken("105026da-e5bc-4d63-956e-09f8f908711d");
+		Constants.setToken("1f0b422e-f5f3-4123-8ace-7454b108bd59");
 		
         LoginReq loginMsg=new LoginReq();
         socketChannel.writeAndFlush(loginMsg);
@@ -61,6 +64,9 @@ public class Application implements CommandLineRunner {
         			versionReq.setPosVersion("v1.0.0");
         			versionReq.setShopVersion("v1.0.0");
                     socketChannel.writeAndFlush(commodityMsg);
+                    SimpleTest test = new SimpleTest();
+                    test.setHello("FUCK........................................U............");
+                    socketChannel.writeAndFlush(test);
             	}
 			}catch (Exception e) {
 				e.printStackTrace();

@@ -14,4 +14,8 @@ public enum PushMsgType {
      * 支付状态同步
      */
     PAYMENT_STATUS_SYNC,
+    /**
+     * 美团订单创建
+     */
+    MEITUAN_ADD_PUSH
 }

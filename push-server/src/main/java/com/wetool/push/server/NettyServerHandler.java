@@ -12,6 +12,8 @@ import com.wetool.push.server.service.CategoryService;
 import com.wetool.push.server.service.CommodityService;
 import com.wetool.push.server.service.LoginService;
 import com.wetool.push.server.service.VersionService;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -75,41 +77,46 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<C2ServerReq>
 			}
 		}
 		
-		switch (c2ServerReq.getType()) {
-		case PING_REQ: {
-			PingReq pingReq = (PingReq) c2ServerReq;
-			S2ClientResp s2ClientResp = new S2ClientResp(MsgType.PING_RESP, Result.SUCCESS);
-			System.out.println(pingReq.getClientId());
-			NettyChannelMap.get(pingReq.getClientId()).writeAndFlush(s2ClientResp);
-		}
-			break;
-		case VERSION_REQ: {	// 版本同步请求
-			VersionReq versionReq = (VersionReq) c2ServerReq;
-			S2ClientResp s2ClientResp = versionService.save(versionReq);
-			NettyChannelMap.get(versionReq.getClientId()).writeAndFlush(s2ClientResp);
-		}
-			break;
-		case COMMODITY_REQ :{// 商品信息同步请求 
-			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
-			CommodityResp s2ClientResp = commodityService.commSync(commodityReq);
-			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
-			System.out.println(commodityReq.getClientId());
-//			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);
-			try{
-				NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		  break;
-		case CATEGORY_REQ:{
-			CategoryReq categoryReq = (CategoryReq)c2ServerReq;
-			CategoryResp categoryResp = categoryService.categorySync(categoryReq);
-			NettyChannelMap.get(categoryReq.getClientId()).writeAndFlush(categoryResp);
-		}
-		default:
-			break;
-		}
+//		switch (c2ServerReq.getType()) {
+//		case PING_REQ: {
+//			PingReq pingReq = (PingReq) c2ServerReq;
+//			S2ClientResp s2ClientResp = new S2ClientResp(MsgType.PING_RESP, Result.SUCCESS);
+//			System.out.println(pingReq.getClientId());
+//			NettyChannelMap.get(pingReq.getClientId()).writeAndFlush(s2ClientResp);
+//		}
+//			break;
+//		case VERSION_REQ: {	// 版本同步请求
+//			VersionReq versionReq = (VersionReq) c2ServerReq;
+//			S2ClientResp s2ClientResp = versionService.save(versionReq);
+//			NettyChannelMap.get(versionReq.getClientId()).writeAndFlush(s2ClientResp);
+//		}
+//			break;
+//		case COMMODITY_REQ :{// 商品信息同步请求 
+//			CommodityReq commodityReq = (CommodityReq) c2ServerReq;
+//			CommodityResp s2ClientResp = commodityService.commSync(commodityReq);
+//			System.out.println("消息——————》" + "发送成功 ！ " + s2ClientResp.toString());
+//			System.out.println(commodityReq.getClientId());
+////			S2ClientResp  s2ClientResp = new S2ClientResp<>(MsgType.COMMODITY_RESP, Result.SUCCESS);
+//			try{
+//				NettyChannelMap.get(commodityReq.getClientId()).writeAndFlush(s2ClientResp);
+//			}catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		  break;
+//		case CATEGORY_REQ:{
+//			CategoryReq categoryReq = (CategoryReq)c2ServerReq;
+//			CategoryResp categoryResp = categoryService.categorySync(categoryReq);
+//			NettyChannelMap.get(categoryReq.getClientId()).writeAndFlush(categoryResp);
+//		}
+//		break;
+//		case SimpleTest_REQ: 
+//			SimpleTest test = (SimpleTest)c2ServerReq;
+//			System.out.println(test.getHello());
+//			break;
+//		default:
+//			break;
+//		}
 		ReferenceCountUtil.release(c2ServerReq);
 	}
 

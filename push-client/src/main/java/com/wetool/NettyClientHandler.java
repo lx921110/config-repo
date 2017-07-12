@@ -1,12 +1,15 @@
 package com.wetool;
 
-import com.wetool.push.api.model.*;
+import com.wetool.push.api.model.BaseMessage;
+import com.wetool.push.api.model.MsgType;
 import com.wetool.push.api.model.client.LoginReq;
 import com.wetool.push.api.model.client.PingReq;
 import com.wetool.push.api.model.server.CategoryResp;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.PushMessage;
 import com.wetool.push.api.model.server.push.ImageSyncMessage;
+import com.wetool.push.api.model.server.push.MeituanPushMessage;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -62,6 +65,10 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMessage>
 	                    case QRCODE_IMAGE_SYNC:
 	                        ImageSyncMessage ism = (ImageSyncMessage) pushMessage;
 	                        System.out.println(ism.getImageId());
+	                        break;
+	                    case MEITUAN_ADD_PUSH:
+	                        MeituanPushMessage a = (MeituanPushMessage) pushMessage;
+	                        System.out.println("美团订单创建-------------------------"+a.getOrderId());
 	                        break;
 	                }
 	                System.out.println("receive push message from server …");

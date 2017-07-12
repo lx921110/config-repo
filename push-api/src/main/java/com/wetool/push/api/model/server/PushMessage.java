@@ -13,11 +13,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class PushMessage extends BaseMessage {
+public abstract class PushMessage<T extends PushMessage<?>> extends BaseMessage {
 
     private static final long serialVersionUID = 2781667713166507274L;
     private PushMsgType pushMsgType;
 
+    private T t ;
     /**
      * 设备唯一序列号
      */
