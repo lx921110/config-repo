@@ -27,8 +27,8 @@ spring:
    # password: Weitoo502
     
     url: jdbc:mysql://mysql:3306/mac?characterEncoding=utf8&useSSL=true
-    username: root
-    password: 123456
+    username: '{cipher}AIAPyba46NNBSI1NnHrFavfWzAqD1xiE2UUko+JKw02IP3kSsPqxGkx/znluY/YKlwA8JvC1yqbHQH5jsWNAkjcOfB08qtwRcFKPo+Ln2COaE+r3sbmjR33WXmsMHzWGGU56bWAI/CJtgryUpy0YYq3AytOsbynbVsQcNtSfATc7UUHwA2hCxIBwAeD8xPcqKg2PVzVKWR0z0NVfOoaTlfNa'
+    password: '{cipher}AIBXsQZZ4eFx8PGZki0kovn7ZCmXGMfoVJXrEaqPdTG5k4JcWkvANfxwQFdh3Qj6Hw0T4+0ke79ANWLGc7IpSccSDrVOPU07N5xY/DmtXKXZpdToBXfHph/abAkdOAp07tW1rLpPFZ2ruY2f4JZuNc7Ggl/gWjIQJfWXBtHzt4dQzJ9E5hTwNWQ1SFIgRo4vbt4ZrHvhrK39TcMkq8uaPpuf'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
@@ -76,8 +76,8 @@ spring:
 security:
   oauth2:
     client:
-      client-id: admin
-      client-secret: admin
+      client-id: '{cipher}AICF20sBn2SFgrp9gIRvIzZqaokyZ1pOpOEvfJvZ5EEnElEQHJ4wpjsTo+SqjYIGl38DmgtYB1TtlfaMaAaC2SWnHhyFgOMjBkoGX/blQ3kSmCRgNuBxhIRMCbq6Kf+/wH+SFz48GMoTKy/YaA2nWCxCopf5RMXNLWnQVuHjwuU41SMvdqKL6ioADSh+U1ALTrmRSOPoIrVhhQMnUM2K16r7'
+      client-secret: '{cipher}AIA4aW2aKsa1NpwbqvZo5jEHm+j5YYvloRDSiEtAr7/9V/e/crpcLTijR+XrdkRxxs04noxR9t1h6/RQ07CKLZvTugvMZqNDfoVxwJ580tZOoynbLL5TRs7IN/fQoCHRXQXQ9hm9PwRuc1fHHBe4BmEgv6TVB/y70cbVluhzij4T3bG/UgAv/nA6E+6Ck6hAlSp6pxTkJRN4OK8IIbk9Luta'
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
       
