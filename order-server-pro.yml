@@ -76,7 +76,7 @@ spring:
     password: '{cipher}AIA2MZc9jXB8jGZ/+QaMPBytYs66F7wHrhTKZE6WlZXU4nKFIb5VPXwDz7q/upXIra+75b6hcg1EDAx7qgpMofF12pIa9QJfBX1dD39yXzeLITGJxtzfkz+60u4+tuR/i/vy2XrRq39z/tS5/I5mwPmbrY15on/8a6z3naSXgQXB8mzs/b8TuGOr1RPjjJOprVNpA/ilyfgspMvjdniCHcye'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
-    initialize: true
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
