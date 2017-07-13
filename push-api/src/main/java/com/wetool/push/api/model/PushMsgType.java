@@ -34,5 +34,10 @@ public enum PushMsgType {
     /**
      * 美团订单完成推送
      */
-    MEITUAN_ORDER_DONE
+    MEITUAN_ORDER_DONE,
+    /**
+     * 美团订单配送推送
+     */
+    MEITUAN_ORDER_LOGISTICS
+    
 }
