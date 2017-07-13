@@ -75,6 +75,8 @@ spring:
     username: '{cipher}AIBCTtDU8LmHqZ/RfXdIhXkDPA3ov4RIg+xSMOlEXASATRlzjqPhVsO7PLCuhXeBZnak/nR0faMhVy0RSevqv/H6jma8gJVDgqNkyuMRJXa5JFqAyTqepKeX6hMRMFhZKAtNpgve+8l9uPDPSGBLTSh86LQhebOzOZsTq6ESyWmLh6IKfAAAJPfM0hpgUylds1kW/bF661o+zRLuwvMGakCB'
     password: '{cipher}AIA2MZc9jXB8jGZ/+QaMPBytYs66F7wHrhTKZE6WlZXU4nKFIb5VPXwDz7q/upXIra+75b6hcg1EDAx7qgpMofF12pIa9QJfBX1dD39yXzeLITGJxtzfkz+60u4+tuR/i/vy2XrRq39z/tS5/I5mwPmbrY15on/8a6z3naSXgQXB8mzs/b8TuGOr1RPjjJOprVNpA/ilyfgspMvjdniCHcye'
     driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
+    data: classpath:sql/data.sql  # 数据文件
     initialize: true
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
