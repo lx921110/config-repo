@@ -29,7 +29,7 @@ public class CommodityService {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     public CommodityResp commSync(CommodityReq commodityReq) throws Exception {
-        url = "http://192.168.1.91:16010";
+        //url = "http://192.168.1.91:16010";
         Boolean flag = true;
         /* 商品获取接口 */
         CommodityFeignClient commodityFeignClient = builder.target(CommodityFeignClient.class, url);
