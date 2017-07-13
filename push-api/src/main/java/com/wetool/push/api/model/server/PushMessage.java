@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class PushMessage<T extends PushMessage<?>> extends BaseMessage {
+public class PushMessage<T> extends BaseMessage {
 
     private static final long serialVersionUID = 2781667713166507274L;
     private PushMsgType pushMsgType;
@@ -24,10 +24,11 @@ public abstract class PushMessage<T extends PushMessage<?>> extends BaseMessage 
      */
     private String sn;
 
-    public PushMessage(PushMsgType pushMsgType,String sn) {
+    public PushMessage(PushMsgType pushMsgType,String sn,T t) {
         super(MsgType.PUSH_REQ);
         this.pushMsgType = pushMsgType;
         this.sn = sn;
+        this.t = t;
     }
 
 }

@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class NettyClientConfig {
 
-	private final String host = "192.168.1.91"; // 服务地址
+	private final String host = "127.0.0.1"; // 服务地址
 	private final int port = 3333; // 服务端口号
 	private final int READ_IDEL_TIME_OUT = 20; // 读超时
 	private final int WRITE_IDEL_TIME_OUT = 10; // 写超时

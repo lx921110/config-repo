@@ -7,6 +7,8 @@ package com.wetool.push.api.model;
  */
 public enum MsgType {
 
+	//test
+	SimpleTest_REQ,
     /** ============消息类型（客户端 -> 服务端） */
     /**
      * 登录请求

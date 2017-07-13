@@ -22,6 +22,8 @@ public class PushService {
 //                NettyChannelMap.get(imageSyncMessage.getSn()).writeAndFlush(pushMessage);
 //                break;
 //        }
+    	
+    	System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         this.sendMessageToClient(pushMessage);
     }
 
@@ -29,7 +31,7 @@ public class PushService {
      * 发送消息到客户端
      */
     private void sendMessageToClient(PushMessage pushMessage) {
-
+    	System.out.println("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
         Channel client = NettyChannelMap.get(pushMessage.getSn());
         if (client != null) {
             client.writeAndFlush(pushMessage);

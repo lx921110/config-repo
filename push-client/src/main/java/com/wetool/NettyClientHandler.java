@@ -8,7 +8,6 @@ import com.wetool.push.api.model.server.CategoryResp;
 import com.wetool.push.api.model.server.CommodityResp;
 import com.wetool.push.api.model.server.PushMessage;
 import com.wetool.push.api.model.server.push.ImageSyncMessage;
-import com.wetool.push.api.model.server.push.MeituanPushMessage;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -67,8 +66,8 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<BaseMessage>
 	                        System.out.println(ism.getImageId());
 	                        break;
 	                    case MEITUAN_ADD_PUSH:
-	                        MeituanPushMessage a = (MeituanPushMessage) pushMessage;
-	                        System.out.println("美团订单创建-------------------------"+a.getOrderId());
+	                        Object o = pushMessage.getT();
+	                        System.out.println("美团订单创建----------------------id---"+(Long)o);
 	                        break;
 	                }
 	                System.out.println("receive push message from server …");

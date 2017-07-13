@@ -17,5 +17,22 @@ public enum PushMsgType {
     /**
      * 美团订单创建
      */
-    MEITUAN_ADD_PUSH
+    MEITUAN_ADD_PUSH,
+    /**
+     * 美团订单取消推送
+     */
+    MEITUAN_ORDER_CANCEL,
+    /**
+     * 美团订单部分退款
+     */
+    MEITUAN_ORDER_REFUND_PART,
+    /**
+     * 全部退款
+     */
+    MEITUAN_ORDER_REFUND_ALL,
+    
+    /**
+     * 美团订单完成推送
+     */
+    MEITUAN_ORDER_DONE
 }
