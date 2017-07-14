@@ -11,32 +11,32 @@ public enum PushMsgType {
      */
     QRCODE_IMAGE_SYNC,
     /**
-     * 支付状态同步
+     * 支付状态同步 
      */
     PAYMENT_STATUS_SYNC,
     /**
-     * 美团订单创建
+     * 美团订单创建  --  orderId  类型 ：Long 
      */
     MEITUAN_ADD_PUSH,
     /**
-     * 美团订单取消推送
+     * 美团订单取消推送--  orderId  类型 ：Long 
      */
     MEITUAN_ORDER_CANCEL,
     /**
-     * 美团订单部分退款
+     * 美团订单部分退款--  orderId  类型 ：Long 
      */
     MEITUAN_ORDER_REFUND_PART,
     /**
-     * 全部退款
+     * 全部退款--  orderId  类型 ：Long 
      */
     MEITUAN_ORDER_REFUND_ALL,
     
     /**
-     * 美团订单完成推送
+     * 美团订单完成推送--  orderId  类型 ：Long 
      */
     MEITUAN_ORDER_DONE,
     /**
-     * 美团订单配送推送
+     * 美团订单配送推送  --- 类型  OrderHistory 
      */
     MEITUAN_ORDER_LOGISTICS
     
