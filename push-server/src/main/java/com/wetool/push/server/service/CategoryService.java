@@ -40,6 +40,14 @@ public class CategoryService {
 			System.out.println("商品分类同步失败");
 			list.add(null);
 			break;
+		case 19:
+			System.out.println("商家未登录");
+			list.add(null);
+			break;
+		case 20:
+			System.out.println("商品分类未找到");
+			list.add(null);
+			break;
 		default:
 			break;
 		}
