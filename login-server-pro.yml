@@ -1,10 +1,10 @@
 server:
   port: 4010
   
-discovery:
+eureka:
   client:
     serviceUrl:
-      defaultZone: http://discovery:8761/discovery/
+      defaultZone: http://eureka:18761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
