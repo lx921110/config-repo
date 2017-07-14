@@ -1,5 +1,0 @@
-FROM 192.168.1.10:5000/jre8
-VOLUME /tmp
-ADD sync-server-1.0.jar /app.jar
-RUN sh -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
