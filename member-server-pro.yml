@@ -35,8 +35,8 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: admin
-                password: admin
+                username: '{cipher}AIBV3gRsV+QaV1gs54jOLCTuM/uLcN3zvY89sP31Arsa1KJfeSos25SRxwEYl0/YDwedaQqhiFTFzXz+kB921dUMlXESPjbAw8eGjlrUdO048r2bTr6puzaJy3nzRtuS2cUL8dKVp/FmfHXFYUGNp+tHPX2haa+D72BfRYtw1V9Mi3bm3DwlGCjJqTOs98z4iNLdyoi4ZtRlvj/lUEJtD31o'
+                password: '{cipher}AIB7MY4xdHdhMKOI3RZ2l2+OJsImGe6a3DI7AD9npObrACgJBm2pXac5555GVXe5msTqLFX1238dY28mQj9cPvqfY+kXNm/DYvWWDsKuPal45V2HE797CbjqXA7MPx08KEg3U+weDp6trGJlQgGvX590knODzxD3F0Q1qXQc3rL6YSdDtQrRt8KXOYphxxyeYsWlUZt8qsS52kdhtSFKXSAM'
                 virtual-host: /
 
   jpa:
@@ -54,11 +54,10 @@ spring:
    # password: Weitoo502
     
     url: jdbc:mysql://mysql:3306/member?characterEncoding=utf8&useSSL=false
-    username: root
-    password: 123456
+    username: '{cipher}AIBQhdl+sZL8Uo0zKPKAVwFFJC0UD/uiE+S+CZmAN4G8qW2TjtaZgFyfKpU+Gm7voXWj8K2Ip4JmAkkvaJFXKlbZ5kchFEO0qOpTvKMvIgcgBBeBe0Mv+f4gfB69kzbxRtLlWyUGdSHYoXuXXluLyVz4/AnnQnsenBfKqdsQL9kYZ4I9NIiWsmnvhiOlafEEfdYfQTt6wiijU3o5vCTh0tGu'
+    password: '{cipher}AIBleBKKcrvJPmxXsVECP5x/mTXZ/0LldxwWSbsFL3ZBSiGJnrRfXvnu9gl3+lqClx8xd7pvSs1vzzmHLOVIZK1eLEO2+RsbWVC7pFK29VMuDjtIKrUqq6p2stHnJG5pdXFSXf1xgR6snSn9TySBpF+27W6Sj8mISE6aQ7YpX730HI65OWFpCWJGqLyuo+XHbhcBvZloo/XwCUZnmSHWLA7I'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
-    data: classpath:sql/data.sql  # 数据文件
     initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
@@ -109,8 +108,8 @@ feign:
 security:
   oauth2:
     client:
-      client-id: admin
-      client-secret: admin
+      client-id: '{cipher}AICVfV43f6nf89Ys8t9J0V+9YdCR+/+ZhfMbX/mHzuf311sF59brCE7oUyJic9wLtemNmtbWmg4sjvh6BW5Xh4beJ/A2EF7luug3vmSukSvdEbzVjUOk/1TQnvJAsnD5BrAsgiSthX0G5BFHC1PQg2J0R24nXB3y3cJPCNxHuRVN0rAUjCdqSL+VFR4J7/y2HpJX3jf0uSMP7+dNnab+ES7q'
+      client-secret: '{cipher}AIBr6+i9VcA9zjVrSlcXLxlEdUtzE9/lXAPnTD9gQpwQ28I8AdcnyBhm28qlwfK+UxplSTDVvauhA4QSZeZJ78yQvHyxVlv33/2Q7+tNw93YFabbdc4zYFeE+qpYxMQ416Nw3sWSWg7v5pWBw66TNjX9eeoc9USOD7xmvEPlNiE6b9kaxV4oOBwH61AQnpxYVzuLkDg6W25IyyEy2YgBgFnu'
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 captcha: #注册会员短信验证码

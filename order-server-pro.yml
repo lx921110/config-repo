@@ -54,8 +54,8 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: admin
-                password: admin
+                username: '{cipher}AIAHK6LYUIvmmfpxA6dLfTwh7NHIGorkoIs/AkyKEfxRdTOWPKjHvHatYA2VrSPm7o9oNnWBbZVVN7cgCFcmqOVM7LL1+fSGAJvBQXNCFNJwU7fLS10nFgiY5giJXA8DoSRLoiLBNCyhx0+ZkQTP9hW+I8bbg+idd/CM5yMgxguVyxOQ1s7vv8EA5c968vBFwFu4ssffPx0lsHeKnzKI8xOO'
+                password: '{cipher}AIBhj/2EtT8GiRuVWPQl+W0ddn++w5mu/Sbi/3osOHKdiriikclrzG9b8rM4dza7prXRSpEoV+HnXWWrRFHVpQYl6HATWIA+3GVGX/+i969+6BYf9QiIYksJRVr3d75KGLKl6yg47VyrQj8NWztauPdMxQar27LozY7lBeRprPg7fwNeFSvqjY92GBG1Zu727bojfwemN7RjZ1/POHSasxya'
                 virtual-host: /
   jpa:
     show-sql: true
@@ -72,10 +72,11 @@ spring:
    # password: Weitoo502
     
     url: jdbc:mysql://mysql:3306/order?characterEncoding=utf8&useSSL=false
-    username: root
-    password: 123456
+    username: '{cipher}AIBCTtDU8LmHqZ/RfXdIhXkDPA3ov4RIg+xSMOlEXASATRlzjqPhVsO7PLCuhXeBZnak/nR0faMhVy0RSevqv/H6jma8gJVDgqNkyuMRJXa5JFqAyTqepKeX6hMRMFhZKAtNpgve+8l9uPDPSGBLTSh86LQhebOzOZsTq6ESyWmLh6IKfAAAJPfM0hpgUylds1kW/bF661o+zRLuwvMGakCB'
+    password: '{cipher}AIA2MZc9jXB8jGZ/+QaMPBytYs66F7wHrhTKZE6WlZXU4nKFIb5VPXwDz7q/upXIra+75b6hcg1EDAx7qgpMofF12pIa9QJfBX1dD39yXzeLITGJxtzfkz+60u4+tuR/i/vy2XrRq39z/tS5/I5mwPmbrY15on/8a6z3naSXgQXB8mzs/b8TuGOr1RPjjJOprVNpA/ilyfgspMvjdniCHcye'
     driverClassName: com.mysql.jdbc.Driver
-    initialize: true
+    schema: classpath:sql/schema.sql  # 结构文件
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
@@ -119,8 +120,8 @@ spring:
 security:
   oauth2:
     client:
-      client-id: admin
-      client-secret: admin
+      client-id: '{cipher}AIBScVtkkI8PtwQzcVPizYksORfInjq3x22v6mCAfpMm2pbsYCS5Kajsyvk8jUt+u1NIsPIIp0fGBJYTeiRu+BSJr48rXNxh4KqBFYM6dGHeO0jEDJeeiN17PApSRuGwGBhaOH/eDNaXq1mEz/NSLopZLtfmTTJIdQuxSnAHml5D6qZQVq6wqQCSx9asPxYpxtbnJGgDLPIERQlbeXyNnnkw'
+      client-secret: '{cipher}AIBibQ/NVXi6CrYm6C9zob0d5celqjaL3wQsk7YXC8LINnr1NVhaPl/0NwmpqVBDT2lipiSdcZN5lLSwd4/hzOT9lAqko+qUYV9kE+TPgiYSvPHqtLbGanoZD4eGdsxuHur5QoY8+kXItG55rW6X6S0BZYSsZxLb5JQKsHwqTes36ri416/QQd1GlvcoP4pFM9jrVvFFPtSkYHhJ2+wCVZEz'
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 

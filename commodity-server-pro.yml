@@ -72,14 +72,14 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: admin
-                password: admin
+                username: '{cipher}AIB+olWDkiIOyAhUSK8AXOLsMfboD5pyyyPfFb8lH4SlMVsmEWgkh6pWcupxJQnpaDgM+/WXVcx6Fzmi3aUDYi4T2XPPWXtjxgMNFav3Mnd5rA6+0P8CjdsKMf20XZv72ItrL2dMvTAnxz9zXPfJPpqrhLzEXbp1qiv6hkwBreGUOGYNGScoSyactwuYQK0qpoQ4VxqX/Gaz1Fh+JS6ac4+P'
+                password: '{cipher}AIAMxEXNLVU0t5ZccKBMCUoWO2QWXNui2o/SJ6RcyArHbax0kVAT5tmKl3RukDz2q+qBqUBp5qIePPuhl6km4eUIw/EMN6oY0SEXLW+e7xcQc3oqtospbJl1IW0D7JqgGESNTJ/r6rscvp0Zs3ecwEAFuQLTObkJ1iqDbcS44fysIPE4Qrr8DNAQerrRuzA1JMwMgfuApkIrjSS83/Vww+Fg'
                 virtual-host: /
 security:
   oauth2:
     client:
-      client-id: admin
-      client-secret: admin
+      client-id: '{cipher}AIB+olWDkiIOyAhUSK8AXOLsMfboD5pyyyPfFb8lH4SlMVsmEWgkh6pWcupxJQnpaDgM+/WXVcx6Fzmi3aUDYi4T2XPPWXtjxgMNFav3Mnd5rA6+0P8CjdsKMf20XZv72ItrL2dMvTAnxz9zXPfJPpqrhLzEXbp1qiv6hkwBreGUOGYNGScoSyactwuYQK0qpoQ4VxqX/Gaz1Fh+JS6ac4+P'
+      client-secret: '{cipher}AIAMxEXNLVU0t5ZccKBMCUoWO2QWXNui2o/SJ6RcyArHbax0kVAT5tmKl3RukDz2q+qBqUBp5qIePPuhl6km4eUIw/EMN6oY0SEXLW+e7xcQc3oqtospbJl1IW0D7JqgGESNTJ/r6rscvp0Zs3ecwEAFuQLTObkJ1iqDbcS44fysIPE4Qrr8DNAQerrRuzA1JMwMgfuApkIrjSS83/Vww+Fg'
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 feign:
