@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+jar {
+	baseName = 'push-api'
+	version = '1.0'
+}
+
+repositories {
+	maven {url "http://123.56.78.149:83/content/groups/public/"}
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	compile('com.esotericsoftware:kryo:4.0.0')
+	compile('com.caucho:hessian:4.0.38')
+	compile('org.objenesis:objenesis')
+	compile('org.projectlombok:lombok:1.16.6')
+	testCompile 'junit:junit:4.8.2'
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+task copy(type: Copy, dependsOn: build) {
+	from 'build/libs/push-api-1.0.jar'
+  	into '../../pos-service-2.0/app/libs'
+}

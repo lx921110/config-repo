@@ -1,0 +1,67 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+	}
+	repositories {
+		maven {url "http://123.56.78.149:83/content/groups/public/"}
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath('se.transmode.gradle:gradle-docker:1.2')
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'docker'
+
+jar {
+	baseName = 'push-server'
+	version = '1.0'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR1"
+	}
+}
+
+repositories {
+	maven {url "http://123.56.78.149:83/content/groups/public/"}
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	compile project(':push-api')
+	compile ('org.springframework.cloud:spring-cloud-sleuth-stream')
+	compile ('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+	compile('org.springframework.cloud:spring-cloud-stream')
+	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+	compile('org.springframework.cloud:spring-cloud-config-client')
+	compile('org.springframework.cloud:spring-cloud-starter-feign')
+	compile('io.github.openfeign:feign-httpclient:9.5.0')
+	compile ('io.jmnarloch:feign-oauth2-spring-cloud-starter:1.0.0')
+	compile('io.netty:netty-all:4.1.12.Final')
+}
+
+task push(type: Docker, dependsOn: build) {
+	push = true
+ 	applicationName = jar.baseName
+ 	tagVersion = version
+ 	dockerfile = file('src/main/docker/Dockerfile')
+ 	doFirst {
+ 		copy {
+			 from jar
+			 from 'src/main/docker/start'
+			 into stageDir
+		}
+ 	}
+}
+	
+group = '192.168.1.10:5000'
