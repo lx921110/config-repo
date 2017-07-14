@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+      
+security:
+  userOauth:
+    clientId: admin
+    clientSecret: Wt1472583695
+    type: oauth2
+    authorizationUrl: http://localhost:8080/oauth/authorize
+    tokenUrl: http://localhost:8080/oauth/token
+    tokenName: access_token
+    scope:
+      code: read
+      desc: Wetool API
+
+app:
+  key: learning
+  name: 每日一学
+  desc: 每日一学RESTful
+  version: 0.1
+  termsOfServiceUrl: http://blog.csdn.net/jacktonny1

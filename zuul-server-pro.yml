@@ -1,0 +1,48 @@
+server:
+  port: 8765
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+      
+info:
+  component: Zuul Server
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+zuul:
+  prefix: /api #为zuul设置一个公共的前缀
+  #ignoredServices: '*'
+  routes:
+    basic-server: # 地区服务
+      path: /**     #路由设置
+      serviceId: basic-server #指定路由到的serviceId
+    advert-server: # 广告服务
+      path: /** 
+      serviceId: advert-server
+basic-server:  # 地区服务
+  ribbon:
+    listOfServers: basic:5000 #为area-server服务指定一组服务地址，用于负载均衡
+advert-server:  # 广告服务
+  ribbon:
+    listOfServers: advert:6050
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 6000
+  eureka:
+    enabled: false #配置zuul路由时用将此属性设置为false
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO

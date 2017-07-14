@@ -1,0 +1,142 @@
+server:
+  port: 26040
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:28761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: 192.168.1.10:28765
+  api-url: /api/order-server/
+  
+#RabbitMQ配置   生产者output
+spring: 
+  cloud: 
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        order_offline_input_channel: #线下订单消费通道
+          destination: order-offline 
+          group: orderOffline
+          binder: order_binder
+        payment_offline_input_channel: #线下支付消费通道
+          destination: payment-offline
+          group: payment
+          binder: order_binder
+        refund_offline_input_channel: #线下退货退款消费通道
+          destination: refund-offline
+          group: refund
+          binder: order_binder
+        payment_online_input_channel: #网络支付消费通道
+          destination: payment-online
+          group: payment
+          binder: order_binder 
+        invoicing_output_channel: #库存生产通道
+          destination: topic-invoicing
+          group: invoicing
+          binder: order_binder
+        member_point_output_channel: #会员积分生产通道
+          destination: member-point
+          group: point
+          binder: order_binder
+        member_balance_output_channel: #会员余额生产通道
+          destination: member-balance
+          group: balance
+          binder: order_binder
+      binders:  
+        order_binder: 
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: admin
+                virtual-host: /
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none 
+    
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # For Mysql
+    #jdbc:mysql://101.201.56.163:3838/test_db
+   # url: jdbc:mysql://101.201.56.163:3838/test_db
+   # username: wetool_test
+   # password: Weitoo502
+    
+    url: jdbc:mysql://mysql:3306/order?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
+    initialize: false
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+    
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs    
+ 
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+
+
+# 自定义业务属性
+#订单号规则
+order: 
+  rules: 
+    max-length: 13 #订单号的总长度，当每日订单量超过7位数时，总长度会+1
+#订单超时时间规则
+    accept-time: 10 #商家未接单的订单超时时间，分钟
+    pay-time: 10 #用户付款超时时间，分钟
+    auto-confirm: 24 #超时未收货自动确认时间，小时
+    
+#订单号相关规则
+    prefix-length: 0 #订单号前缀随机数长度    订单号：订单类型 + 前缀随机数 + 时间 + 自增长序列号
+    redis-key: orderNO #订单自增序列的key值的前缀   完整key如：orderNO20170510

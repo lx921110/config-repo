@@ -1,0 +1,84 @@
+server:
+  port: 6020
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: 192.168.1.10:8765
+  api-url: /api/shop-server/
+  
+spring:
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+      
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none 
+    
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://mysql:3306/shop?characterEncoding=utf8
+    username: '{cipher}AIBzYXgXsfBj3L1Q1IZZYIL45ncnM025hJuS0hjFB8llc6gyNFVC83tgBU5LuEAKxXeKheHD3dA6qUI2L9AKPjsx3KDUzPqp4DfnRUSgObZ9hrden52lvTtADChIB7FCsVScs2aI7fnfOy7yMmd39KYlyd/v1feSO34eH+o/eP+PgQJrtvJcLjdEfM6vrKefShQTLj4CmCysBt/G+IJuCXH5'
+    password: '{cipher}AIAaou/R5g/ZxyFR384uZEGDU8Iv3sztL5s3wLHRg8UkuSMdXs6ycCNV7yO4meB3wH05zAquzAy9k623gwYXa78iv+r3OrxsfX4ED/s2NwrVhBlcChuCSfpGu+6xYoGlTVeYmVoP8QJoMhyS6V2PwWXqPJkrVL594Qig27UmdP7r7bux2fOJQiQCm7nVfpyBc7A48jOtC0xzjXKTroCX6iFw'
+    driverClassName: com.mysql.jdbc.Driver
+    initialize: false
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+security:
+  oauth2:
+    client:
+      client-id: '{cipher}AIB6uAXPb+RvXuSKjJMNwM3qAhrkisNeCmn+QnQKh1MU+T4/+AZ9OL11DzwLfciyO/5tbxbqjQNnmIMzIkWA6Ly41zmQKh1mv8ZOQcUtyD7s9ls/XcBIL7FIoFtuf4J+gBG1+njMzHukt7hJCqNuYjDiJgaVtroo6XJ8n9pGEg9YNrMSYhSxDSzLKSSfTMP+zZmNcv239pry+4x1EixZbwXh'
+      client-secret: '{cipher}AICbInPn43HBcSRlH335cX0uvF8ZUJIuPDbncDF+pkDpScpFZbJ9MR0TB6hLYlLEsjVfVNoZatyTPfVtqrAg3T2engUxLvakyAixpR/V5TPe0zLiLRDGveSa9Y0/88gLN6cfW61xfcZUyW/QSyMpsnFJVXpXbqOGfH47YX39TG0i4KIk4qIai59oAiXJyDwCeASoK1f6RWtL+HKPG2Z93/6T'
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
+captcha: # 验证码
+  send-interval: 60      #下发间隔时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
+url:
+  auth-server: http://auth:14000   #认证服务 
+  
+settings: #网店开关
+  status: #开关状态初始值
+    meituan: 0 #关闭
+    wetool: 0 #开启

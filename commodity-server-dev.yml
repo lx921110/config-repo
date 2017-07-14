@@ -1,0 +1,97 @@
+server:
+  port: 16010
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/commodity-server/}
+  
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+   # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # For Mysql
+    url: jdbc:mysql://mysql:3306/commodity?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: '{cipher}AIBwTz5MLHLMjbPRcyRwHi0YeR89ow+VvHXnWLH5FOuaC0GlQNcO7l+5TvTgQMzIjgO4OprxN0+mpnSLBfOK8P7HdGQxEFoC3eytRZ/ZR358FGdsbohvdaeTjNKLcc3M8tR5K23iPQ4wDGjllqFVlTwPguTbsADJbUUSO1Ba3aggnVTTtfMnN1YmWket9H5os6J0BKDWZBaHmJGRKZb0uKj4'
+    driverClassName: com.mysql.jdbc.Driver
+    schema: classpath:sql/schema.sql  # 结构文件
+    data: classpath:sql/data.sql  # 数据文件
+    initialize: false   # 是否初始化
+    # 导入编码
+    sql-script-encoding: UTF-8
+    continue-on-error: false
+
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        push_output_channel: #消息推送的生产通道
+          destination: topic-push #话题-推送
+          group: push
+          binder: push_binder
+      binders:
+        push_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
+url:
+  auth-server: http://auth:14000   #认证服务

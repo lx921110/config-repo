@@ -1,0 +1,24 @@
+info:
+  description: 微兔微服务
+  url: https://www.wetool.com
+  
+spring:
+  cloud:
+    stream: 
+       bindings:
+         springCloudBusInput:
+           destination: testExchange
+           group: testQueue
+         springCloudBusOutput:
+           destination: testExchange
+           group: testQueue
+  rabbitmq:
+#    host: ${LV1_RABBITMQ_1_PORT_5672_TCP_ADDR:localhost}
+#    port: ${LV1_RABBITMQ_1_PORT_5672_TCP_PORT:5672}
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+  sleuth:
+    scheduled:
+      skipPattern: org.springframework.cloud.netflix.hystrix.stream.HystrixStreamTask #跳过采集内容

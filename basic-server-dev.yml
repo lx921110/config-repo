@@ -1,0 +1,163 @@
+server:
+  port: 15000
+
+gelf:
+  url: 192.168.1.10
+  port: 10001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/basic-server/}
+
+security:
+  oauth2:
+    client:
+      client-id: '{cipher}AIACjei2pPVYRzwUobZTadvMlAQA/76vnkS/BZgvB6ViffV1MeoXHpHAE9ll2s61szpn97cDzLg0SqDFU3khklnNbsQGeJr+E7A3YVUVOa9V4l4ijBxRLraaNX+cWl2Rze8IMWwHsJHf43CkinsG35/qAipMw21ULKy99F2730e0spiq9OjZZs4QEXNcMWEC1kTmsZ8IlDXyggRaIp5NSzPZ'
+      client-secret: '{cipher}AIAgIKgzHQLlxzMugZCLffRyxKi1ghU3UNAh+Ht11pnBSkd8Fy5Mo+Mmayk0slChasQMY7u+LB3xEC55wU1krVZGI0jCgvQY2DVbOzZQQc4cUKseQWgFxy0Pl/KMJEAKAX9VjX5SbnU5Nw30sygbtudUNLFv6U9xRYsXV7cIKeASGNYEF24idizA/TAmwf5D/8hT+mzabewGbFO1QkxlV1HO'
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+logging:
+  level:
+    root: INFO
+    feign: DEBUG
+#
+#Area-Server Configuration
+#
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+   # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # For H2
+    # 存储在内存中 2
+    url: jdbc:h2:mem:area-server-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driverClassName: org.h2.Driver
+    data: classpath:sql/area_data.sql  # 数据文件
+    initialize: false   # 是否初始化
+    # 导入编码
+    sql-script-encoding: UTF-8
+    continue-on-error: false
+
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+  h2:
+    console:
+      enabled: true # 是否允许访问控制台
+      path: /h2-console # 配置h2控制台访问路径 默认 /h2-console
+
+
+#
+#SMS-Server Configuration
+#
+
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        sms_output_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+        sms_input_channel:
+          destination: topic-sms
+          group: sms
+          binder: sms_binder
+      binders:
+        sms_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: '{cipher}AIAPh4jlEOIUGeyYJfnY9B5bjSuN9rYSqn79WRCFRaHL/F8Im2huf8DGLL+A7NLQ5mxisjghpavpREDk6Ta2U54drq8gGcwp7jiL5bq3J8NaX/qav1BoR3KDcRicg2dyLrmYRQbeiEA8yTO3u86rRzw7cwQFS2LjFnxXvyRpmEZAp87MTnFgOWjPhtvVVIiZ5x/ppVzTcMJt++uDYgum0aOY'
+                password: '{cipher}AICcCWiyF+92+T/wgbKxo5cDLgfXj+RTyfKeunb/CCLrXCSnY+yvq0wN3DImpf4YltIKbzByDFg+vBYC1HIEwbwSKxbyiea2UiEbi3K3HiYUVSjahc0LU23W48gw3lf6vHtA/afQc4qvtM2JLUTqqPC1Q5pJ5q5XFJYSJ2eESQNXSODzDLIwm7H7r41VQ48d3C+z1x5fVM/Gdfn+wQZKJEX9'
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: '{cipher}AIBfXwkne37amqRBcFINLlNUk2YLnGQJyI/PDGzyw/89vbYncQhqi3uN6b/y6glgwGTvkzHp86WQh0OaE2qh7pTF+4le7wT/Feh/Npl/Y0V65iccMqqoGBj6QDje8jQNHnF3QTK8vTacROznpF76FEHbcEM5wEP8pCVfFUWrRpDdtjdZofvxZbtbvQ4Tt/DzzGNDmNu0cLc58uwO8gazk0mi'
+    password: '{cipher}AIBP95Xf5wOpX4HlbQPl55LP2CgonfytszEZZQd3KZO5oqyENLiOUbSJlNQqJjSe1zGrBeqN6lzhu2SJDnXVfmr5DyQtqJZ6iPYQq99Onxm3SD8DXRM1M90T/wtrnRwEnEd9DXGSSAz8r01IGzgG/qXdSexoQiOJkiqENU5cHdWta7rRqLqbwAlbjwzasueb5z+qpAIQvxbi6z28W7EfW4uk'
+    virtual-host: /
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name
+    host: redis # server host
+    password:   # server password
+    port: 6379    # connection port
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+  http:
+    multipart:
+      max-file-size: 15MB
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs
+
+alidayu: #阿里大于
+  url: http://gw.api.taobao.com/router/rest #
+  appKey: '{cipher}AICeVUSi+94kt68Ozi5ZRyIgPgQAuh57FO2NFsEhDswNeYMablMQ7y/nC6YpmBpNy5IpCnkvkDBSFKtQzdcyarildsYWi30Iqssk/kzzHgaz/Wwi154jle3JSwEG36fTh9HD92/hBxA03IFz502ivEQmAlSx9uVo1kS0KVj4/pLuXXBWUAgLmO3xDCZ5Mo7f9XXsFYbDqJ4jaA6ymUHQBcUu'
+  appSecret: '{cipher}AIBOfk86dSZdR+V1wGB6amf7dYNyZxo/Gho4C1J8827hF0AsCtbx5SLHw7mpWApWdLLw3NglMd9n8UGa1YRb/jXedJNsN2hzpXqXsYeDpVIow9kAr6XFHTkoDjRDpdaJpRrC4JlNv5kq4R2obl8kl2X2pnL0W+idsBXx6zFu+lyLlXuyU2ENd0we+ofFFqzZ7lBuWWUn4MaTGTn4ak5GxXmGGISYYiMYomSZIZR5FiWCjAPb4jdz9DPZbN022+FJric='
+  signName: '{cipher}AICbljMzS3TkKFsGEQL1QRN8nkQjolSziukphEK9qJiNPMsA0agEocNBbkSdomlbM8fXlSiEavlVFje4vQSW0LfKqlQd845JlY4TsHUVB2kauM9y4cTprh31OhhnCRSzg4wqGBJXhJBE3P02ELXS14zKpsAeP5xQLnclxcCrjv/6RbWmQ9UgneZfTv7Ci3tq/u4+byVtUsgHqbzMri7NKdFl' #阿里大于短信签名
+  templateCodeDefault: SMS_69780153 #默认短信模板
+  templateCodeRegister: SMS_69870254 #注册短信模板
+  templateCodePassword: SMS_69830246 #修改密码短信模板
+
+#
+#Upload-Server Configuration
+#
+
+
+
+#业务属性↴
+aliyun: #aliyun OSS info
+  oss:
+    access_id: '{cipher}AIBF5RSy5mWHQ2c9cgO4gq8tQr668uOi0mtgZsMHuDZdCLWuefx5gmT4EbN3PsGwVM3tXTjZrXLqSLxumnOL/gQObppdv1o6DRXugh92hMvSSNUXHMnRcnaYjxLuAPRZVYZqvN7keSArEclNjw35HM68nb03It/P/1iQFYfzI5KvT/5TTMGOF7KGaUhRcE15YHjTbjLHGLT8iDdZj5KDfngPs4bVu9gq2tIqxFCrsbpwtQ=='
+    access_key: '{cipher}AIBeAs0BD5PBge6UaG/xaAFSPHGLIu0LWE3h1JcD7ElZLN+EyMG4JMWHvY6PqmcoARSY0pAVNuaderfv1eHFfhTIk6NUcqTxw80tmF/pI3TfXElCZBwT4PW/LK8hWy1EJ40UuQlk4oXmeyZRQb/vDYFVpsCpU9g3Hdc2scmgxnkvmBalinik9Muh5KM36GC6Ab0C8E5NO0tV1Q6er3CCl8DAJuh9TTWbWE50qplH2UsH4g=='
+    endpoint: http://oss-cn-beijing.aliyuncs.com/
+    bucket_name: wetool
+    file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
+module: # 模块类型
+    types:
+      test: ms.test.dev/  #OSS路径
+      advert: ms.advert.dev/
+      commodity: ms.commodity.dev/
+      shop: ms.shop.dev/

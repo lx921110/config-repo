@@ -1,0 +1,10 @@
+server:
+  port: 8082
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:28761/eureka/
+      
+wordConfig:
+  luckyWord: test from pro
