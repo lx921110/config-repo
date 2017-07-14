@@ -26,7 +26,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update 
+      ddl-auto: none 
     
   # 配置数据源
   datasource:
@@ -35,7 +35,7 @@ spring:
     username: '{cipher}AIBzYXgXsfBj3L1Q1IZZYIL45ncnM025hJuS0hjFB8llc6gyNFVC83tgBU5LuEAKxXeKheHD3dA6qUI2L9AKPjsx3KDUzPqp4DfnRUSgObZ9hrden52lvTtADChIB7FCsVScs2aI7fnfOy7yMmd39KYlyd/v1feSO34eH+o/eP+PgQJrtvJcLjdEfM6vrKefShQTLj4CmCysBt/G+IJuCXH5'
     password: '{cipher}AIAaou/R5g/ZxyFR384uZEGDU8Iv3sztL5s3wLHRg8UkuSMdXs6ycCNV7yO4meB3wH05zAquzAy9k623gwYXa78iv+r3OrxsfX4ED/s2NwrVhBlcChuCSfpGu+6xYoGlTVeYmVoP8QJoMhyS6V2PwWXqPJkrVL594Qig27UmdP7r7bux2fOJQiQCm7nVfpyBc7A48jOtC0xzjXKTroCX6iFw'
     driverClassName: com.mysql.jdbc.Driver
-    initialize: true
+    initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中
     # 初始化大小，最小，最大
     initialSize: 5
