@@ -1,2 +1,0 @@
-rootProject.name = 'wt-push-pt'
-include ':push-api', ':push-client', ':push-server'
