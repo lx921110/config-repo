@@ -8,13 +8,10 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: 192.168.1.10:8765
-  api-url: /api/auth-server/
+  address: ${address:192.168.1.10:8765}
+  api-url: ${api-url:/api/auth-server/}
   
 spring:
-  data:
-    rest:
-      defaultMediaType: application/json
   jpa:
     show-sql: true
     hibernate:
@@ -23,8 +20,8 @@ spring:
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://mysql:3306/auth?characterEncoding=utf8
-    username: root
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/auth?characterEncoding=utf8
+    username: auth
     password: 
     driverClassName: com.mysql.jdbc.Driver
     initialize: false

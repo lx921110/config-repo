@@ -1,0 +1,61 @@
+server:
+  port: 7000
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+      
+logging:
+  level:
+    feign: DEBUG
+
+netty:  #Netty服务配置
+  port: 3333
+  read.idel.timeout: 20
+  write.idel.timeout: 10
+  all.idel.timeout: 0
+
+#线程池设置
+tpool:
+  corePoolSize: 1
+  MaxPoolSize: 1000
+  keepAliveSeconds: 300
+
+#对象池设置
+#kryopool.maxPoolSize=10000
+#dispatcher.sleepTime=100
+
+url:
+  auth-server: http://auth:4000   #认证服务
+  mac-server: http://mac:6000   #设备服务
+  commodity-server: http://commodity:6010   #商品服务
+
+
+spring:
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        push_input_channel:
+          destination: topic-push
+          group: push
+          binder: push_binder
+      binders:
+        push_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+    virtual-host: /

@@ -43,13 +43,13 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 192.168.1.10
+                host: rabbitmq
                 port: 5672
                 username: '{cipher}AIB+olWDkiIOyAhUSK8AXOLsMfboD5pyyyPfFb8lH4SlMVsmEWgkh6pWcupxJQnpaDgM+/WXVcx6Fzmi3aUDYi4T2XPPWXtjxgMNFav3Mnd5rA6+0P8CjdsKMf20XZv72ItrL2dMvTAnxz9zXPfJPpqrhLzEXbp1qiv6hkwBreGUOGYNGScoSyactwuYQK0qpoQ4VxqX/Gaz1Fh+JS6ac4+P'
                 password: '{cipher}AICJ7sRfm7rIfavEG1iQB05mv3VI+y8tnyqM7vWj3ira2/m2DCMa52IpiRgZHh16KjWUYJA+vtmkadEFIs8TIWHQMWJ1rgcPLdOoTpU3Bn7sJOkpAU/57t6avf1i40lALGYuvzuj6tMjt/HxHJq8H5mjG37J1s9xPNekqTcswZg+L6OhPuZKnbtPe5faHajR7a6Xby1xS/PukHdbx6AVuFwT'
                 virtual-host: /
   rabbitmq:
-    host: 192.168.1.10
+    host: rabbitmq
     port: 5672
     username: '{cipher}AICJ7sRfm7rIfavEG1iQB05mv3VI+y8tnyqM7vWj3ira2/m2DCMa52IpiRgZHh16KjWUYJA+vtmkadEFIs8TIWHQMWJ1rgcPLdOoTpU3Bn7sJOkpAU/57t6avf1i40lALGYuvzuj6tMjt/HxHJq8H5mjG37J1s9xPNekqTcswZg+L6OhPuZKnbtPe5faHajR7a6Xby1xS/PukHdbx6AVuFwT'
     password: '{cipher}AIABO4RgPDPQclUQvg+1YhXYVzwVhDwnY1EvdvTczueYMJ3C4G1c+1UWHbl9J//COIziRkkGHFF6pZ5mHF6M52yivERO1Tqb/wu4IWQCuk7meO7IENGGn30QgWznlNwMT+YUQLSKuBye3lZMNc0Q6zVh0sey4ycShuqW4vVCV8XClZjHzJS1VqMKvnxD2RwtlSGELaIg/yciuoMC1sTyk12K'
@@ -61,7 +61,7 @@ spring:
 # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://mysql:3306/convenient?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/convenient?characterEncoding=utf8&useSSL=true
     username: '{cipher}AIB50CUaJv5SNpxb0x1U0QQrXHi3tZN8745UHlZ4y9CGCdIFwWDX3ZR+V2Wi++hkEH3M6bFCfViRt4+9Ewz3dB1Uu6eSybgbhY5/nINhDw79PaOyXNzndJEW8Eztw4rMIdxkfAgwFcHzDLY9AeZ0vadm5Rrmxd9/JCGqtnE/isUslqoejoN2/tmAnOcQBSbxE/LqBO9QpsrZGhv2CdMGHtOu'
     password: '{cipher}AIBDBmBkXw49fBFWGw3EMc2IV0J73zb7n3qALTmBaTaluj9pFZMKfAyrJMgERd7POMLiC8twrFwHzXnQdW2/tEXQhAsSxMX9zmHkyFRRpiMVRSCXHPQXJFPYXT3wAeDXk8/aMIGMBAzBvzaGLKB3DD1kcRpfKVIrZJmKTDhZpjjI1+WOYDWA3D4yJdIfK+3C7s3GbMtWMWS8jFTKGTZdfhI9'
     

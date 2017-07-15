@@ -26,7 +26,7 @@ spring:
    # username: wetool_test
    # password: Weitoo502
     
-    url: jdbc:mysql://mysql:3306/mac?characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/mac?characterEncoding=utf8&useSSL=true
     username: '{cipher}AIAPyba46NNBSI1NnHrFavfWzAqD1xiE2UUko+JKw02IP3kSsPqxGkx/znluY/YKlwA8JvC1yqbHQH5jsWNAkjcOfB08qtwRcFKPo+Ln2COaE+r3sbmjR33WXmsMHzWGGU56bWAI/CJtgryUpy0YYq3AytOsbynbVsQcNtSfATc7UUHwA2hCxIBwAeD8xPcqKg2PVzVKWR0z0NVfOoaTlfNa'
     password: '{cipher}AIBXsQZZ4eFx8PGZki0kovn7ZCmXGMfoVJXrEaqPdTG5k4JcWkvANfxwQFdh3Qj6Hw0T4+0ke79ANWLGc7IpSccSDrVOPU07N5xY/DmtXKXZpdToBXfHph/abAkdOAp07tW1rLpPFZ2ruY2f4JZuNc7Ggl/gWjIQJfWXBtHzt4dQzJ9E5hTwNWQ1SFIgRo4vbt4ZrHvhrK39TcMkq8uaPpuf'
     driverClassName: com.mysql.jdbc.Driver

@@ -17,7 +17,7 @@ security:
       client-id: '{cipher}AIAEx285YaVXYUPXLl0upvPUo5BOGhOlAc/Yxl0zMCgJEbVnVPTn0ygKJgz1TGRJUZH9w5y8gZTkYA14EkW1n0wUZkV3M6Gohsb7En4H0m/Fjk6hAe6IRzu1sCIdO5tqAJ5tHE3lDcfipp9ATdPhyQKqIOKkCDl0CnFfaqFaAO4d9dsmpp1KPlH67/6q+ZoG7XyKxQU4q8cvVuGslDHBzsZJ'
       client-secret: '{cipher}AIAhOAHrO0exdiWNRs49PuYgECRQUUj3iK8I2khCB5h8KGWxTCKQWDlz9Ll3F8UZ88tA7gHTxBLqhV/VebXC8tqZEVI+02JUxOEFig2nl55cIG1EFaDJU10lnzEstVaehZLV0CdGO4KOz2XXj/8bxYySl8XTmdfaqph1X0lnFz6MGg0bmSeL310AVjVID/aIo9bX/lJC7iBFAod5YrjqmLUy'
     resource:
-      token-info-uri: http://lv1_auth_1:4000/oauth/check_token
+      token-info-uri: http://auth:4000/oauth/check_token
 
 logging:
   level:
@@ -99,7 +99,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: lv1_rabbitmq_1
+                host: rabbitmq
                 port: 5672
                 username: '{cipher}AIB6YMIsHo4J0p+lFEy7YmDqH9rrDYgaBP/3lmOlRbl436+dBekS/UsroH9uAhCbB7JGfinUfh2DF5ujj8PQRFij9XSP2aGs31jJrMfiGAjUav5wriJyvIjEP5DIwaL2iiW1ox/0zx/CAtTq755YRH2zkjM/8EOQ8FKEV4r2SsaYr9MuPZhVa3Yyd3NB2mvNP7J7tJZSbYx4C2g34XGo5b6N'
                 password: guest
@@ -113,7 +113,7 @@ spring:
 # REDIS (RedisProperties)
   redis:
     database: 0 # database name
-    host: lv1_redis_1 # server host
+    host: redis # server host
     password:   # server password
     port: 6379    # connection port
     pool: # pool settings ...
@@ -130,9 +130,9 @@ spring:
 
 alidayu: #阿里大于
   url: http://gw.api.taobao.com/router/rest #
-  appKey: 23888280
-  appSecret: c14ff71982aac7191e9605b83982db01
-  signName: 微兔科技 #阿里大于短信签名
+  appKey: '{cipher}AICeVUSi+94kt68Ozi5ZRyIgPgQAuh57FO2NFsEhDswNeYMablMQ7y/nC6YpmBpNy5IpCnkvkDBSFKtQzdcyarildsYWi30Iqssk/kzzHgaz/Wwi154jle3JSwEG36fTh9HD92/hBxA03IFz502ivEQmAlSx9uVo1kS0KVj4/pLuXXBWUAgLmO3xDCZ5Mo7f9XXsFYbDqJ4jaA6ymUHQBcUu'
+  appSecret: '{cipher}AIBOfk86dSZdR+V1wGB6amf7dYNyZxo/Gho4C1J8827hF0AsCtbx5SLHw7mpWApWdLLw3NglMd9n8UGa1YRb/jXedJNsN2hzpXqXsYeDpVIow9kAr6XFHTkoDjRDpdaJpRrC4JlNv5kq4R2obl8kl2X2pnL0W+idsBXx6zFu+lyLlXuyU2ENd0we+ofFFqzZ7lBuWWUn4MaTGTn4ak5GxXmGGISYYiMYomSZIZR5FiWCjAPb4jdz9DPZbN022+FJric='
+  signName: '{cipher}AICbljMzS3TkKFsGEQL1QRN8nkQjolSziukphEK9qJiNPMsA0agEocNBbkSdomlbM8fXlSiEavlVFje4vQSW0LfKqlQd845JlY4TsHUVB2kauM9y4cTprh31OhhnCRSzg4wqGBJXhJBE3P02ELXS14zKpsAeP5xQLnclxcCrjv/6RbWmQ9UgneZfTv7Ci3tq/u4+byVtUsgHqbzMri7NKdFl' #阿里大于短信签名
   templateCodeDefault: SMS_69780153 #默认短信模板
   templateCodeRegister: SMS_69870254 #注册短信模板
   templateCodePassword: SMS_69830246 #修改密码短信模板
