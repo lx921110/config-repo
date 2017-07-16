@@ -50,12 +50,12 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: admin
-                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                username: '{cipher}AIBBmlLJik8p6NFJobokmOM9U2t6VlnESwWRFxtLmatS2Wxph5Xk4C2kYwdwUb0cdrOS4jZy1hMcGibmOc2LHxjHvDWmOC3DBk3B1Oypv864bYhsEDokcM7ZafWFpBhSfYwDsoTY+yiGI9jj6PHS+vS17sY2sWtoljFQtWaNqCD4mCUhgeDVF+uOqvwRLm2L1h0XtU3h40VOt5dImubTHJld'
+                password: '{cipher}AIAgRlI1eZQUndLqSjCvNQj07pCWppEpWqc4DNpIg1xvhXmM/egWGMzKY1T7puc7wj15ixyTc0/hl+GH96jkpnUXaOxLKXaxJv40ZSCjDjP7osNBB/2kQ/a7c7H4Nd+0udK1kqrm8d98ztH4PDYX2dREEy3GmdLrsmc/PdVarQUIsSQnJ5OEDtVSDCCPi60VUCzIOX9Ly+cC6ijX1GaR+yzT'
                 virtual-host: /
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: admin
-    password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+    username: '{cipher}AIAwYduMlAosqWgc8jn0FvEeV4L9gCheISSC2kqr0hsV/4D4JjkRFpF5sCAzkKQGLciTfzYNM1oXF84egQsUAkJAzX1rmi924n8ZPDjNXzO9ia5k8FhxH+522n4kFG/D0KIk73vy42IPCcNYabCAFxeLfEdnjnpi8uzYF1DvTSP7yZ/bHP7Lmq6278z/W8RWdUtuREXdHqNNqIZ5+J6scpVM'
+    password: '{cipher}AICZ3wDqDrsLXXwbQXaMtBGmGg+zGHiEDwBZxphbXDvK897VRIq7rXC/51IC8nJ2oYWARV4w63PWPddcs1RZnw2ANir8ulcRshSMvjl7FNeJR7SCvi04BTArsSFFphTbTf5r222EmG55usHKdOiK0KFJYWsvQcbjhxZtoWx9jJSrY1NtYzWaYbvdJgAiv8lxeuce5Go8BOy6UU8dFmvBMq59'
     virtual-host: /

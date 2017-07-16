@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/order-server/}
 logging:
   level:
@@ -70,14 +70,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    
-    url: jdbc:mysql://mysql:3306/order?characterEncoding=utf8&useSSL=false
-    username: '{cipher}AIBCTtDU8LmHqZ/RfXdIhXkDPA3ov4RIg+xSMOlEXASATRlzjqPhVsO7PLCuhXeBZnak/nR0faMhVy0RSevqv/H6jma8gJVDgqNkyuMRJXa5JFqAyTqepKeX6hMRMFhZKAtNpgve+8l9uPDPSGBLTSh86LQhebOzOZsTq6ESyWmLh6IKfAAAJPfM0hpgUylds1kW/bF661o+zRLuwvMGakCB'
-    password: '{cipher}AIA2MZc9jXB8jGZ/+QaMPBytYs66F7wHrhTKZE6WlZXU4nKFIb5VPXwDz7q/upXIra+75b6hcg1EDAx7qgpMofF12pIa9QJfBX1dD39yXzeLITGJxtzfkz+60u4+tuR/i/vy2XrRq39z/tS5/I5mwPmbrY15on/8a6z3naSXgQXB8mzs/b8TuGOr1RPjjJOprVNpA/ilyfgspMvjdniCHcye'
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/orders?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: '{cipher}AIA8P92NcUFtYm9SeTc5d6hSiZuEe15S0JHWPLRQoGWulGe4uGjUQ5eUVBoGqoths3zsQaPIV91pLzkVp8jA6ukTbeyxDd6Zie8rSxA5mBHJy2pZkbeYzCTD/HBPqk/0l0R1i1fPrwzMobHWyLKWGa0ejt0aP2kEWq9cKdbqEN5PIGhpVr8sv00BJU7zJR+KV3KthyQaviys8wEYALsQ1I+T'
+    password: '{cipher}AIASZA2EB4TxY26ZJeIDUp8aSs16Q5R9xIWfQMP5Z6Ra0QTxSQrDZp2O3NbGIf7NNthAY76Pk2gbpZx+bxZnqZT1VR6mt5Aj991X8ja68T6ahCEns5gx8mFIWZEI7UBN9sVD3UPQsgOjOOpC+IVh1MFcUXKU03R40HRr2SUoPi1wmC68edHXp0EwN1bvEaPd0qssi4wYiOQ7JlFqNtz/cgBj'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     initialize: false
@@ -127,7 +122,7 @@ security:
       client-id: '{cipher}AIBScVtkkI8PtwQzcVPizYksORfInjq3x22v6mCAfpMm2pbsYCS5Kajsyvk8jUt+u1NIsPIIp0fGBJYTeiRu+BSJr48rXNxh4KqBFYM6dGHeO0jEDJeeiN17PApSRuGwGBhaOH/eDNaXq1mEz/NSLopZLtfmTTJIdQuxSnAHml5D6qZQVq6wqQCSx9asPxYpxtbnJGgDLPIERQlbeXyNnnkw'
       client-secret: '{cipher}AIBibQ/NVXi6CrYm6C9zob0d5celqjaL3wQsk7YXC8LINnr1NVhaPl/0NwmpqVBDT2lipiSdcZN5lLSwd4/hzOT9lAqko+qUYV9kE+TPgiYSvPHqtLbGanoZD4eGdsxuHur5QoY8+kXItG55rW6X6S0BZYSsZxLb5JQKsHwqTes36ri416/QQd1GlvcoP4pFM9jrVvFFPtSkYHhJ2+wCVZEz'
     resource:
-      token-info-uri: http://auth:14000/oauth/check_token
+      token-info-uri: http://auth:4000/oauth/check_token
 
 
 

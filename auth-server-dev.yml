@@ -27,8 +27,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://mysql:3306/auth?characterEncoding=utf8
     username: root
-    password: 123456   ##'{cipher}AICLhvQ215cCBvUampM55y+YWb6LdLAqjVQ2dSOZAQ9hfbo1koSTXr5YGUPdREOD/u6F3V3hi8k74d1QwKm8tiofV7FEoTFsVrRUcF9KD2hXtZBJeIUGNRH0NMB1EycoAobr0WoNTFBUCmGM27ZBR7IJy1Bu2NaQLIBCu5MDganTD99Mioizl5Nf1EHM1Kz3XVLKJiA2cWnl4UkQGgeODDb7'
-    ##'{cipher}AIABsa7pOZsgmOptJDVfDdmcd66820S25vVAP4HA8egXis3cf9q5j+x9AIoFeWTA/pyGaxd36kP+YON8CFth+5DqVurIeOgHbUQv2mQhqy6AdixAgavQCNN46SC6MRuYUMBDXBpAEUx3AdEjjPRKyO4WX1Qkj5+1yARz/YKdC2/bs0SZX1Y0pJZOs1lOeljRzAPQYBugKZwhgPVSMp/AWFyI'
+    password: 123456
     driverClassName: com.mysql.jdbc.Driver
     initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中

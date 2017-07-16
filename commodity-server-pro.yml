@@ -4,11 +4,11 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka:18761/eureka/
+      defaultZone: http://eureka:8761/eureka/
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:18765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/commodity-server/}
   
 spring:
@@ -20,9 +20,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/commodity?useUnicode=true&characterEncoding=utf-8
-    username: commodity
-    password:
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/commodity?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: '{cipher}AICQwklIorTHhJAQCdnI4dLT6yn/AcBUfHZpXylnOyHSS/TUOQRx8LE1bqpZgYNI37NIn4PiLzLm6A2SWw8NPzJxmK2HCrxwpl9ylv2IsHUNzqkECrWIYh+K0LQCguOSSO5K0yfH1bavRSGEwkDKsL1YVQVz3FpPv6nYn08qWI5VNbWJDZE6hszEfe2M5I1M3QP6k8B+X9kELJrtKUk/+RIL'
+    password: '{cipher}AIAGlrMVAO0yamazz99ixBMHOYf2FgubC9UMdGXa0E0axvlX/D7fa6/tUn8jHaIW92md5vmJENiUQV/PpnOOinlkb6Bxj59c2I3+FkHbrtbauW9g8AFAvMxsHk4Fz0WObQsljWcAK2bjxNKi8+Xnp5ui0wiUpH6DzNQWswxPGfEniYX64HMzH/nRTM/lDQ4wH22AlqQ/1g/HiBp5rRav7848'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
@@ -78,8 +78,8 @@ spring:
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: admin
-    password: admin
+    username: '{cipher}AIBQGp+WDL0qBv3i40YUHGeHM/BY2N4ZEN6yy/ipIAS8SmUlLqcXYuEIy+yvXY1f4akvzfHkRHjlV3HYSArFVuna15H0JpwPAgPX6Z92sqGKLuEzMSpQKyJAWNdJn1CpfnubJVt73qcZ60PlC/5vIdFDGqXr/oRcowXqTHa0nwo18sNK1VVoDfL+Y1DcA5t9F20i47WypXKQA0GEcalfaSMF'
+    password: '{cipher}AIBtyYcONb7Dk4LwtACfWVXBJmU7wsug1Vg38ZoUFpzZsjIpqP0K+lf6hoXwGLDOZt3lyPLFqBp48cwBauF/a60yJSnQ9Aj0pD3a3QZxlA/jQ8kczcRhB5ZMvdHfNn256RE72xMGCddCYlnmNk3e8PZmjl++01d4nE/JnJ2CWuZGwshu+jHFzvVecgY3OIuqQ+8k0KIKului6PuEXVwaK2Td'
     virtual-host: /
 security:
   oauth2:
@@ -87,11 +87,11 @@ security:
       client-id: '{cipher}AIB+olWDkiIOyAhUSK8AXOLsMfboD5pyyyPfFb8lH4SlMVsmEWgkh6pWcupxJQnpaDgM+/WXVcx6Fzmi3aUDYi4T2XPPWXtjxgMNFav3Mnd5rA6+0P8CjdsKMf20XZv72ItrL2dMvTAnxz9zXPfJPpqrhLzEXbp1qiv6hkwBreGUOGYNGScoSyactwuYQK0qpoQ4VxqX/Gaz1Fh+JS6ac4+P'
       client-secret: '{cipher}AIAMxEXNLVU0t5ZccKBMCUoWO2QWXNui2o/SJ6RcyArHbax0kVAT5tmKl3RukDz2q+qBqUBp5qIePPuhl6km4eUIw/EMN6oY0SEXLW+e7xcQc3oqtospbJl1IW0D7JqgGESNTJ/r6rscvp0Zs3ecwEAFuQLTObkJ1iqDbcS44fysIPE4Qrr8DNAQerrRuzA1JMwMgfuApkIrjSS83/Vww+Fg'
     resource:
-      token-info-uri: http://auth:14000/oauth/check_token
+      token-info-uri: http://auth:4000/oauth/check_token
 feign:
   oauth2:
     enabled: true
   hystrix:
     enabled: false
 url:
-  auth-server: http://auth:14000   #认证服务   
+  auth-server: http://auth:4000   #认证服务

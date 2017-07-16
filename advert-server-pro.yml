@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/advert-server/}
   
 spring:

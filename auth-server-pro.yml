@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/auth-server/}
   
 spring:
@@ -20,9 +20,9 @@ spring:
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/auth?characterEncoding=utf8
-    username: auth
-    password: 
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/auth?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: '{cipher}AIAX9T7VOWzFmwuiSmSXhhInIdKHOQlv+V4Axx/5UJzjgOcw5+Y7FQjcxir5hsnqGuGIjPicUHwnGL1+Vl51x0zszTiWqxGN+iA3UW67QwbAUXa8HIbv8olwE/6+IbmIre8AOAHi+mgcjJsUDnQLTlvdoF2UtjuWOLvaPOjDzszAVyCQUDPvpD9t0DPk/ZhJUJ8whTAFyfVCHBe+SetD9oMP'
+    password: '{cipher}AIBFqM03n+xVfq7MPeX5Ds43m139Okxw9LACH2+uvYHwKspgUhGG1yxQ+Tlm2pWke36SZN2BsppJb8OThjLJuneJCnRiwPAgHW9Vh3c1vxtPxab42o0aIDm5DY14XmEgiXX94yfhnHI9UQzJGBp3xesGNp8290tXcAdJTHYjNdoL0q1ijU2N+BbT9kP9g8pL8V9bH+Dt0oF+EdiFYy87fLsV'
     driverClassName: com.mysql.jdbc.Driver
     initialize: false
     # 下面为连接池的补充设置，应用到上面所有数据源中

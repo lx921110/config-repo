@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/member-server/}
     
       
@@ -48,14 +48,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/member?characterEncoding=utf8&useSSL=false
-    username: '{cipher}AIBQhdl+sZL8Uo0zKPKAVwFFJC0UD/uiE+S+CZmAN4G8qW2TjtaZgFyfKpU+Gm7voXWj8K2Ip4JmAkkvaJFXKlbZ5kchFEO0qOpTvKMvIgcgBBeBe0Mv+f4gfB69kzbxRtLlWyUGdSHYoXuXXluLyVz4/AnnQnsenBfKqdsQL9kYZ4I9NIiWsmnvhiOlafEEfdYfQTt6wiijU3o5vCTh0tGu'
-    password: '{cipher}AIBleBKKcrvJPmxXsVECP5x/mTXZ/0LldxwWSbsFL3ZBSiGJnrRfXvnu9gl3+lqClx8xd7pvSs1vzzmHLOVIZK1eLEO2+RsbWVC7pFK29VMuDjtIKrUqq6p2stHnJG5pdXFSXf1xgR6snSn9TySBpF+27W6Sj8mISE6aQ7YpX730HI65OWFpCWJGqLyuo+XHbhcBvZloo/XwCUZnmSHWLA7I'
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/member?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: '{cipher}AIADYEGl/3JWtbdv1T91/76SqM7p8I2VNa5w0RB30U0Z4hGLuOcWtUwaLH0nSMtEt3puZAzHmJl7j+61Y3UuOlRucuFMxIlEgjW62hdI42g2c6N147GHdKQTS1SeO13/IgpWF9nlypKoDP0ugxgA4QA43YExzLiercCfM8D78C7aMhL69q7iTDjLBKnF35k2UFSshbiGYDMQk7kRndrWW7ea'
+    password: '{cipher}AIAiU7VNsiXGZTyFlWPWNfT8Sfzxed5uT2/lRAM3I5ByqxhFQVIHKHGfANiTAlioWNDI2oDAqcMYkGON4cfCGSHUBIDEyVhKKT2di5RoW8iUgA2iNJong8E4vtZlEZQngLiPvsmYlBq7grQ+JEbtHE4X2+Xq1RDNYBVaOEusZymW/q59E+O5VNAB59Xl4PruDvpcNERG3fHD10Uj6rjYu2M0'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     initialize: false
@@ -111,7 +106,7 @@ security:
       client-id: '{cipher}AICVfV43f6nf89Ys8t9J0V+9YdCR+/+ZhfMbX/mHzuf311sF59brCE7oUyJic9wLtemNmtbWmg4sjvh6BW5Xh4beJ/A2EF7luug3vmSukSvdEbzVjUOk/1TQnvJAsnD5BrAsgiSthX0G5BFHC1PQg2J0R24nXB3y3cJPCNxHuRVN0rAUjCdqSL+VFR4J7/y2HpJX3jf0uSMP7+dNnab+ES7q'
       client-secret: '{cipher}AIBr6+i9VcA9zjVrSlcXLxlEdUtzE9/lXAPnTD9gQpwQ28I8AdcnyBhm28qlwfK+UxplSTDVvauhA4QSZeZJ78yQvHyxVlv33/2Q7+tNw93YFabbdc4zYFeE+qpYxMQ416Nw3sWSWg7v5pWBw66TNjX9eeoc9USOD7xmvEPlNiE6b9kaxV4oOBwH61AQnpxYVzuLkDg6W25IyyEy2YgBgFnu'
     resource:
-      token-info-uri: http://auth:14000/oauth/check_token
+      token-info-uri: http://auth:4000/oauth/check_token
 captcha: #注册会员短信验证码
   send-interval: 60 #下发间隔时间（单位：秒）
   expire: 600 #过期时间（单位：秒）

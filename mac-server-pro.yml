@@ -8,8 +8,8 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: 192.168.1.10:8765
-  api-url: /api/mac-server/
+  address: ${address:101.201.56.48:8765}
+  api-url: ${api-url:/api/mac-server/}
   
 spring:
   jpa:
@@ -21,14 +21,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/mac?characterEncoding=utf8&useSSL=true
-    username: '{cipher}AIAPyba46NNBSI1NnHrFavfWzAqD1xiE2UUko+JKw02IP3kSsPqxGkx/znluY/YKlwA8JvC1yqbHQH5jsWNAkjcOfB08qtwRcFKPo+Ln2COaE+r3sbmjR33WXmsMHzWGGU56bWAI/CJtgryUpy0YYq3AytOsbynbVsQcNtSfATc7UUHwA2hCxIBwAeD8xPcqKg2PVzVKWR0z0NVfOoaTlfNa'
-    password: '{cipher}AIBXsQZZ4eFx8PGZki0kovn7ZCmXGMfoVJXrEaqPdTG5k4JcWkvANfxwQFdh3Qj6Hw0T4+0ke79ANWLGc7IpSccSDrVOPU07N5xY/DmtXKXZpdToBXfHph/abAkdOAp07tW1rLpPFZ2ruY2f4JZuNc7Ggl/gWjIQJfWXBtHzt4dQzJ9E5hTwNWQ1SFIgRo4vbt4ZrHvhrK39TcMkq8uaPpuf'
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/mac?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: '{cipher}AIBLnnBxzzS9HXRd1atohL1lbXgPgYeFjf2yZtWWSdzz+Im7XvAkV1HJ4ARnr2Ho5OWq/Gciu0LBXx4rxBYsthKED99dkKebgqvnwk+A/C9lgFPz3425BuGOokgNdR5YlOhK/bv7lWRoH12WsuadFE56HU7Lu8l1k9Wj1LOb2/2EF3LUPRvLxrNO88wtG0WSmF6G1DU7L8keT5Yiy1A/j+3Q'
+    password: '{cipher}AIBtMIyJQzhsJfnvvymQmanZQTvfuPbuR4/OH/klKL4JgBSFgFSfTH5/BfFyx+a+z7Th60uXyZ0cCI+scJHkB/JvSVc/+HLzfFeQKr+bt2evw4Nz/qTVPVwc5ARgPYv6v4Uya8hHdZ8a5l7uzvluroAivUvhwL0rdQW/HmxMcg3Pozb4VFF/37BXNHh/R0/PKvjf4U2lkhAUi8/y/K+R811P'
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
@@ -79,7 +74,7 @@ security:
       client-id: '{cipher}AICF20sBn2SFgrp9gIRvIzZqaokyZ1pOpOEvfJvZ5EEnElEQHJ4wpjsTo+SqjYIGl38DmgtYB1TtlfaMaAaC2SWnHhyFgOMjBkoGX/blQ3kSmCRgNuBxhIRMCbq6Kf+/wH+SFz48GMoTKy/YaA2nWCxCopf5RMXNLWnQVuHjwuU41SMvdqKL6ioADSh+U1ALTrmRSOPoIrVhhQMnUM2K16r7'
       client-secret: '{cipher}AIA4aW2aKsa1NpwbqvZo5jEHm+j5YYvloRDSiEtAr7/9V/e/crpcLTijR+XrdkRxxs04noxR9t1h6/RQ07CKLZvTugvMZqNDfoVxwJ580tZOoynbLL5TRs7IN/fQoCHRXQXQ9hm9PwRuc1fHHBe4BmEgv6TVB/y70cbVluhzij4T3bG/UgAv/nA6E+6Ck6hAlSp6pxTkJRN4OK8IIbk9Luta'
     resource:
-      token-info-uri: http://auth:14000/oauth/check_token
+      token-info-uri: http://auth:4000/oauth/check_token
       
 mac:
   csv-path: ${csv.path:/data/mac/csv} #csv文件缓存目录

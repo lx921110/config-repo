@@ -22,7 +22,7 @@ spring:
     # For Mysql
     url: jdbc:mysql://mysql:3306/commodity?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: '{cipher}AIBwTz5MLHLMjbPRcyRwHi0YeR89ow+VvHXnWLH5FOuaC0GlQNcO7l+5TvTgQMzIjgO4OprxN0+mpnSLBfOK8P7HdGQxEFoC3eytRZ/ZR358FGdsbohvdaeTjNKLcc3M8tR5K23iPQ4wDGjllqFVlTwPguTbsADJbUUSO1Ba3aggnVTTtfMnN1YmWket9H5os6J0BKDWZBaHmJGRKZb0uKj4'
+    password: 123456
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
     data: classpath:sql/data.sql  # 数据文件
@@ -73,7 +73,7 @@ spring:
                 host: rabbitmq
                 port: 5672
                 username: admin
-                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                password: admin
                 virtual-host: /
   rabbitmq:
     host: rabbitmq

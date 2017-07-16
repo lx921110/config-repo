@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/invoicing-server/}
   
 spring:
@@ -33,7 +33,7 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: admin
+                username: '{cipher}AICHi9CxdveVJUT49pJjXBw2U1tVq1LOvQTyDnYtrRsc3lZetfFnyu9CYUKMr2vA4BpeCxhAjZym+5g2L1pNZgPkMLdwdZjYo0QKT26CLibsJbpbTznISnl6klJYzGI7VoagHeWIc+XnK08DSKsG8ABWzss8GJFZ/6ZlA0Qap+H18tHJA2yui6TBhRqKHbs86io7xWICrWxDSvHNYDRlinv8'
                 password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
                 virtual-host: /
 
@@ -46,14 +46,9 @@ spring:
   
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    # For Mysql
     url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/invoicing?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: '{cipher}AIBwTz5MLHLMjbPRcyRwHi0YeR89ow+VvHXnWLH5FOuaC0GlQNcO7l+5TvTgQMzIjgO4OprxN0+mpnSLBfOK8P7HdGQxEFoC3eytRZ/ZR358FGdsbohvdaeTjNKLcc3M8tR5K23iPQ4wDGjllqFVlTwPguTbsADJbUUSO1Ba3aggnVTTtfMnN1YmWket9H5os6J0BKDWZBaHmJGRKZb0uKj4'
+    username: '{cipher}AIBk0AG7Z8Zo4WHOLFHYDiez/knnasD2jVva0MeGKknQo8Y3jioQDj2BDHl3W5bGCIlYAEzi5VnrYKO8GdSrKe5rRDBWj8LVOedYsFopbpOUf8gwkspxxWYY8peDusE6Drdw+6D5p5e391SXWsVDFjR8aJw9zuiJi8Ip655uQs0QSOicqKhAx9Kt/iauGawgDlXaJ4uhTAHO5DnbDusvz/x+'
+    password: '{cipher}AIB8tFdsGTqWlOLSX6sXihAVhYUEi9d+jOHhMwvUpcik4yy5ylQ2RGe3bKqgj4TU3fAtq97pCN0m4TCzVyXXCpmZ4gyj6+M/LS+yu+eeHfIdmfxdjyLRdK7m5fMf87882NM7IEzOdlq95iIQMOiC1i04iPtJ6gHsFC4WTHjWXIvbYk9kM+ispjDALSHPPDizntBn482DTQ3kH5XwzPSBInmA'
     driverClassName: com.mysql.jdbc.Driver
     # For H2
     # 存储在内存中 2

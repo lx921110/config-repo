@@ -48,7 +48,7 @@ spring:
                 host: rabbitmq
                 port: 5672
                 username: admin
-                password: '{cipher}AIBgP5S6lojLXSbganossIbz8/4oHHYFLp2PAt6qOWVU0KZg9jiP2E3HMiGGaDZlZj6RZDrQlhYZQftLhLwhmkFlj93BcAkIX5qsV7B+TgGB48KF/QwsYtj7St5jTJ9ffnNcas0fKDvjLO9qNYEitaSaA1m+km0HqmkKhFxQ9c58gMRxMQ+R663uFyrtfhbAJfhfJYqsZqETZ6OlzcS8Vabd'
+                password: admin
                 virtual-host: /
   rabbitmq:
     host: rabbitmq
@@ -121,7 +121,7 @@ settings: #网店开关
     wetool: 0 #开启
 
 lefu:
-  callback-url: http://shop:16020/api/v1/payment/mobile/notifyCallback
+  callback-url: http://shop:16020/payment/mobile/notifyCallback
   trade-url: http://61.50.130.246:18081/gateway/api/trade.htm
   query-url: http://61.50.130.246:18081/gateway/query.htm
   refund-url: http://61.50.130.246:18081/gateway/api/refund.htm

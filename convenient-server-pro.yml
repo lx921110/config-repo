@@ -8,7 +8,7 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: ${address:192.168.1.10:8765}
+  address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/convenient-server/}
 #RabbitMQ配置   生产者output
 spring:
@@ -61,9 +61,9 @@ spring:
 # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/convenient?characterEncoding=utf8&useSSL=true
-    username: '{cipher}AIB50CUaJv5SNpxb0x1U0QQrXHi3tZN8745UHlZ4y9CGCdIFwWDX3ZR+V2Wi++hkEH3M6bFCfViRt4+9Ewz3dB1Uu6eSybgbhY5/nINhDw79PaOyXNzndJEW8Eztw4rMIdxkfAgwFcHzDLY9AeZ0vadm5Rrmxd9/JCGqtnE/isUslqoejoN2/tmAnOcQBSbxE/LqBO9QpsrZGhv2CdMGHtOu'
-    password: '{cipher}AIBDBmBkXw49fBFWGw3EMc2IV0J73zb7n3qALTmBaTaluj9pFZMKfAyrJMgERd7POMLiC8twrFwHzXnQdW2/tEXQhAsSxMX9zmHkyFRRpiMVRSCXHPQXJFPYXT3wAeDXk8/aMIGMBAzBvzaGLKB3DD1kcRpfKVIrZJmKTDhZpjjI1+WOYDWA3D4yJdIfK+3C7s3GbMtWMWS8jFTKGTZdfhI9'
+    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/convenient?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: '{cipher}AIAalYgXdHerqAQcD/adWXEedoxw0p8e/n3IghOok7+VAOiEP4kYyWx10yFRAFTfn10zMUxQIU3lHtGRMBDP+SeJAsWvoBFlQKDEgLlKyBWTtQAOAFeXlVlCl5ckABjnBFDjWFRFqai/j506A27qMcsls9U/15GCt5zotzaFlKIIY1co+t/4zLlauy+vG7sBbWTC365HNBGyOTteSQHuLSwW'
+    password: '{cipher}AIAt8giKYW+7E2Py6y04Pmb1yhEu25802xjF8Uwrg5i1AfM0YNeimva64fpMXAVkc/JDmga/z3d5AoFYOXepFRlJg5LfezM2QB7Rk09z61xRsOhp9zlrKcfVvqqvkAZhlaFBLumtp+aj7ubiz6ZEk/EjGgDo1RX+3RUkEY4jH2i6appDDkagarCCaDRPohS1fsNLegwri+PUvu7bBs9cqEyo'
     
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:sql/schema.sql  # 结构文件
@@ -130,7 +130,7 @@ qm:
   app:
     key: '{cipher}AIBKX7HufpKfeeDEX2JXjUPRlLOUghgWNRRaWSSIfdDfU8MgXJWOdBKM/de33D7KXOzi+CGKs4JAsL6v0BLTMPYZ8BHSU4Q3Ri1MN0iiV2f1cpS5wHOVD18kiH96z4mpX5W8zwZT3rT1w/Eulk/05MvZoUwZXFngmJVz9jcvYLoRVhQBzrFfdT5wBrXpQd/+ji11doRCRhRQvDYB8DfvoVUX'
     url: http://gw.api.qianmi.com/api
-    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
+    secret: '{cipher}AIB+veTGwjlfR/xKkKcHDfS99/LAr7g3KvMssSUTD3ODDoi0yHiiy55HEWpZkfBv0vHxZH6yDw/5THz9twBbrxPV1DJeA1x8dt1MXyvNwzbaIBcNlWu/CfaeA1Pu85xli3Y7PhmwBwF5E51wGzZvC5RIdlLW90nrCxFm6xlAUjUj+apTnThaom+NAFFHfoTnWhFEate7rcGxtTBL8SeVehZoYA5TE8NogKqEQkWeVhWCN0im68vvXkMcfRc73tAWp3E='
     group: lesion 
     token: '{cipher}AIAhWxG8H8cWYGGwxSRTRNV681ClClxYF07RKbou27yFvzMjmSLRP3lcb3QEG2nHND16hMu2xdvaRWjQ8qzgGBvGUKmUWPFE3MyN6ipBLrUWQiY/v/t4CFD7qjsYe8xzNJZ5ZHYqb1Vl0HnF/SbV9I2Gk1PBMxus+TaezWlyOze2YkEKQn3HDMNOe7uPqqZRXxFQp25AoFAlqoau2V3L2Kdibv/Jn5kNxXHyJzQSR3lpisoPEUoJ+g+gqStX6NZ2cY0=' 
 #回调函数设置
@@ -140,12 +140,12 @@ convenient:
 wy: 
   phone: 
     merid: 2037
-    key: f640aacf79e9ab93efe2e90ad3bf99f5
+    key: '{cipher}AIA1uV22PxFwM6CNfuBWArTcnfI2b57t/m4ZTOl15QG2aj9bp3M6d/+Adt7EgWSHpdRM9WF9Wn8FK+4spcAt0FjcSASXTKYTZV1wjZExpp357CjTcyR0vnKpk+2YFl3kX73RDCEZaEIYVJM5FmDemZt1jyTpMXvlSZsm0iORbrmEbE2QGI1kY4+mGwSwGrIyqqz/FBMy5k1u2PHTwQKMsWmCujR3XqLvDB7tC0BAN2+v2DSdwuiVlbv50b/Jc9bPeSM='
     url: http://weitu.51kapay.com/phone/charge.aspx
     search_url: http://weitu.51kapay.com/phone/account_money.aspx
-  flow: 
+  flow: '{cipher}AIBBF0xnEvafddS7d4ys56i/Kxy8gKRoH1X/0iBzrJvA4IcHGSdDulxTpSvkSkM55cLKkxHMd8s2gB7UEUewmcvoog9hDQfG6iK6sMemTUAy+jBFzLY3s9M61l4f50beEuYtjrCt95fp9+hzIai/Jf7zvHLy7Stg/u75kAfEgRZZ1AN/npQX91mFnKfWP0OlXjOO6dfYKDN+9BSV7Hqrb7q7DkKr6uvN7EPmIGtC2/BRnahBGcV4tSlkyN/01oqlIMw='
     url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount
-    key: 42f1043712c192bfe2294c4e5d806423
+    key:
     merid: 2439
     order_url: http://www.juzhishang.com/Api/A2/flowCharge   
 balance:

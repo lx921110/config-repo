@@ -18,8 +18,8 @@ zuul:
 security:
   oauth2:
     client:
-      client-id: '{cipher}AIACjei2pPVYRzwUobZTadvMlAQA/76vnkS/BZgvB6ViffV1MeoXHpHAE9ll2s61szpn97cDzLg0SqDFU3khklnNbsQGeJr+E7A3YVUVOa9V4l4ijBxRLraaNX+cWl2Rze8IMWwHsJHf43CkinsG35/qAipMw21ULKy99F2730e0spiq9OjZZs4QEXNcMWEC1kTmsZ8IlDXyggRaIp5NSzPZ'
-      client-secret: '{cipher}AIAgIKgzHQLlxzMugZCLffRyxKi1ghU3UNAh+Ht11pnBSkd8Fy5Mo+Mmayk0slChasQMY7u+LB3xEC55wU1krVZGI0jCgvQY2DVbOzZQQc4cUKseQWgFxy0Pl/KMJEAKAX9VjX5SbnU5Nw30sygbtudUNLFv6U9xRYsXV7cIKeASGNYEF24idizA/TAmwf5D/8hT+mzabewGbFO1QkxlV1HO'
+      client-id: admin
+      client-secret: admin
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 
@@ -105,14 +105,14 @@ spring:
               rabbitmq:
                 host: rabbitmq
                 port: 5672
-                username: '{cipher}AIAPh4jlEOIUGeyYJfnY9B5bjSuN9rYSqn79WRCFRaHL/F8Im2huf8DGLL+A7NLQ5mxisjghpavpREDk6Ta2U54drq8gGcwp7jiL5bq3J8NaX/qav1BoR3KDcRicg2dyLrmYRQbeiEA8yTO3u86rRzw7cwQFS2LjFnxXvyRpmEZAp87MTnFgOWjPhtvVVIiZ5x/ppVzTcMJt++uDYgum0aOY'
-                password: '{cipher}AICcCWiyF+92+T/wgbKxo5cDLgfXj+RTyfKeunb/CCLrXCSnY+yvq0wN3DImpf4YltIKbzByDFg+vBYC1HIEwbwSKxbyiea2UiEbi3K3HiYUVSjahc0LU23W48gw3lf6vHtA/afQc4qvtM2JLUTqqPC1Q5pJ5q5XFJYSJ2eESQNXSODzDLIwm7H7r41VQ48d3C+z1x5fVM/Gdfn+wQZKJEX9'
+                username: admin
+                password: admin
                 virtual-host: /
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: '{cipher}AIBfXwkne37amqRBcFINLlNUk2YLnGQJyI/PDGzyw/89vbYncQhqi3uN6b/y6glgwGTvkzHp86WQh0OaE2qh7pTF+4le7wT/Feh/Npl/Y0V65iccMqqoGBj6QDje8jQNHnF3QTK8vTacROznpF76FEHbcEM5wEP8pCVfFUWrRpDdtjdZofvxZbtbvQ4Tt/DzzGNDmNu0cLc58uwO8gazk0mi'
-    password: '{cipher}AIBP95Xf5wOpX4HlbQPl55LP2CgonfytszEZZQd3KZO5oqyENLiOUbSJlNQqJjSe1zGrBeqN6lzhu2SJDnXVfmr5DyQtqJZ6iPYQq99Onxm3SD8DXRM1M90T/wtrnRwEnEd9DXGSSAz8r01IGzgG/qXdSexoQiOJkiqENU5cHdWta7rRqLqbwAlbjwzasueb5z+qpAIQvxbi6z28W7EfW4uk'
+    username: admin
+    password: admin
     virtual-host: /
 # REDIS (RedisProperties)
   redis:
@@ -150,8 +150,8 @@ alidayu: #阿里大于
 #业务属性↴
 aliyun: #aliyun OSS info
   oss:
-    access_id: '{cipher}AIBF5RSy5mWHQ2c9cgO4gq8tQr668uOi0mtgZsMHuDZdCLWuefx5gmT4EbN3PsGwVM3tXTjZrXLqSLxumnOL/gQObppdv1o6DRXugh92hMvSSNUXHMnRcnaYjxLuAPRZVYZqvN7keSArEclNjw35HM68nb03It/P/1iQFYfzI5KvT/5TTMGOF7KGaUhRcE15YHjTbjLHGLT8iDdZj5KDfngPs4bVu9gq2tIqxFCrsbpwtQ=='
-    access_key: '{cipher}AIBeAs0BD5PBge6UaG/xaAFSPHGLIu0LWE3h1JcD7ElZLN+EyMG4JMWHvY6PqmcoARSY0pAVNuaderfv1eHFfhTIk6NUcqTxw80tmF/pI3TfXElCZBwT4PW/LK8hWy1EJ40UuQlk4oXmeyZRQb/vDYFVpsCpU9g3Hdc2scmgxnkvmBalinik9Muh5KM36GC6Ab0C8E5NO0tV1Q6er3CCl8DAJuh9TTWbWE50qplH2UsH4g=='
+    access_id: LTAIrEv8URC1EymP
+    access_key: OZ8seK2tYRSo3AsvDGak30xgIsZQrq
     endpoint: http://oss-cn-beijing.aliyuncs.com/
     bucket_name: wetool
     file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
