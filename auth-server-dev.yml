@@ -10,7 +10,9 @@ eureka:
 zuul:
   address: auth:18765
   api-url: /api/auth-server/
-  
+logging:
+  level:
+    root: INFO
 spring:
   data:
     rest:

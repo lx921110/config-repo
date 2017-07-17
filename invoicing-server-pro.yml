@@ -10,7 +10,9 @@ eureka:
 zuul:
   address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/invoicing-server/}
-  
+logging:
+  level:
+    root: INFO
 spring:
   cloud:
     stream:

@@ -11,6 +11,8 @@ eureka:
 zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/login-server/}
-  
+logging:
+  level:
+    root: INFO
 url:
   auth-server: http://auth:14000   #认证服务

@@ -22,7 +22,6 @@ security:
 logging:
   level:
     root: INFO
-    feign: DEBUG
 #
 #Area-Server Configuration
 #

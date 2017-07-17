@@ -10,6 +10,9 @@ eureka:
 zuul:
   address: ${address:101.201.56.48:8765}
   api-url: ${api-url:/api/convenient-server/}
+logging:
+  level:
+    root: INFO
 #RabbitMQ配置   生产者output
 spring:
   cloud:
