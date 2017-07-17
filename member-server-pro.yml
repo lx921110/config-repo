@@ -50,7 +50,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/member?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://wetool01.mysql.rds.aliyuncs.com:3306/member?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: '{cipher}AIADYEGl/3JWtbdv1T91/76SqM7p8I2VNa5w0RB30U0Z4hGLuOcWtUwaLH0nSMtEt3puZAzHmJl7j+61Y3UuOlRucuFMxIlEgjW62hdI42g2c6N147GHdKQTS1SeO13/IgpWF9nlypKoDP0ugxgA4QA43YExzLiercCfM8D78C7aMhL69q7iTDjLBKnF35k2UFSshbiGYDMQk7kRndrWW7ea'
     password: '{cipher}AIAiU7VNsiXGZTyFlWPWNfT8Sfzxed5uT2/lRAM3I5ByqxhFQVIHKHGfANiTAlioWNDI2oDAqcMYkGON4cfCGSHUBIDEyVhKKT2di5RoW8iUgA2iNJong8E4vtZlEZQngLiPvsmYlBq7grQ+JEbtHE4X2+Xq1RDNYBVaOEusZymW/q59E+O5VNAB59Xl4PruDvpcNERG3fHD10Uj6rjYu2M0'
     driverClassName: com.mysql.jdbc.Driver

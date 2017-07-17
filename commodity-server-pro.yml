@@ -23,7 +23,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/commodity?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://wetool01.mysql.rds.aliyuncs.com:3306/commodity?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: '{cipher}AICQwklIorTHhJAQCdnI4dLT6yn/AcBUfHZpXylnOyHSS/TUOQRx8LE1bqpZgYNI37NIn4PiLzLm6A2SWw8NPzJxmK2HCrxwpl9ylv2IsHUNzqkECrWIYh+K0LQCguOSSO5K0yfH1bavRSGEwkDKsL1YVQVz3FpPv6nYn08qWI5VNbWJDZE6hszEfe2M5I1M3QP6k8B+X9kELJrtKUk/+RIL'
     password: '{cipher}AIAGlrMVAO0yamazz99ixBMHOYf2FgubC9UMdGXa0E0axvlX/D7fa6/tUn8jHaIW92md5vmJENiUQV/PpnOOinlkb6Bxj59c2I3+FkHbrtbauW9g8AFAvMxsHk4Fz0WObQsljWcAK2bjxNKi8+Xnp5ui0wiUpH6DzNQWswxPGfEniYX64HMzH/nRTM/lDQ4wH22AlqQ/1g/HiBp5rRav7848'
     driverClassName: com.mysql.jdbc.Driver

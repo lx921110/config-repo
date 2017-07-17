@@ -64,7 +64,7 @@ spring:
 # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/convenient?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://wetool01.mysql.rds.aliyuncs.com:3306/convenient?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: '{cipher}AIAalYgXdHerqAQcD/adWXEedoxw0p8e/n3IghOok7+VAOiEP4kYyWx10yFRAFTfn10zMUxQIU3lHtGRMBDP+SeJAsWvoBFlQKDEgLlKyBWTtQAOAFeXlVlCl5ckABjnBFDjWFRFqai/j506A27qMcsls9U/15GCt5zotzaFlKIIY1co+t/4zLlauy+vG7sBbWTC365HNBGyOTteSQHuLSwW'
     password: '{cipher}AIAt8giKYW+7E2Py6y04Pmb1yhEu25802xjF8Uwrg5i1AfM0YNeimva64fpMXAVkc/JDmga/z3d5AoFYOXepFRlJg5LfezM2QB7Rk09z61xRsOhp9zlrKcfVvqqvkAZhlaFBLumtp+aj7ubiz6ZEk/EjGgDo1RX+3RUkEY4jH2i6appDDkagarCCaDRPohS1fsNLegwri+PUvu7bBs9cqEyo'
     

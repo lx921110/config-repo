@@ -16,7 +16,7 @@ spring:
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/zipkin?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://wetool01.mysql.rds.aliyuncs.com:3306/zipkin?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: '{cipher}AIAuv5ZnJF3kvhyijpipsb8GcS4jPm3LvzEGcY1+2MKIsbAbPXkVrgbviYcqXR3S9CNtCj7mglCYDPXAc2vyPSguLdaWQPCxI5P/s07UNegx6ROk7myNCfp9Uv+758Uk+AYENLY8SHQ41ufoI+cTBysGw0tHGu2OARypFrDZeCMVOyip5aAofahfrQ4sJNOBhLlIfSF5Ptec1EAow8h4BV1o'
     password: '{cipher}AICXLXOUzPDqJg9Mbh4qJ5bDbPhkBocF7ZilNxfGccZM8p66m+yFOX+7xyLgT1J/A1jtdk6HupJy0ntUm7JThh2ruXZENwykqN5VPRzbHGhpI09qqM7v0Gs2D0c0+aNW1HAwrkYmE1IbqxNawTpVuRwOqh6m1LbW+I+rbOMC03CpwhxeKlNkRS94t2vYVE4yKplTl7HxtAiYSbqxSHBQJbGi'
     driverClassName: com.mysql.jdbc.Driver

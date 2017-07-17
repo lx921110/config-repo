@@ -24,7 +24,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    url: jdbc:mysql://wetool01-wetool01.mysql.rds.aliyuncs.com:3306/mac?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://wetool01.mysql.rds.aliyuncs.com:3306/mac?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: '{cipher}AIBLnnBxzzS9HXRd1atohL1lbXgPgYeFjf2yZtWWSdzz+Im7XvAkV1HJ4ARnr2Ho5OWq/Gciu0LBXx4rxBYsthKED99dkKebgqvnwk+A/C9lgFPz3425BuGOokgNdR5YlOhK/bv7lWRoH12WsuadFE56HU7Lu8l1k9Wj1LOb2/2EF3LUPRvLxrNO88wtG0WSmF6G1DU7L8keT5Yiy1A/j+3Q'
     password: '{cipher}AIBtMIyJQzhsJfnvvymQmanZQTvfuPbuR4/OH/klKL4JgBSFgFSfTH5/BfFyx+a+z7Th60uXyZ0cCI+scJHkB/JvSVc/+HLzfFeQKr+bt2evw4Nz/qTVPVwc5ARgPYv6v4Uya8hHdZ8a5l7uzvluroAivUvhwL0rdQW/HmxMcg3Pozb4VFF/37BXNHh/R0/PKvjf4U2lkhAUi8/y/K+R811P'
     driverClassName: com.mysql.jdbc.Driver
