@@ -120,6 +120,9 @@ settings: #网店开关
     meituan: 0 #关闭
     wetool: 0 #开启
 
+callback:
+  ip: http://17604kc447.imwork.net
+
 lefu:
   callback-url: http://shop:16020/payment/mobile/notifyCallback
   trade-url: http://61.50.130.246:18081/gateway/api/trade.htm
