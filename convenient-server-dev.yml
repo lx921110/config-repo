@@ -96,6 +96,19 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+    
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1    
+
 security:
   oauth2:
     client:
