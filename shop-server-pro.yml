@@ -125,3 +125,6 @@ lefu:
   trade-url: http://61.50.130.246:18081/gateway/api/trade.htm
   query-url: http://61.50.130.246:18081/gateway/query.htm
   refund-url: http://61.50.130.246:18081/gateway/api/refund.htm
+
+wechat:
+  p12-url: /apiclient_cert.p12
