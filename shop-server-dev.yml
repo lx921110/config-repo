@@ -127,3 +127,7 @@ lefu:
   trade-url: http://61.50.130.246:18081/gateway/api/trade.htm
   query-url: http://61.50.130.246:18081/gateway/query.htm
   refund-url: http://61.50.130.246:18081/gateway/api/refund.htm
+xunlian:
+  trade-url: https://showmoney.cn/scanpay/unified
+  query-url: https://showmoney.cn/scanpay/unified
+  refund-url: https://showmoney.cn/scanpay/unified
