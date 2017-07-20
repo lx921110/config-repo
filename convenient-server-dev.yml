@@ -157,7 +157,8 @@ wy:
   phone: 
     merid: 2037
     key: f640aacf79e9ab93efe2e90ad3bf99f5
-    url: http://weitu.51kapay.com/phone/charge.aspx
+#    url: http://weitu.51kapay.com/phone/charge.aspx  正式环境
+    url: http://121.201.107.79:8280/api/PhoneCostQuery.aspx #测试环境
     search_url: http://weitu.51kapay.com/phone/account_money.aspx
   flow: 
     url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount
