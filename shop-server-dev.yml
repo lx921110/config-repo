@@ -119,9 +119,9 @@ settings: #网店开关
     meituan: 0 #关闭
     wetool: 0 #开启
 
-#本地测试回调地址 http://e56b12d2.ngrok.io
+#本地测试回调地址  http://17604kc447.imwork.net
 callback:
-  ip: http://17604kc447.imwork.net
+  ip: http://e56b12d2.ngrok.io
 
 lefu:
   callback-url: http://shop:16020/payment/mobile/notifyCallback
