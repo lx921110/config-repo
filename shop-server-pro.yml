@@ -126,5 +126,10 @@ lefu:
   query-url: http://61.50.130.246:18081/gateway/query.htm
   refund-url: http://61.50.130.246:18081/gateway/api/refund.htm
 
+#本地测试回调地址
+callback:
+  ip: http://17604kc447.imwork.net
+
+#微信支付密钥文件  
 wechat:
   p12-url: /apiclient_cert.p12
