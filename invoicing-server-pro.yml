@@ -96,14 +96,15 @@ spring:
 # REDIS (RedisProperties)
   redis:
     database: 0 # database name
-    host: redis # server host
-    password:   # server password
-    port: 6379    # connection port
+    password: 123456aa  # server password
     pool: # pool settings ...
       max-idle: 150
       min-idle: 0
       max-active: 1000
       max-wait: -1
+    sentinel:
+      master: mymaster  #哨兵监听redis server名称
+      nodes: 192.168.13.66:26379,192.168.13.64:26379,192.168.13.57:26379  #哨兵的配置列表
 
 #出入库类型列表构造
 type: 
