@@ -109,17 +109,20 @@ spring:
     username: '{cipher}AICQEwvGdlPz7VcEUnocOK6Hd2egLedLJ0cMExMDjYKtetc6JHwkOHkHN/rM/JQL/NE3MITLOX+c+2Gh/yrOopTDtS1a9KAMlhllmo7+cGxqH1HNMTBzW0BdvwZzKywjnipc0TB3kCO2pEYe87RR+BjqSk1is6xnSUBaQfDzYfWekBbZ17hnk1BTJH/HeZWd8oFADNNnP4ykMmfOWod8sZNv'
     password: '{chiper}AIAZ/tNzbIp0s1n5tO/OnM+RoPtqxu+rCY64r9dr8Pq+2WdM/uVuCN1DCvfSLxEcz2cTvao9tjwl7Y4mTBvqmzC4y9VESuRtgdBvFsjGemnG2xMgrDgkJHBkRVvUS/rZXjV28S8uTwW8WH5wPWOzXlynM5i3IVt6+KZoGckhAJuC/sOxy2VGBDRWMvaLmSsRifRhPouv8lDaZM5tim5z0AxC'
     virtual-host: /
+    
 # REDIS (RedisProperties)
   redis:
     database: 0 # database name
-    host: redis # server host
-    password:   # server password
-    port: 6379    # connection port
+    password: 123456aa  # server password
     pool: # pool settings ...
       max-idle: 150
       min-idle: 0
       max-active: 1000
       max-wait: -1
+    sentinel:
+      master: mymaster  #哨兵监听redis server名称
+      nodes: 192.168.13.66:26379,192.168.13.64:26379,192.168.13.57:26379  #哨兵的配置列表
+      
   http:
     multipart:
       max-file-size: 15MB
