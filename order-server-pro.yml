@@ -55,7 +55,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: rabbitmq
+                host: 192.168.13.67
                 port: 5672
                 username: '{cipher}AIAHK6LYUIvmmfpxA6dLfTwh7NHIGorkoIs/AkyKEfxRdTOWPKjHvHatYA2VrSPm7o9oNnWBbZVVN7cgCFcmqOVM7LL1+fSGAJvBQXNCFNJwU7fLS10nFgiY5giJXA8DoSRLoiLBNCyhx0+ZkQTP9hW+I8bbg+idd/CM5yMgxguVyxOQ1s7vv8EA5c968vBFwFu4ssffPx0lsHeKnzKI8xOO'
                 password: '{cipher}AIBhj/2EtT8GiRuVWPQl+W0ddn++w5mu/Sbi/3osOHKdiriikclrzG9b8rM4dza7prXRSpEoV+HnXWWrRFHVpQYl6HATWIA+3GVGX/+i969+6BYf9QiIYksJRVr3d75KGLKl6yg47VyrQj8NWztauPdMxQar27LozY7lBeRprPg7fwNeFSvqjY92GBG1Zu727bojfwemN7RjZ1/POHSasxya'
