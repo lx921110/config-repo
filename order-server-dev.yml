@@ -151,3 +151,9 @@ order:
 graylog: 
   mq: 
     host: 127.0.0.1
+
+meituan:
+  api-url: http://waimaiopen.meituan.com
+  secret: fb5aee0539c01139932b52e66d513437
+  app-id: 549
+
