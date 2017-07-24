@@ -116,8 +116,8 @@ url:
   
 settings: #网店开关
   status: #开关状态初始值
-    meituan: 0 #关闭
-    wetool: 0 #开启
+    meituan: 0 #美团开关0 关闭 1 开启
+    wetool: 0 #微兔开关0 关闭 1 开启
 
 #本地测试回调地址  http://17604kc447.imwork.net
 callback:

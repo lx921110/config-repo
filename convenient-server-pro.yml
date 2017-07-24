@@ -46,17 +46,11 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: rabbitmq
+                host: 192.168.13.67
                 port: 5672
                 username: '{cipher}AIB+olWDkiIOyAhUSK8AXOLsMfboD5pyyyPfFb8lH4SlMVsmEWgkh6pWcupxJQnpaDgM+/WXVcx6Fzmi3aUDYi4T2XPPWXtjxgMNFav3Mnd5rA6+0P8CjdsKMf20XZv72ItrL2dMvTAnxz9zXPfJPpqrhLzEXbp1qiv6hkwBreGUOGYNGScoSyactwuYQK0qpoQ4VxqX/Gaz1Fh+JS6ac4+P'
                 password: '{cipher}AICJ7sRfm7rIfavEG1iQB05mv3VI+y8tnyqM7vWj3ira2/m2DCMa52IpiRgZHh16KjWUYJA+vtmkadEFIs8TIWHQMWJ1rgcPLdOoTpU3Bn7sJOkpAU/57t6avf1i40lALGYuvzuj6tMjt/HxHJq8H5mjG37J1s9xPNekqTcswZg+L6OhPuZKnbtPe5faHajR7a6Xby1xS/PukHdbx6AVuFwT'
                 virtual-host: /
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: '{cipher}AICJ7sRfm7rIfavEG1iQB05mv3VI+y8tnyqM7vWj3ira2/m2DCMa52IpiRgZHh16KjWUYJA+vtmkadEFIs8TIWHQMWJ1rgcPLdOoTpU3Bn7sJOkpAU/57t6avf1i40lALGYuvzuj6tMjt/HxHJq8H5mjG37J1s9xPNekqTcswZg+L6OhPuZKnbtPe5faHajR7a6Xby1xS/PukHdbx6AVuFwT'
-    password: '{cipher}AIABO4RgPDPQclUQvg+1YhXYVzwVhDwnY1EvdvTczueYMJ3C4G1c+1UWHbl9J//COIziRkkGHFF6pZ5mHF6M52yivERO1Tqb/wu4IWQCuk7meO7IENGGn30QgWznlNwMT+YUQLSKuBye3lZMNc0Q6zVh0sey4ycShuqW4vVCV8XClZjHzJS1VqMKvnxD2RwtlSGELaIg/yciuoMC1sTyk12K'
-    virtual-host: /
   jpa:
     show-sql: true
     hibernate:
@@ -100,15 +94,23 @@ spring:
     
 # REDIS (RedisProperties)
   redis:
-    database: 0 # database name  
-    host: redis # server host  
-    password:   # server password  
-    port: 6379    # connection port  
+    database: 0 # database name
+    password: 123456aa  # server password
     pool: # pool settings ...
       max-idle: 150
       min-idle: 0
       max-active: 1000
-      max-wait: -1   
+      max-wait: -1
+    sentinel:
+      master: mymaster  #哨兵监听redis server名称
+      nodes: 192.168.13.66:26379,192.168.13.64:26379,192.168.13.57:26379  #哨兵的配置列表
+      
+  http:
+    multipart:
+      max-file-size: 15MB
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs  
     
     
 security:
