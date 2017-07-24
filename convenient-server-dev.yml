@@ -151,7 +151,7 @@ qm:
     token: cea39a8555194442bf0a7461cf3afa02 
 #回调函数设置
 convenient: 
-  ip: ${callbackAddr:http://3f54f473.ngrok.io} #${zuul.api-url}  #服务IP 
+  ip: ${callbackAddr:http://68ea89e8.ngrok.io} #${zuul.api-url}  #服务IP 
 #51配置
 wy: 
   phone: 
