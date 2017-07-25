@@ -151,19 +151,24 @@ qm:
     token: cea39a8555194442bf0a7461cf3afa02 
 #回调函数设置
 convenient: 
-  ip: ${callbackAddr:http://3f54f473.ngrok.io} #${zuul.api-url}  #服务IP 
+  ip: ${callbackAddr:http://96d1ee5a.ngrok.io} #${zuul.api-url}  #服务IP 
 #51配置
 wy: 
-  phone: 
+  phone:  #手机充值
     merid: 2037
     key: f640aacf79e9ab93efe2e90ad3bf99f5
-    url: http://weitu.51kapay.com/phone/charge.aspx
-    search_url: http://weitu.51kapay.com/phone/account_money.aspx
-  flow: 
-    url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount
-    key: 42f1043712c192bfe2294c4e5d806423
+    balance_url: http://weitu.51kapay.com/phone/account_money.aspx  #账户余额查询
+    order_url: http://weitu.51kapay.com/phone/charge.aspx  #提交订单
+  flow:   #流量充值
     merid: 2439
-    order_url: http://flowapi.shenzhouka.com/api/FlowCharge.aspx
+    key: 42f1043712c192bfe2294c4e5d806423
+    balance_url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount  #查询
+    order_url: http://flowapi.shenzhouka.com/api/FlowCharge.aspx  #提交订单
+  ghkd:   #固话宽带
+    merid: 2037
+    key: f640aacf79e9ab93efe2e90ad3bf99f5
+    balance_url: http://weitu.51kapay.com/phone/account_money.aspx #账户余额查询
+    order_url: http://360.51kapay.com/api/Charge.aspx #提交订单 
 balance:
   sms: 
     phone: 13510491208 #余额预警电话号码
