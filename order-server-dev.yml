@@ -121,7 +121,11 @@ security:
     resource:
       token-info-uri: http://auth:14000/oauth/check_token
 
-
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false
 
 # 自定义业务属性
 #订单号规则
