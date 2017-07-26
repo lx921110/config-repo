@@ -58,3 +58,17 @@ spring:
     username: admin
     password: admin
     virtual-host: /
+
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+feign:
+  oauth2:
+    enabled: true
+  hystrix:
+    enabled: false

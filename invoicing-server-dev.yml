@@ -110,6 +110,11 @@ spring:
       max-active: 1000
       max-wait: -1
 
+#设置为ture时，feign可能调用失败
+feign:
+  hystrix:
+    enabled: false
+
 #出入库类型列表构造
 type: 
   listProp:   #父类对应的多个子类节点
