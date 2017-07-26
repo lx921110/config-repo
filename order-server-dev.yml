@@ -21,23 +21,11 @@ spring:
     stream:
       instanceIndex: 0
       instanceCount: 1
-      bindings:
-        order_offline_input_channel: #线下订单消费通道
-          destination: order-offline 
-          group: orderOffline
-          binder: order_binder
+      bindings: 
         payment_offline_input_channel: #线下支付消费通道
           destination: payment-offline
           group: payment
           binder: order_binder
-        refund_offline_input_channel: #线下退货退款消费通道
-          destination: refund-offline
-          group: refund
-          binder: order_binder
-        payment_online_input_channel: #网络支付消费通道
-          destination: payment-online
-          group: payment
-          binder: order_binder 
         invoicing_output_channel: #库存生产通道
           destination: topic-invoicing
           group: invoicing
