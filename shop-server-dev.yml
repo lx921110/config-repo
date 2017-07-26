@@ -135,4 +135,4 @@ xunlian:
 
 #微信支付密钥文件  
 wechat:
-  p12-url: /apiclient_cert.p12  
+  p12-url: /certificate/apiclient_cert.p12
