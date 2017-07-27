@@ -127,29 +127,29 @@ spring:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
 
-
-alidayu: #阿里大于
-  url: http://gw.api.taobao.com/router/rest #
-  appKey: 23888280
-  appSecret: c14ff71982aac7191e9605b83982db01
-  signName: 微兔科技 #阿里大于短信签名
-  template-id: #短信模板ID
-    default: SMS_69780153 #默认
-    captcha-register: SMS_69870254 #获取验证码（注册）
-    captcha-pwd: SMS_69830246 #获取验证码（修改密码）
-    ok-register:   SMS_79125039 #注册成功通知
     
 #
 #Upload-Server Configuration
 #
 #业务属性↴
 aliyun: #aliyun OSS info
+  access_id: LTAIrEv8URC1EymP
+  access_key: OZ8seK2tYRSo3AsvDGak30xgIsZQrq
   oss:
-    access_id: LTAIrEv8URC1EymP
-    access_key: OZ8seK2tYRSo3AsvDGak30xgIsZQrq
     endpoint: http://oss-cn-beijing.aliyuncs.com/
     bucket_name: wetool
     file_path: http://wetool.oss-cn-beijing.aliyuncs.com/
+  sms:
+    url: dysmsapi.aliyuncs.com #阿里短信url
+    product: Dysmsapi #阿里产品名称,短信业务
+    sign-name: 微兔科技 #阿里大于短信签名
+    template-id: #短信模板ID
+      default: SMS_79005066 #默认
+      captcha-register: SMS_78975068 #获取验证码（注册）
+      captcha-pwd: SMS_79130071 #获取验证码（修改密码）
+      ok-register-merchant: SMS_78975069 #注册成功通知(商家)
+      ok-register-shop: SMS_79140075 #注册成功通知(店铺)
+    
 module: # 模块类型
     types:
       test: ms.test.dev/  #OSS路径
