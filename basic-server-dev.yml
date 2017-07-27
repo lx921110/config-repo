@@ -142,7 +142,7 @@ aliyun: #aliyun OSS info
   sms:
     url: dysmsapi.aliyuncs.com #阿里短信url
     product: Dysmsapi #阿里产品名称,短信业务
-    sign-name: 微兔科技 #阿里大于短信签名
+    sign-name: 微兔科技 #阿里短信签名
     template-id: #短信模板ID
       default: SMS_79005066 #默认
       captcha-register: SMS_78975068 #获取验证码（注册）
