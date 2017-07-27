@@ -59,7 +59,10 @@ zuul:
       serviceId: member-server  
     order-server: 
       path: /** 
-      serviceId: order-server  
+      serviceId: order-server
+    push-server:
+      path: /**
+      serviceId: push-server
 auth-server: # 认证鉴权服务
   ribbon:
     listOfServers: auth:14000 # 可指定一组服务地址，用于负载均衡
@@ -96,6 +99,9 @@ member-server: # 会员管理
 order-server: # 订单管理
   ribbon:
     listOfServers: order:16040
+order-server: # 订单管理
+  ribbon:
+    listOfServers: push:7000
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000
