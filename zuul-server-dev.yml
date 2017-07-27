@@ -99,7 +99,7 @@ member-server: # 会员管理
 order-server: # 订单管理
   ribbon:
     listOfServers: order:16040
-order-server: # 订单管理
+push-server: # 订单管理
   ribbon:
     listOfServers: push:7000
 ribbon:
