@@ -8,7 +8,7 @@ eureka:
       
 logging:
   level:
-    root: DEBUG
+    root: INFO
 
 netty:  #Netty服务配置
   port: 3333
