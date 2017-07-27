@@ -121,7 +121,7 @@ settings: #网店开关
 
 #本地测试回调地址  http://17604kc447.imwork.net
 callback:
-  ip:  http://c73dd13c.ngrok.io    
+  ip: http://42394d1a.ngrok.io
 
 lefu:
   callback-url: http://shop:16020/payment/mobile/notifyCallback
@@ -135,4 +135,4 @@ xunlian:
 
 #微信支付密钥文件  
 wechat:
-  p12-url: /apiclient_cert.p12  
+  p12-url: /certificate/apiclient_cert.p12
