@@ -151,7 +151,7 @@ qm:
     token: cea39a8555194442bf0a7461cf3afa02 
 #回调函数设置
 convenient: 
-  ip: ${callbackAddr:http://aba5b206.ngrok.io} #回调ip
+  ip: ${callbackAddr:http://ce4a37f7.ngrok.io} #回调ip
 #51配置
 wy: 
   phone:  #手机充值
