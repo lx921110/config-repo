@@ -18,7 +18,7 @@ logging:
     com.wetool.push.server: DEBUG
 
 netty:  #Netty服务配置
-  port: 13333
+  port: 3333
   read.idel.timeout: 20
   write.idel.timeout: 10
   all.idel.timeout: 0
