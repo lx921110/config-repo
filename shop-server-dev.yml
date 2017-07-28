@@ -14,6 +14,7 @@ zuul:
 
 logging:
   level:
+    feign: DEBUG
     root: INFO
     
 spring:
