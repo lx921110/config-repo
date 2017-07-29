@@ -70,7 +70,7 @@ spring:
   jpa:
     show-sql: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
