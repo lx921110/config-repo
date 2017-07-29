@@ -27,7 +27,7 @@ security:
 #
 spring:
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
    # 配置数据源

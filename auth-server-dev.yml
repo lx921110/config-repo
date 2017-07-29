@@ -20,7 +20,7 @@ spring:
   hateoas:
     use-hal-as-default-json-media-type: false
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: none 
   
