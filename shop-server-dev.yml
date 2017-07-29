@@ -132,6 +132,7 @@ xunlian:
   trade-url: https://showmoney.cn/scanpay/unified
   query-url: https://showmoney.cn/scanpay/unified
   refund-url: https://showmoney.cn/scanpay/unified
+  inscd: 96931888 #机构号
 
 #微信支付密钥文件  
 wechat:
