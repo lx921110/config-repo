@@ -15,7 +15,7 @@ zuul:
 logging:
   level:
     root: INFO
-    
+
 spring:
   cloud:
     stream:
@@ -106,6 +106,8 @@ spring:
     #  useGlobalDataSourceStat=true
 
 feign:
+#  oauth2:
+#    enabled: true
   hystrix:
     enabled: false
 captcha: # 验证码

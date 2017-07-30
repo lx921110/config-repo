@@ -100,10 +100,10 @@ spring:
 
 # REDIS (RedisProperties)
   redis:
-    database: 0 # database name  
-    host: redis # server host  
-    password:   # server password  
-    port: 6379    # connection port  
+    database: 0 # database name
+    host: redis # server host
+    password:   # server password
+    port: 6379    # connection port
     pool: # pool settings ...
       max-idle: 150
       min-idle: 0
@@ -138,5 +138,3 @@ type:
     11: 退货出库
     12: 其他出库
     13: 拆分出库
-    
-  

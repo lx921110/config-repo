@@ -1,16 +1,16 @@
 server:
   host-name: zuul
   port: 18765
-  
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:18761/eureka/
-      
+
 logging:
   level:
     root: INFO
-    
+
 info:
   component: Zuul Server
 endpoints:
@@ -31,34 +31,34 @@ zuul:
       path: /**
       serviceId: login-server
     advert-server:
-      path: /** 
+      path: /**
       serviceId: advert-server
     shop-server:
-      path: /** 
+      path: /**
       serviceId: shop-server
     mac-server:
-      path: /** 
+      path: /**
       serviceId: mac-server
     commodity-server:
-      path: /** 
+      path: /**
       serviceId: commodity-server
     invoicing-server:
       path: /**
       serviceId: invoicing-server
     task-server:
-      path: /** 
+      path: /**
       serviceId: task-server
     basic-server:
       path: /**
       serviceId: basic-server
-    convenient-server: 
-      path: /** 
+    convenient-server:
+      path: /**
       serviceId: convenient-server
-    member-server: 
-      path: /** 
-      serviceId: member-server  
-    order-server: 
-      path: /** 
+    member-server:
+      path: /**
+      serviceId: member-server
+    order-server:
+      path: /**
       serviceId: order-server
     push-server:
       path: /**

@@ -62,11 +62,6 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # For Mysql
-    #jdbc:mysql://101.201.56.163:3838/test_db
-   # url: jdbc:mysql://101.201.56.163:3838/test_db
-   # username: wetool_test
-   # password: Weitoo502
-    
     url: jdbc:mysql://mysql:3306/orders?characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
