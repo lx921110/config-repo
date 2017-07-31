@@ -123,7 +123,7 @@ settings: #网店开关
 
 #本地测试回调地址  http://17604kc447.imwork.net
 callback:
-  ip: http://9a390d84.ngrok.io
+  ip: http://5b101060.ngrok.io 
 
 lefu:
   callback-url: http://shop:16020/payment/mobile/notifyCallback
