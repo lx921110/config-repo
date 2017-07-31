@@ -162,7 +162,7 @@ wy:
   flow:   #流量充值
     merid: 2439
     key: 42f1043712c192bfe2294c4e5d806423
-    balance_url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount  #查询
+    query_url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount  #查询
     order_url: http://flowapi.shenzhouka.com/api/FlowCharge.aspx  #提交订单
   ghkd:   #固话宽带
     merid: 2037
