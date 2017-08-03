@@ -149,7 +149,8 @@ qm:
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
 #    token: cea39a8555194442bf0a7461cf3afa02 
-    token: 3694554973354a40bc94af094b4d17e5
+    token: ae895bdd5fa14305900b603dfef3dcff
+
 
 #回调函数设置
 convenient: 
