@@ -144,7 +144,7 @@ order:
     
     
 #千米网配置
-#qm:   #旧
+#qm:   #旧 access_token 过期
 #  app:
 #    key: 10001337
 #    url: http://gw.api.qianmi.com/api
