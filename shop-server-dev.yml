@@ -38,6 +38,10 @@ spring:
           destination: topic-push
           group: push
           binder: order_binder
+        order_handover_input: #接收订单消息通道
+          destination: topic-handover
+          group: handover
+          binder: order_handover  
       binders:
         order_binder:
           type: rabbit
