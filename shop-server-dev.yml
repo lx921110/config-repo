@@ -41,7 +41,7 @@ spring:
         order_handover_input: #接收订单消息通道
           destination: topic-handover
           group: handover
-          binder: order_handover  
+          binder: order_binder  
       binders:
         order_binder:
           type: rabbit
