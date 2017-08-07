@@ -101,4 +101,4 @@ url:
   auth-server: http://auth:14000   #认证服务
 
 upload:
-  address: http://101.201.56.48:5001
+  address: http://192.168.1.10:5551
