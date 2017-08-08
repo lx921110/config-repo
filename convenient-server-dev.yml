@@ -128,37 +128,35 @@ order:
     
     
 #千米网配置
-qm:   # 测试帐号(开发使用)
-  app: 
-    key: 10001337
-    url: http://gw.api.qianmi.com/api
-    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
-    group: lesion 
-    token: e400d76ff5f6456eaa3473118d2852f3 
-
-#qm:   #正式帐号(生产环境)
-#  app:
-#    key: 10001092
+#qm:   # 测试帐号(开发使用)
+#  app: 
+#    key: 10001337
 #    url: http://gw.api.qianmi.com/api
-#    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+#    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
 #    group: lesion 
-#    token: e400d76ff5f6456eaa3473118d2852f3
+#    token: e400d76ff5f6456eaa3473118d2852f3 
+
+qm:   #正式帐号(生产环境)
+  app:
+    key: 10001092
+    url: http://gw.api.qianmi.com/api
+    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+    group: lesion 
+    token: e400d76ff5f6456eaa3473118d2852f3
 
 
-#回调函数设置
-convenient: 
-  ip: ${callbackAddr:http://9674d017.ngrok.io} #回调ip
 #51配置
 wy: 
+  callback-ip: ${callbackAddr:http://9674d017.ngrok.io} #回调ip
   phone:  #手机充值
     merid: 2037
     key: f640aacf79e9ab93efe2e90ad3bf99f5
-    balance_url: http://weitu.51kapay.com/phone/account_money.aspx  #账户余额查询
-    order_url: http://weitu.51kapay.com/phone/charge.aspx  #提交订单
+    balance_url: http://weitu.51kapay.com  #账户余额查询
+    pay_url: http://weitu.51kapay.com  #提交订单
   flow:   #流量充值
     merid: 2439
     key: 42f1043712c192bfe2294c4e5d806423
-    query_url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount  #查询
+    query_url: http://www.juzhishang.com  #查询
     order_url: http://flowapi.shenzhouka.com/api/FlowCharge.aspx  #提交订单
   ghkd:   #固话宽带
     merid: 2037
