@@ -12,6 +12,7 @@ zuul:
   api-url: ${api-url:/api/convenient-server/}
 logging:
   level:
+    root: debug
     com.wetool: debug
     
 #RabbitMQ配置   生产者output
