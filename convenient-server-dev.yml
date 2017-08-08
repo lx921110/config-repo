@@ -11,8 +11,10 @@ zuul:
   address: ${address:192.168.1.10:18765}
   api-url: ${api-url:/api/convenient-server/}
 logging:
+  feign: debug
   level:
     root: INFO
+    
 #RabbitMQ配置   生产者output
 spring:
   cloud:
