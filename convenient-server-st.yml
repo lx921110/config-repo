@@ -128,21 +128,21 @@ order:
     
     
 #千米网配置
-#qm:   # 测试帐号(开发使用)
-#  app: 
-#    key: 10001337
-#    url: http://gw.api.qianmi.com/api
-#    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
-#    group: lesion 
-#    token: e400d76ff5f6456eaa3473118d2852f3 
-
-qm:   #正式帐号(生产环境)
-  app:
-    key: 10001092
+qm:   # 测试帐号(开发使用)
+  app: 
+    key: 10001337
     url: http://gw.api.qianmi.com/api
-    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
-    token: e400d76ff5f6456eaa3473118d2852f3
+    token: e400d76ff5f6456eaa3473118d2852f3 
+
+#qm:   #正式帐号(生产环境)
+#  app:
+#    key: 10001092
+#    url: http://gw.api.qianmi.com/api
+#    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+#    group: lesion 
+#    token: e400d76ff5f6456eaa3473118d2852f3
 
 
 
