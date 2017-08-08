@@ -134,7 +134,7 @@ qm:   # 测试帐号(开发使用)
     url: http://gw.api.qianmi.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
-    token: e400d76ff5f6456eaa3473118d2852f3 
+    token: cea39a8555194442bf0a7461cf3afa02 
 
 #qm:   #正式帐号(生产环境)
 #  app:
