@@ -144,32 +144,6 @@ qm:   #正式帐号(生产环境)
     group: lesion 
     token: e400d76ff5f6456eaa3473118d2852f3
 
-
-
-##回调函数设置
-#convenient: 
-#  ip: ${callbackAddr:http://7539749d.ngrok.io} #回调ip
-##51配置
-#wy: 
-#  phone:  #手机充值
-#    merid: 2037
-#    key: f640aacf79e9ab93efe2e90ad3bf99f5
-#    balance_url: http://weitu.51kapay.com/phone/account_money.aspx  #账户余额查询
-#    order_url: http://weitu.51kapay.com/phone/charge.aspx  #提交订单
-#  flow:   #流量充值
-#    merid: 2439
-#    key: 42f1043712c192bfe2294c4e5d806423
-#    query_url: http://www.juzhishang.com/Api/A2/queryPhoneWithDiscount  #查询
-#    order_url: http://flowapi.shenzhouka.com/api/FlowCharge.aspx  #提交订单
-#  ghkd:   #固话宽带
-#    merid: 2037
-#    key: f640aacf79e9ab93efe2e90ad3bf99f5
-#    balance_url: http://weitu.51kapay.com/phone/account_money.aspx #账户余额查询
-#    order_url: http://360.51kapay.com/api/Charge.aspx #提交订单 
-#balance:
-#  sms: 
-#    phone: 13510491208 #余额预警电话号码
-#    money: 10 #余额预警金额
     
 
 #51配置
