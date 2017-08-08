@@ -12,8 +12,8 @@ zuul:
   api-url: ${api-url:/api/convenient-server/}
 logging:
   level:
-    com.wetool.feign: debug
     root: INFO
+    com.wetool.feign: debug
     
 #RabbitMQ配置   生产者output
 spring:
