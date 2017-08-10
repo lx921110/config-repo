@@ -12,7 +12,8 @@ zuul:
   api-url: ${api-url:/api/convenient-server/}
 logging:
   level:
-    root: info
+    com.wetool.feign.WyFlowClient: debug
+#    root: info
     
 #RabbitMQ配置   生产者output
 spring:
