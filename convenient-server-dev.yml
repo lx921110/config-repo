@@ -13,6 +13,7 @@ zuul:
 logging:
   level:
     root: info
+    com.wetool.feign: debug
     
 #RabbitMQ配置   生产者output
 spring:
