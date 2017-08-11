@@ -135,6 +135,7 @@ qm:   # 测试帐号(开发使用)
   secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
   group: lesion 
   token: 3409cd1238104b6e9bb0c9b7d782944f 
+  game-img-url: http://wetool.oss-cn-beijing.aliyuncs.com/img/game/ #游戏商品图片路径
 
 #qm:   #正式帐号(生产环境)
 #  app:
