@@ -124,13 +124,13 @@ order:
 
     
 platform: #第三方充值平台
-  warning-phone: 15724109149 #余额预警电话号码
-  warning-balance: 1000 #余额预警金额
-  channel: #通道类型   0适配 1伍壹平台 2千米平台
-    phone: 1 #话费
-    flow: 1 #流量
-    ghkd: 1 #固话宽带
-    game: 2 #腾讯充值
+  warning-phone: 15724109149  #余额预警电话号码
+  warning-balance: 1000       #余额预警金额
+  channel:      #通道类型   0适配 1伍壹平台 2千米平台
+    phone: 1    #话费      可以切换
+    flow: 1     #流量      除了查询流量列表不兼容,其余可以切换
+    ghkd: 1     #固话宽带   千米需要按省,市先查询固话宽带商品,才能下单;51不用查询,直接下单
+    game: 2     #腾讯充值   游戏充值只用千米
     
   wy:  #51配置
     callback-ip: ${callbackAddr:http://9674d017.ngrok.io} #回调ip
