@@ -133,7 +133,7 @@ platform: #第三方充值平台
     game: 2     #腾讯充值   游戏充值只用千米
     
   wy:  #51配置
-    callback-ip: ${callbackAddr:http://9674d017.ngrok.io} #回调ip
+    callback-ip: ${callbackAddr:http://2310af14.ngrok.io} #回调ip
     phone:  #手机充值
       merid: 2037
       key: f640aacf79e9ab93efe2e90ad3bf99f5
