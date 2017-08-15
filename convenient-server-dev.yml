@@ -151,17 +151,17 @@ platform: #第三方充值平台
       pay_url: http://360.51kapay.com #提交订单 
       
   qm:  #千米网配置 
-#    key: 10001337  # 测试帐号(开发使用)
-#    url: http://gw.api.qianmi.com/api
-#    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
-#    group: lesion 
-#    token: 3409cd1238104b6e9bb0c9b7d782944f 
-#    game-img-url: http://wetool.oss-cn-beijing.aliyuncs.com/img/game/ #游戏商品图片路径
-  
-    key: 10001092   # 正式帐号(生产环境)
+    key: 10001337  # 测试帐号(开发使用)
     url: http://gw.api.qianmi.com/api
-    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+    secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
-    token: e400d76ff5f6456eaa3473118d2852f3
+    token: 3409cd1238104b6e9bb0c9b7d782944f 
     game-img-url: http://wetool.oss-cn-beijing.aliyuncs.com/img/game/ #游戏商品图片路径
+  
+#    key: 10001092   # 正式帐号(生产环境)
+#    url: http://gw.api.qianmi.com/api
+#    secret: FHhzw6vArDxm3ttA6Abd5IEIwzBjeIJs
+#    group: lesion 
+#    token: e400d76ff5f6456eaa3473118d2852f3
+#    game-img-url: http://wetool.oss-cn-beijing.aliyuncs.com/img/game/ #游戏商品图片路径
    
