@@ -19,7 +19,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
    # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -68,6 +68,14 @@ spring:
           destination: topic-push #话题-推送
           group: push
           binder: push_binder
+        invoicing_output_channel:
+          destination: topic-invoicing
+          group: invoicing
+          binder: push_binder
+        invoicing_input_channel:
+          destination: topic-invoicing
+          group: invoicing
+          binder: push_binder  
       binders:
         push_binder:
           type: rabbit
@@ -85,6 +93,17 @@ spring:
     username: admin
     password: admin
     virtual-host: /
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name
+    host: redis # server host
+    password:   # server password
+    port: 6379    # connection port
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1  
 security:
   oauth2:
     client:
@@ -102,3 +121,34 @@ url:
 
 upload:
   address: http://192.168.1.10:5551
+
+transformation: #ETL聚合配置
+  etl-url: ${kjb_local_path:/data/transformation/etl.kjb}  #ETL文件地址
+  db-host: 192.168.1.10                #数据库host(非正式环境) 
+  report: report                            #数据库用户名
+  password: '{cipher}AIBvjVaFtVRnwuGYj2Gz96BAFo1bvdfc85adDKjuWhNVbVwVx0ZG7meRdTESUQs+cuKHOwxRAMJ8fRkFb3fP62ebn1BSCOeMJ0ZtR92R7HJjC3KkU/Awwe2JOnZjKFNuvsOtvcc1bsYn5kliYSzSXuLw/fS3OIubuyhRha95z85KLnT8Mm6eWheeWD/9cDGH37+OxArxJDmPdiSq1Xe+msiO'                    #数据库密码
+
+  
+#出入库类型列表构造
+type: 
+  listProp:   #父类对应的多个子类节点
+    - name: 1 #填写入库单类型列表
+      value: array1 #展示入库类型列表数组(数组中存入mapNams对应出库类型编号)
+    - name: 2 #填写出库单类型列表
+      value: array2 #展示出库类型列表数组(数组中存入mapNams对应出库类型编号)  
+  array1: 1,4 
+  array2: 6,10,12
+  mapNames:    #入库类型编号映射入库类型名称
+    1:  采购入库
+    2:  拆分入库
+    3:  盘点调整入库
+    4:  其他入库
+    5:  商品退换货入库
+    6:  破损出库
+    7:  线上销售出库
+    8:  店铺销售出库
+    9:  调拨出库
+    10: 换货出库
+    11: 退货出库
+    12: 其他出库
+    13: 拆分出库  

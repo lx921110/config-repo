@@ -1,0 +1,121 @@
+server:
+  port: 16110
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/wechat-server/}
+
+logging:
+  level:
+    root: INFO
+
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+spring:
+  thymeleaf:
+    cache: false  # 是否开启thymeleaf缓存
+    suffix: .html # 后缀
+    model: HTML5  #模式
+    encoding: UTF8  #编码
+    content-type: text/html #内容类型
+  data:
+    rest:
+      defaultMediaType: application/json
+  hateoas:
+    use-hal-as-default-json-media-type: false
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+  redis:
+    database: 0 # database name
+    host: redis # server host
+    password:   # server password
+    port: 6379    # connection port
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://mysql:3306/wechat?characterEncoding=utf8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    initialize: false
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+
+wechat:
+  web-application:
+      appId: wx2b525965ad6cdcfb
+      appSecret: a96c6d8ce97918f7b1cb330c562f331c
+
+#  official-account:
+#      appId: wx5c41018e43388fe3
+#      appSecret: 7ef1f8a981276fea4394eb313f5968e8
+  official-account:
+      appId: wx944d26d68c5d7095
+      appSecret: 1ced9d6532f122c53fdd2d8b4824bfdb
+      
+  official-server:
+    url: https://api.weixin.qq.com
+    token: testToken
+
+  message:
+    review-template: #审批模板
+      id: NpIKsk7hyN4mEx9Rv0NbxgwwoQTlr2RYQWRXAhPbZC8
+    payment-template: #支付模板
+      id: YN-39GlOiURuG2g706gyAora9LF4bwbFQLm39UVnWfw
+
+wetool:
+  js-pay-url:
+    dev: http://pay.dev.wetool.com/unify/jsPay
+    st: http://pay.st.wetool.com/unify/jsPay
+    pro: http://pay.wetool.com/unify/jsPay
+  js-pay-ok-url:
+    dev: http://pay.dev.wetool.com/unify/jsPayOk
+    st: http://pay.st.wetool.com/unify/jsPayOk
+    pro: http://pay.wetool.com/unify/jsPayOk

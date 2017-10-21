@@ -68,6 +68,32 @@ spring:
       min-idle: 0
       max-active: 1000
       max-wait: -1
+  cloud:
+    stream:
+      instanceIndex: 0
+      instanceCount: 1
+      bindings:
+        push_output_channel: #消息接收的消费通道
+          destination: topic-push #话题-推送
+          group: push
+          binder: mac_binder     
+      binders:
+        mac_binder:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: rabbitmq
+                port: 5672
+                username: admin
+                password: admin
+                virtual-host: /
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /      
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs

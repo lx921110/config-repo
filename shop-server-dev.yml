@@ -41,7 +41,15 @@ spring:
         order_handover_input: #接收订单消息通道
           destination: topic-handover
           group: handover
-          binder: order_binder  
+          binder: order_binder
+        mac_sync_output: #消息推送的生产通道
+          destination: topic-advert #话题-推送
+          group: advert
+          binder: order_binder
+        balance_add_input:
+          destination: topic-balance
+          group: balance
+          binder: order_binder      
       binders:
         order_binder:
           type: rabbit
@@ -71,7 +79,7 @@ spring:
       max-wait: -1
       
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: none 
     
@@ -127,7 +135,7 @@ settings: #网店开关
 
 #本地测试回调地址  http://17604kc447.imwork.net
 callback:
-  ip: http://c9f9e578.ngrok.io
+  ip: http://wetool.viphk.ngrok.org/merchant/codepay
 
 lefu:
   callback-url: http://shop:16020/payment/mobile/notifyCallback
@@ -142,4 +150,20 @@ xunlian:
 
 #微信支付密钥文件  
 wechat:
-  p12-url: /certificate/apiclient_cert.p12
+  p12-url: /certificate/apiclient_cert.p12    
+  
+transformation: #ETL聚合配置
+  reportTurnover-url: ${kjb_local_path:/data/transformation/report_turnover.kjb}  #ETL文件地址
+  reportInterestRate-url:  ${kjb_local_path:/data/transformation/profit_statistics.kjb}  #ETL文件地址
+  db-host: 192.168.1.60                #数据库host(非正式环境) 
+  report: root                         #数据库用户名
+  password: 123456
+#  reportTurnover-url: ${kjb_local_path:/data/transformation/report_turnover.kjb}  #ETL文件地址
+#  reportInterestRate-url:  ${kjb_local_path:/data/transformation/profit_statistics.kjb}  #ETL文件地址
+#  db-host: 192.168.1.10                #数据库host(非正式环境) 
+#  report: report                            #数据库用户名
+#  password: '{cipher}AIBvjVaFtVRnwuGYj2Gz96BAFo1bvdfc85adDKjuWhNVbVwVx0ZG7meRdTESUQs+cuKHOwxRAMJ8fRkFb3fP62ebn1BSCOeMJ0ZtR92R7HJjC3KkU/Awwe2JOnZjKFNuvsOtvcc1bsYn5kliYSzSXuLw/fS3OIubuyhRha95z85KLnT8Mm6eWheeWD/9cDGH37+OxArxJDmPdiSq1Xe+msiO'
+
+#  db-host: 192.168.13.59             #数据库host(正式环境) 
+#  report: report                            #数据库用户名
+#  password: Wt1472583695                    #数据库密码

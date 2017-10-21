@@ -20,6 +20,10 @@ endpoints:
     enabled: true
   health:
     sensitive: false
+spring: 
+  http:
+    multipart.maxFileSize: 20Mb
+    multipart.maxRequestSize: 100Mb
 zuul:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
   prefix: /api #为zuul设置一个公共的前缀
@@ -64,45 +68,65 @@ zuul:
     push-server:
       path: /**
       serviceId: push-server
+    service-provider-server:
+      path: /**
+      serviceId: service-provider-server
+    wechat-server:
+      path: /**
+      serviceId: wechat-server
+    pay-server:
+      path: /**
+      serviceId: pay-server
+      
+task-server: # 商品数据同步任务服务
+  ribbon:
+    listOfServers: task:3000
+push-server: # 订单管理
+  ribbon:
+    listOfServers: push:7000
 auth-server: # 认证鉴权服务
   ribbon:
     listOfServers: auth:14000 # 可指定一组服务地址，用于负载均衡
 login-server: # 登录服务
   ribbon:
     listOfServers: login:14010
-advert-server: # 广告服务
+basic-server: # Basic服务(area+upload+sms)
   ribbon:
-    listOfServers: advert:16050
-shop-server: # 店铺服务
-  ribbon:
-    listOfServers: shop:16020
+    listOfServers: basic:15000
 mac-server: # 设备服务
   ribbon:
     listOfServers: mac:16000
 commodity-server: # 商品服务
   ribbon:
     listOfServers: commodity:16010
+shop-server: # 店铺服务
+  ribbon:
+    listOfServers: shop:16020
 invoicing-server: # 进销存服务
   ribbon:
     listOfServers: invoicing:16030
-task-server: # 商品数据同步任务服务
-  ribbon:
-    listOfServers: task:3000
-basic-server: # Basic服务(area+upload+sms)
-  ribbon:
-    listOfServers: basic:15000
-convenient-server: # 便利
-  ribbon:
-    listOfServers: convenient:16060
-member-server: # 会员管理
-  ribbon:
-    listOfServers: member:16070
 order-server: # 订单管理
   ribbon:
     listOfServers: order:16040
-push-server: # 订单管理
+advert-server: # 广告服务
   ribbon:
-    listOfServers: push:7000
+    listOfServers: advert:16050
+convenient-server: # 便利
+  ribbon:
+    listOfServers: convenient:16060
+member-server: # 会员
+  ribbon:
+    listOfServers: member:16070
+pay-server: # 会员
+  ribbon:
+    listOfServers: pay:16080
+service-provider-server: # 服务商管理服务
+  ribbon:
+    listOfServers: service-provider:16100
+wechat-server: # 微信
+  ribbon:
+    listOfServers: wechat:16110
+
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 6000

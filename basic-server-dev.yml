@@ -13,7 +13,7 @@ zuul:
 
 logging:
   level:
-    root: INFO
+    root: info
 
 security:
   oauth2:
@@ -27,7 +27,7 @@ security:
 #
 spring:
   jpa:
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: update
    # 配置数据源
@@ -122,7 +122,8 @@ spring:
       max-wait: -1
   http:
     multipart:
-      max-file-size: 15MB
+      max-file-size: 500MB
+      max-request-size: 300MB
 # sentinel:
 #   master:  # name of Redis server
 #   nodes:    # comma-separated list of host:port pairs
@@ -149,10 +150,14 @@ aliyun: #aliyun OSS info
       captcha-pwd: SMS_79130071 #获取验证码（修改密码）
       ok-register-merchant: SMS_79260018 #注册成功通知(商家)
       ok-register-shop: SMS_79255016 #注册成功通知(店铺)
+      withdraw-application: SMS_92600001 #提现申请验证码
+      withdraw-account-add: SMS_92500004 #申请添加提现账户
+      authorised-mobile-change: SMS_92565002 #提现授权手机号
     
 module: # 模块类型
     types:
       test: ms.test.dev/  #OSS路径
       advert: ms.advert.dev/
+      pay: ms.pay.dev/
       commodity: ms.commodity.dev/
       shop: ms.shop.dev/

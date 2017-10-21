@@ -133,7 +133,7 @@ platform: #第三方充值平台
     game: 2     #腾讯充值   游戏充值只用千米
     
   wy:  #51配置
-    callback-ip: ${callbackAddr:http://8a13a2ee.ngrok.io} #回调ip
+    callback-ip: ${callbackAddr:http://a65b82ad.ngrok.io} #回调ip
     phone:  #手机充值
       merid: 2037
       key: f640aacf79e9ab93efe2e90ad3bf99f5
@@ -152,7 +152,7 @@ platform: #第三方充值平台
       
   qm:  #千米网配置 
     key: 10001337  # 测试帐号(开发使用)
-    url: http://gw.api.qianmi.com/api
+    url: http://api.bm001.com/api
     secret: NlUmzf021qjTRUsaYI9hidVz7gacmmlF
     group: lesion 
     token: 3409cd1238104b6e9bb0c9b7d782944f 

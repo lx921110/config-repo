@@ -1,0 +1,102 @@
+server:
+  port: 16100
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:18761/eureka/
+  instance:
+    status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
+zuul:
+  address: ${address:192.168.1.10:18765}
+  api-url: ${api-url:/api/service-provider-server/}
+
+logging:
+  level:
+    root: INFO
+
+captcha: # 验证码
+  send-interval: 60      #下发间隔时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
+
+url:
+  auth-server: http://auth:14000   #认证服务
+
+
+security:
+  oauth2:
+    client:
+      client-id: admin
+      client-secret: admin
+    resource:
+      token-info-uri: http://auth:14000/oauth/check_token
+
+spring:
+  data:
+    rest:
+      defaultMediaType: application/json
+  hateoas:
+    use-hal-as-default-json-media-type: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://mysql:3306/service_provider?characterEncoding=utf8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    initialize: false
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #  useGlobalDataSourceStat=true
+    
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+# sentinel:
+#   master:  # name of Redis server
+#   nodes:    # comma-separated list of host:port pairs
+
+
+transformation: #ETL聚合配置
+  option-wetool: 0 #统计wetool收益
+  option-sp: 1 #统计服务商收益
+  wetool-sp-id: 1 #微兔收益spId
+  kjb-index-path: ${kjb_index_path:/data/transformation/index/etl.kjb}      #后台首页统计ETL文件地址
+  kjb-settle-path: ${kjb_converge_path:/data/transformation/converge/etl.kjb}   #后台结算中心ETL文件地址
+  db-host: 127.0.0.1                #数据库host(非正式环境) 
+  report-username: root         #数据库用户名
+  report-password: 123456

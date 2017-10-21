@@ -8,8 +8,8 @@ eureka:
   instance:
     status-page-url: http://${zuul.address}${zuul.api-url}swagger-ui.html
 zuul:
-  address: auth:18765
-  api-url: /api/auth-server/
+  address: ${auth:18765}
+  api-url: ${/api/auth-server/}
 logging:
   level:
     root: INFO
@@ -56,3 +56,19 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #  useGlobalDataSourceStat=true
+
+# REDIS (RedisProperties)
+  redis:
+    database: 0 # database name  
+    host: redis # server host  
+    password:   # server password  
+    port: 6379    # connection port  
+    pool: # pool settings ...
+      max-idle: 150
+      min-idle: 0
+      max-active: 1000
+      max-wait: -1
+      
+captcha: # 验证码
+  send-interval: 60      #下发间隔时间（单位：秒）
+  expire: 900                 # 过期时间（单位：秒）
